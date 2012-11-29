@@ -18,7 +18,48 @@ Or install it yourself as:
 
 == Usage
 
-TODO: Write usage instructions here
+=begin -- MY_ROOT_PATH/config/oai.yml
+
+dev:
+  url: ...
+  http_options: 
+  metadataPrefix: 'tei'
+  set: 'asd'
+  from: '..'
+  until: ''
+  wantum: records or ids
+=end
+client = Harvestdor.new(MY_ROOT_PATH, :options => {})
+
+client.metdataPrefix = 'mods'
+
+arr = client.harvest(:metadataPrefix => 'foo', :from => '(last_harvested_date)', :set => 'asdfasdf', :objects => 'ids')
+
+client.harvest(:metadataPrefix => 'foo', :from => 'date', :set => 'asdfasdf', :objects => 'ids') do | id |
+  
+  get stuff for id
+  work with stuff
+  make solr doc
+  write solr doc to my app's solr index
+  
+  ###
+  get workflow_update gem
+  write "indexed_for_sw_on_today" in workflow datastream
+  
+  
+end
+
+# write in some place "last harvested datestamp"
+client.last_harvest_date
+
+client.harvest(:metadataPrefix => 'foo', :from => 'date', :set => 'asdfasdf', :objects => 'records') do | record |
+  
+  get mods from record
+  manipulate mods into solr doc
+  manipulate stuff from record.about into solr doc
+  write solr doc to my app's solr index
+  
+end
 
 == Contributing
 
