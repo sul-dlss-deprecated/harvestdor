@@ -18,48 +18,68 @@ Or install it yourself as:
 
 == Usage
 
-=begin -- MY_ROOT_PATH/config/oai.yml
+=== Configuration
 
-dev:
-  url: ...
-  http_options: 
-  metadataPrefix: 'tei'
-  set: 'asd'
-  from: '..'
-  until: ''
-  wantum: records or ids
-=end
-client = Harvestdor.new(MY_ROOT_PATH, :options => {})
+Configuration Option 1:  use a yaml file
 
-client.metdataPrefix = 'mods'
+	# contents of oai.yml
+	dev:
+	  url: ...
+	  http_options: 
+	  metadataPrefix: 'tei'
+	  set: 'isGovernedBy:hy787xj5878'
+	  from: '..'
+	  until: ''
+	  wantum: records or ids
 
-arr = client.harvest(:metadataPrefix => 'foo', :from => '(last_harvested_date)', :set => 'asdfasdf', :objects => 'ids')
+	client = Harvestdor.new(MY_OAI_YML_PATH/oai.yml, :options => {})
+	client.harvest_ids do |druid|
+	  # do stuff with the druid, e.g. 
+	  #  get public xml from purl
+	  #  get mods from purl
+	  #  create solr doc
+	  #  write solr doc to your app's index
+	end
 
-client.harvest(:metadataPrefix => 'foo', :from => 'date', :set => 'asdfasdf', :objects => 'ids') do | id |
-  
-  get stuff for id
-  work with stuff
-  make solr doc
-  write solr doc to my app's solr index
-  
-  ###
-  get workflow_update gem
-  write "indexed_for_sw_on_today" in workflow datastream
-  
-  
-end
+Configuration Option 2:  set the attributes explicitly in your code
 
-# write in some place "last harvested datestamp"
-client.last_harvest_date
+  client = Harvestdor.new(:options => {})
+	client.metadataPrefix = 'mods'
+	client.harvest_records do |rec|
+	  # do stuff with the OAI rec, e.g.
+	  #  manipulate metadata into solr doc
+	  #  manipulate stuff from record.about into solr doc
+	  #  write solr doc to your app's index
+	end
 
-client.harvest(:metadataPrefix => 'foo', :from => 'date', :set => 'asdfasdf', :objects => 'records') do | record |
-  
-  get mods from record
-  manipulate mods into solr doc
-  manipulate stuff from record.about into solr doc
-  write solr doc to my app's solr index
-  
-end
+Configuration Option 3:  set the OAI parameters as params in call to Harvestdor.harvest_
+
+  client = Harvestdor.new(:options => {})
+  client.harvest_ids(:metadataPrefix => 'foo', :from => '2012-11-27', :set => 'isGovernedBy:hy787xj5878') do | id |
+    # do stuff with the druid
+  end
+
+=== Harvesting
+
+harvest_ids  gets enumerated druids for the records in your specified set / date range
+
+harvest_records  gets enumerated OAI record objects in your specified set / data range, with the metadata format you indicated
+
+You can also get these as arrays:
+
+druid_array = client.harvest_ids(:metadataPrefix => 'foo', :from => '(last_harvested_date)', :set => 'asdfasdf')
+
+
+=== Last Harvested Datestamp
+
+last_datestamp
+
+
+=== FIXME:  for workflow update gem, when we get there
+
+get workflow_update gem
+write "indexed_for_sw_on_today" in workflow datastream
+
 
 == Contributing
 
