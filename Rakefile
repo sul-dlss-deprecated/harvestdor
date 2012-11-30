@@ -7,6 +7,9 @@ require 'rspec/core/rake_task'
 require 'yard'
 require 'yard/rake/yardoc_task'
 
+require 'dlss/rake/dlss_release'
+Dlss::Release.new
+
 begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e
@@ -14,6 +17,9 @@ rescue Bundler::BundlerError => e
   $stderr.puts "Run `bundle install` to install missing gems"
   exit e.status_code
 end
+
+desc "do not use release;  use dlss_release"
+task :release
 
 task :default => :ci  
 
