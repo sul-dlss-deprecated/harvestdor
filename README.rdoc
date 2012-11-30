@@ -22,17 +22,9 @@ Or install it yourself as:
 
 Configuration Option 1:  use a yaml file
 
-	# contents of oai.yml
-	dev:
-	  url: ...
-	  http_options: 
-	  metadataPrefix: 'tei'
-	  set: 'isGovernedBy:hy787xj5878'
-	  from: '..'
-	  until: ''
-	  wantum: records or ids
+for contents of yml --  see spec/config/oai.yml
 
-	client = Harvestdor.new(MY_OAI_YML_PATH/oai.yml, :options => {})
+	client = Harvestdor::Client.new({:config_yml_path => path_to_my_yml})
 	client.harvest_ids do |druid|
 	  # do stuff with the druid, e.g. 
 	  #  get public xml from purl
@@ -41,10 +33,21 @@ Configuration Option 1:  use a yaml file
 	  #  write solr doc to your app's index
 	end
 
-Configuration Option 2:  set the attributes explicitly in your code
+Configuration Option 2:  pass in non-default configurations as a hash
 
-  client = Harvestdor.new(:options => {})
-	client.metadataPrefix = 'mods'
+	client = Harvestdor::Client.new({:oai_repository_url => 'http://my_oai.org, :default_from_date => '2012-12-01'})
+	client.harvest_ids do |druid|
+	  # do stuff with the druid, e.g. 
+	  #  get public xml from purl
+	  #  get mods from purl
+	  #  create solr doc
+	  #  write solr doc to your app's index
+	end
+
+Configuration Option 3:  set the attributes explicitly in your code
+
+  client = Harvestdor::CLient.new
+	client.config.oai_repository_url = 'http://my_oai.org'
 	client.harvest_records do |rec|
 	  # do stuff with the OAI rec, e.g.
 	  #  manipulate metadata into solr doc
@@ -52,27 +55,29 @@ Configuration Option 2:  set the attributes explicitly in your code
 	  #  write solr doc to your app's index
 	end
 
-Configuration Option 3:  set the OAI parameters as params in call to Harvestdor.harvest_
+Configuration Option 4:  set the OAI parameters as params in call to Harvestdor::Client.harvest_xx
 
-  client = Harvestdor.new(:options => {})
+  client = Harvestdor.new({oai_repository_url = 'http://my_oai.org'})
   client.harvest_ids(:metadataPrefix => 'foo', :from => '2012-11-27', :set => 'isGovernedBy:hy787xj5878') do | id |
     # do stuff with the druid
   end
 
 === Harvesting
 
-harvest_ids  gets enumerated druids for the records in your specified set / date range
+Harvestdor::Client.harvest_ids  gets enumerated druids for the records in your specified set / date range
 
-harvest_records  gets enumerated OAI record objects in your specified set / data range, with the metadata format you indicated
+Harvestdor::Client.harvest_records  gets enumerated OAI record objects in your specified set / data range, with the metadata format you indicated
 
 You can also get these as arrays:
 
 druid_array = client.harvest_ids(:metadataPrefix => 'foo', :from => '(last_harvested_date)', :set => 'asdfasdf')
 
 
-=== Last Harvested Datestamp
+=== TODO: Last Harvested Datestamp (Incremental Harvests)
 
-last_datestamp
+Harvestdor::Client.last_datestamp
+
+persist this information with your app for incremental harvests
 
 
 === FIXME:  for workflow update gem, when we get there
