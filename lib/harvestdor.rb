@@ -57,9 +57,10 @@ module Harvestdor
       @logger ||= self.class.logger(config.log_dir, config.log_name)
     end
 
-protected
-    def self.oai_http_client
-      self.logger.info "Constructing OAI http client with faraday options #{config.http_options.to_hash.inspect}"
+    protected #---------------------------------------------------------------------
+    
+    def oai_http_client
+      logger.info "Constructing OAI http client with faraday options #{config.http_options.to_hash.inspect}"
       @oai_http_client ||= Faraday.new config.oai_repository_url, config.http_options.to_hash
     end
 

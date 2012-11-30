@@ -101,17 +101,28 @@ describe Harvestdor::Client do
     end
   end
   
-  context "oai client" do
+  context "oai_client" do
     before(:all) do
+      @client = Harvestdor::Client.new
       @default_client = Harvestdor::Client.new.oai_client
     end
-    it "oai_client should return an OAI::Client object based on config data" do
-p @default_client.identify.inspect      
-      @default_client.should be_an_instance_of(OAI::Client)
-    end
     
-  end
-  
-  
-  
+    it "oai_client should return an OAI::Client object based on config data" do
+      @default_client.should be_an_instance_of(OAI::Client)
+    end 
+
+    context "oai_http_client (protected method)" do
+	    before(:all) do
+	      @http_client = @client.send(:oai_http_client)
+	    end
+	    it "should be a Faraday object" do
+	      @http_client.should be_an_instance_of(Faraday::Connection)
+	    end
+	    it "should have the oai_provider url from config" do
+	      uri_obj = @http_client.url_prefix
+	      @client.config.oai_repository_url.should =~ Regexp.new(uri_obj.host + uri_obj.path)
+	    end
+	  end
+  end # context oai_client
+
 end
