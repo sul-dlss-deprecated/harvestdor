@@ -18,7 +18,7 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 
-desc "do not use release;  use dlss_release"
+desc "DO NOT USE! use dlss_release"
 task :release
 
 task :default => :ci  
