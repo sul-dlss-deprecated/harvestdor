@@ -1,4 +1,5 @@
 require "harvestdor/version"
+require "harvestdor/oai_harvest"
 # external gems
 require 'confstruct'
 require 'oai'
@@ -73,5 +74,17 @@ module Harvestdor
     end
 
   end # class Client
+  
+  # @param oai_header object or oai_identifier
+  # @return [String] the druid part of an OAI identifier in an OAI header
+  def self.druid(arg)
+    oai_id = arg
+    if arg.is_a?(OAI::Header)
+      oai_id = arg.identifier
+    elsif arg.is_a?(OAI::Record)
+      oai_id = arg.header.identifier
+    end
+    oai_id.split('druid:').last
+  end
 
 end # module Harvestdor
