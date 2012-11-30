@@ -35,7 +35,7 @@ module Harvestdor
     # NAOMI_MUST_COMMENT_THIS_METHOD
     # @return [Array<OAI::Header>] or enumeration over it, if block is given
     def harvest_ids options = {}
-      return to_enum(:harvest_records, options).to_a unless block_given?
+      return to_enum(:harvest_ids, options).to_a unless block_given?
       
       oai_options={}
       oai_options[:metadata_prefix] = options[:metadata_prefix] ? options[:metadata_prefix] : config.default_metadata_prefix 

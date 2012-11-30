@@ -3,58 +3,72 @@ require 'spec_helper'
 describe 'Harvestdor::Client oai harvesting' do
   before(:all) do
     @harvestdor_client = Harvestdor::Client.new
+    @oai_arg_defaults = {:metadata_prefix => @harvestdor_client.config.default_metadata_prefix, 
+                :from => @harvestdor_client.config.default_from_date,
+                :until => @harvestdor_client.config.default_until_date,
+                :set => @harvestdor_client.config.default_set  }
   end
   
   describe "harvest_ids" do
-    it "should use default values for OAI arguments if they are not present in the method param hash" do
-      pending "to be implemented"
-    end
-    it "should use OAI arguments from the method param hash if they are present" do
-      pending "to be implemented"
-    end
-    it "should return druids" do
-      pending "to be implemented"
-    end
-    it "should have results viewable as an array" do
-      pending "to be implemented"
-    end
-    it "should have enumerable results" do
-      pending "to be implemented"
-    end
-    it "should yield to a passed block" do
+    before(:each) do
       oai_response = mock('oai_response')
       oai_response.stub(:entries).and_return(['foo', 'bar'])
       oai_response.stub(:resumption_token).and_return('')
       @harvestdor_client.oai_client.stub(:list_identifiers).with(an_instance_of(Hash)) { 
           oai_response
       }
+    end
+    it "should use client's default values for OAI arguments if they are not present in the method param hash" do
+      @harvestdor_client.oai_client.should_receive(:list_identifiers).with(@oai_arg_defaults)
+      @harvestdor_client.harvest_ids()
+    end
+    it "should use OAI arguments from the method param hash if they are present" do
+      oai_options_hash = {:metadata_prefix => 'mods', :until => '2012-11-30'}
+      @harvestdor_client.oai_client.should_receive(:list_identifiers).with(@oai_arg_defaults.merge(oai_options_hash))
+      @harvestdor_client.harvest_ids(oai_options_hash)
+    end
+    it "should return druids" do
+      pending "to be implemented"
+    end
+    it "should have results viewable as an array" do
+      @harvestdor_client.harvest_ids.should be_an_instance_of(Array)
+    end
+    it "should have enumerable results" do
+      @harvestdor_client.harvest_ids.should respond_to(:each, :count)
+    end
+    it "should yield to a passed block" do
       expect { |b| @harvestdor_client.harvest_ids(&b) }.to yield_successive_args('foo', 'bar')
     end
   end
   
-  describe "harvest_records" do    
-    it "should use default values for OAI arguments if they are not present in the method param hash" do
-      pending "to be implemented"
-    end
-    it "should use OAI arguments from the method param hash if they are present" do
-      pending "to be implemented"
-    end
-    it "should return OAI::Record objects" do
-      pending "to be implemented"
-    end
-    it "should have results viewable as an array" do
-      pending "to be implemented"
-    end
-    it "should have enumerable results" do
-      pending "to be implemented"
-    end
-    it "should yield to a passed block" do
+  describe "harvest_records" do
+    before(:each) do
       oai_response = mock('oai_response')
       oai_response.stub(:entries).and_return([1, 2])
       oai_response.stub(:resumption_token).and_return('')
       @harvestdor_client.oai_client.stub(:list_records).with(an_instance_of(Hash)) { 
           oai_response
       }
+    end
+    it "should use client's default values for OAI arguments if they are not present in the method param hash" do
+      @harvestdor_client.oai_client.should_receive(:list_records).with(@oai_arg_defaults)
+      @harvestdor_client.harvest_records()
+    end
+    it "should use OAI arguments from the method param hash if they are present" do
+      oai_options_hash = {:metadata_prefix => 'mods', :from => '2012-11-30'}
+      @harvestdor_client.oai_client.should_receive(:list_records).with(@oai_arg_defaults.merge(oai_options_hash))
+      @harvestdor_client.harvest_records(oai_options_hash)
+    end
+    it "should return OAI::Record objects" do
+      pending "to be implemented"
+    end
+    it "should have results viewable as an array" do
+      @harvestdor_client.harvest_records.should be_an_instance_of(Array)
+    end
+    it "should have enumerable results" do
+      @harvestdor_client.harvest_records.should respond_to(:each, :count)
+    end
+    it "should yield to a passed block" do
       expect { |b| @harvestdor_client.harvest_records(&b) }.to yield_successive_args(1, 2)
     end
   end  
