@@ -1,12 +1,15 @@
 require "spec_helper"
 
-describe Harvestdor do
+describe Harvestdor::Client do
 
   before(:all) do
-    @dor_oai_provider_regex = /dor-oaiprovider.*oai$/
+    @config_yml_path = File.join(File.dirname(__FILE__), "config", "oai.yml")
+    @client_via_yml_only = Harvestdor::Client.new({:config_yml_path => @config_yml_path})
+    require 'yaml'
+    @yaml = YAML.load_file(@config_yml_path)
   end
-  
-  describe "client initialization" do
+
+  describe "initialization" do
     before(:all) do
       @from_date = '2012-11-29'
       @repo_url = 'http://my_oai_repo.org/oai'
@@ -32,10 +35,7 @@ describe Harvestdor do
     
     context "config_yml_path in hash argument" do
       before(:all) do
-        @config_yml_path = File.join(File.dirname(__FILE__), "config", "oai.yml")
-        @config_via_yml_only = Harvestdor::Client.new({:config_yml_path => @config_yml_path}).config
-        require 'yaml'
-        @yaml = YAML.load_file(@config_yml_path)
+        @config_via_yml_only = @client_via_yml_only.config
       end
       it "should set attributes in yml file over defaults" do
         @config_via_yml_only.log_dir.should == @yaml['log_dir']
@@ -73,8 +73,7 @@ describe Harvestdor do
     
     context "without hash arguments" do
       it "should keep the defaults for all attributes" do
-        c = Harvestdor::Client.new
-        no_args = c.config
+        no_args = Harvestdor::Client.new.config
         no_args.log_name.should == Harvestdor::LOG_NAME_DEFAULT
         no_args.log_dir.should == Harvestdor::LOG_DIR_DEFAULT
         no_args.http_options.should == Confstruct::Configuration.new(Harvestdor::HTTP_OPTIONS_DEFAULT)
@@ -87,42 +86,19 @@ describe Harvestdor do
       end
     end
   end # initialize client
-
-  describe "config via attribute accessor on harvestdor client object" do
-    it "should allow direct setting of log_dir" do
-      pending "to be implemented"
-    end
-    it "should allow direct setting of log_name" do
-      pending "to be implemented"
-    end
-    it "should allow direct setting of http client options" do
-      pending "to be implemented"
-    end
-    it "should allow direct setting of oai_repository_url" do
-      pending "to be implemented"
-    end
-    it "should allow direct setting of OAI client debug setting" do
-      pending "to be implemented"
-    end
-    it "should allow direct setting of OAI rest arguments" do
-      pending "to be implemented"
-    end
+  
+  it "should allow direct setting of configuration attributes" do
+    conf = Harvestdor::Client.new.config
+    conf.log_dir.should == Harvestdor::LOG_DIR_DEFAULT
+    conf['log_dir'] = 'my_log_dir'
+    conf.log_dir.should == 'my_log_dir'
   end
 
   describe "logging" do
-    it "default log dir should be xxx" do
-      pending "to be implemented"
-    end
-    
-    
     it "should write the log file to the directory indicated by log_dir" do
-      pending "to be implemented"
+      @client_via_yml_only.logger.info("harvestdor_client_spec logging test message")
+      File.exists?(File.join(@yaml['log_dir'], Harvestdor::LOG_NAME_DEFAULT)).should == true
     end
-    
-    it "should have a logger" do
-      Harvestdor.logger.should be_an_instance_of(Logger)
-    end
-
   end
   
   context "oai client" do

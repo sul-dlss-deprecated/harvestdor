@@ -1,5 +1,5 @@
 # log_dir:  directory for log file  (default logs, relative to harvestdor gem path)
-log_dir: test_logs  
+log_dir: spec/test_logs  
 
 # log_name: name of log file  (default: harvestdor.log)
 
