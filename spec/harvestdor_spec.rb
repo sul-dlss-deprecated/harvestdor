@@ -5,92 +5,137 @@ describe Harvestdor do
   before(:all) do
     @dor_oai_provider_regex = /dor-oaiprovider.*oai$/
   end
-
-  it "should have a logger" do
-    Harvestdor.logger.should be_an_instance_of(Logger)
-  end
   
-  it "env_file should find an environment file" do
-    Harvestdor.stub(:environment).and_return('fake_environment')
-    Harvestdor.env_file.should =~ /fake_environment/
-#    def self.env_file
-#      File.expand_path(File.dirname(__FILE__) + "/../config/environments/#{environment}.yaml")
-#    end
-  end
-
-  it "environment should default to test" do
-    stashed_env = ENV['ENVIRONMENT']
-    ENV['ENVIRONMENT'] = nil
-    Harvestdor.environment.should == 'test'
-    ENV['ENVIRONMENT'] = stashed_env
-  end
-  
-  describe "config" do
+  describe "client initialization" do
     before(:all) do
-      @h = Harvestdor
-      @conf = @h.config
+      @from_date = '2012-11-29'
+      @repo_url = 'http://my_oai_repo.org/oai'
     end
-    it "should be a Confstruct::Configuration object" do
-      @conf.should be_an_instance_of(Confstruct::Configuration)
-    end
-    it "should load the yaml file pointed to by .env_file" do
-      pending "to be implemented"
-    end
-    it "should load the test environment by default" do
-      pending "to be implemented"
-    end
-    it "should have a purl url" do
-      @conf[:purl][:url].should =~ /http.*stanford/
-    end
-    describe "reload_config" do
+    context "attributes passed in hash argument" do
       before(:all) do
-        @first_config = @conf
-        @first_oai_client = @h.oai_client
-        @first_logger = @h.logger
-        @h.reload_config
+        @some_args = Harvestdor::Client.new({:default_from_date => @from_date, :oai_repository_url => @repo_url}).config
       end
-      it "should create a new config object" do
-        @h.config.object_id.should_not == @first_config.object_id
+      it "should set the attributes to the passed values" do
+        @some_args.oai_repository_url.should == @repo_url
+        @some_args.default_from_date.should == @from_date
       end
-      it "should create a new oai_client object" do
-        @h.oai_client.should_not == @first_oai_client
-      end
-      it "should create a new logger" do
-        @h.logger.should_not == @first_logger
+      it "should keep the defaults for attributes not in the hash argument" do
+        @some_args.log_name.should == Harvestdor::LOG_NAME_DEFAULT
+        @some_args.log_dir.should == Harvestdor::LOG_DIR_DEFAULT
+        @some_args.http_options.should == Confstruct::Configuration.new(Harvestdor::HTTP_OPTIONS_DEFAULT)
+        @some_args.oai_client_debug.should == Harvestdor::OAI_CLIENT_DEBUG_DEFAULT
+        @some_args.default_metadata_prefix.should == Harvestdor::DEFAULT_METADATA_PREFIX
+        @some_args.default_until_date.should == Harvestdor::DEFAULT_UNTIL_DATE
+        @some_args.default_set.should == Harvestdor::DEFAULT_SET
       end
     end
+    
+    context "config_yml_path in hash argument" do
+      before(:all) do
+        @config_yml_path = File.join(File.dirname(__FILE__), "config", "oai.yml")
+        @config_via_yml_only = Harvestdor::Client.new({:config_yml_path => @config_yml_path}).config
+        require 'yaml'
+        @yaml = YAML.load_file(@config_yml_path)
+      end
+      it "should set attributes in yml file over defaults" do
+        @config_via_yml_only.log_dir.should == @yaml['log_dir']
+        @config_via_yml_only.oai_repository_url.should == @yaml['oai_repository_url']
+        @config_via_yml_only.default_from_date.should == @yaml['default_from_date']
+        @config_via_yml_only.default_metadata_prefix.should == @yaml['default_metadata_prefix']
+        @config_via_yml_only.http_options.timeout.should == @yaml['http_options']['timeout']
+      end
+      it "should keep the defaults for attributes not present in yml file nor a config yml file" do
+        @config_via_yml_only.log_name.should == Harvestdor::LOG_NAME_DEFAULT
+        @config_via_yml_only.default_until_date.should == Harvestdor::DEFAULT_UNTIL_DATE
+        @config_via_yml_only.default_set.should == Harvestdor::DEFAULT_SET
+      end
+      context "and some hash arguments" do
+        before(:all) do
+          @config_via_yml_plus = Harvestdor::Client.new({:config_yml_path => @config_yml_path, 
+            :default_from_date => @from_date, :oai_repository_url => @repo_url}).config
+        end
+        it "should favor hash arg attribute values over yml file values" do
+          @config_via_yml_plus.oai_repository_url.should == @repo_url
+          @config_via_yml_plus.default_from_date.should == @from_date
+        end
+        it "should favor yml file values over defaults" do
+          @config_via_yml_plus.log_dir.should == @yaml['log_dir']
+          @config_via_yml_plus.default_metadata_prefix.should == @yaml['default_metadata_prefix']
+          @config_via_yml_plus.http_options.timeout.should == @yaml['http_options']['timeout']
+        end
+        it "should keep the defaults for attributes not present in yml file" do
+          @config_via_yml_plus.log_name.should == Harvestdor::LOG_NAME_DEFAULT
+          @config_via_yml_plus.default_until_date.should == Harvestdor::DEFAULT_UNTIL_DATE
+          @config_via_yml_plus.default_set.should == Harvestdor::DEFAULT_SET
+        end
+      end
+    end
+    
+    context "without hash arguments" do
+      it "should keep the defaults for all attributes" do
+        c = Harvestdor::Client.new
+        no_args = c.config
+        no_args.log_name.should == Harvestdor::LOG_NAME_DEFAULT
+        no_args.log_dir.should == Harvestdor::LOG_DIR_DEFAULT
+        no_args.http_options.should == Confstruct::Configuration.new(Harvestdor::HTTP_OPTIONS_DEFAULT)
+        no_args.oai_client_debug.should == Harvestdor::OAI_CLIENT_DEBUG_DEFAULT
+        no_args.oai_repository_url.should == Harvestdor::OAI_REPOSITORY_URL_DEFAULT
+        no_args.default_metadata_prefix.should == Harvestdor::DEFAULT_METADATA_PREFIX
+        no_args.default_from_date.should == Harvestdor::DEFAULT_FROM_DATE
+        no_args.default_until_date.should == Harvestdor::DEFAULT_UNTIL_DATE
+        no_args.default_set.should == Harvestdor::DEFAULT_SET
+      end
+    end
+  end # initialize client
+
+  describe "config via attribute accessor on harvestdor client object" do
+    it "should allow direct setting of log_dir" do
+      pending "to be implemented"
+    end
+    it "should allow direct setting of log_name" do
+      pending "to be implemented"
+    end
+    it "should allow direct setting of http client options" do
+      pending "to be implemented"
+    end
+    it "should allow direct setting of oai_repository_url" do
+      pending "to be implemented"
+    end
+    it "should allow direct setting of OAI client debug setting" do
+      pending "to be implemented"
+    end
+    it "should allow direct setting of OAI rest arguments" do
+      pending "to be implemented"
+    end
+  end
+
+  describe "logging" do
+    it "default log dir should be xxx" do
+      pending "to be implemented"
+    end
+    
+    
+    it "should write the log file to the directory indicated by log_dir" do
+      pending "to be implemented"
+    end
+    
+    it "should have a logger" do
+      Harvestdor.logger.should be_an_instance_of(Logger)
+    end
+
   end
   
-  it "oai_client should return an OAI::Client object" do
-    Harvestdor.oai_client.should be_an_instance_of(OAI::Client)
-  end
-  
-  describe "oai_http_client" do
+  context "oai client" do
     before(:all) do
-      @http_client = Harvestdor.oai_http_client
+      @default_client = Harvestdor::Client.new.oai_client
     end
-    it "should be a Faraday object" do
-      @http_client.should be_an_instance_of(Faraday::Connection)
+    it "oai_client should return an OAI::Client object based on config data" do
+p @default_client.identify.inspect      
+      @default_client.should be_an_instance_of(OAI::Client)
     end
-    it "should have the oai_provider url" do
-      uri_obj = @http_client.url_prefix
-      (uri_obj.host + uri_obj.path).should =~ @dor_oai_provider_regex
-    end
+    
   end
   
-  describe "oai_provider" do
-    before(:all) do
-      @oai_p = Harvestdor.oai_provider
-    end
-    it "should be a Confstruct::HashWithStructAccess" do
-      @oai_p.class.should == Confstruct::HashWithStructAccess
-    end
-    it "should have a dor oaiprovider repository url" do
-      @oai_p[:repository_url].should =~ @dor_oai_provider_regex
-    end
-    it "should have a default metadata prefix of mods" do
-      @oai_p[:default_metadata_prefix].should == 'mods'
-    end
-  end
+  
   
 end
