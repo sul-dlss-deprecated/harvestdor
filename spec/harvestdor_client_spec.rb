@@ -25,6 +25,7 @@ describe Harvestdor::Client do
       it "should keep the defaults for attributes not in the hash argument" do
         @some_args.log_name.should == Harvestdor::LOG_NAME_DEFAULT
         @some_args.log_dir.should == Harvestdor::LOG_DIR_DEFAULT
+        @some_args.purl.should == Harvestdor::PURL_DEFAULT
         @some_args.http_options.should == Confstruct::Configuration.new(Harvestdor::HTTP_OPTIONS_DEFAULT)
         @some_args.oai_client_debug.should == Harvestdor::OAI_CLIENT_DEBUG_DEFAULT
         @some_args.default_metadata_prefix.should == Harvestdor::DEFAULT_METADATA_PREFIX
@@ -46,6 +47,7 @@ describe Harvestdor::Client do
       end
       it "should keep the defaults for attributes not present in yml file nor a config yml file" do
         @config_via_yml_only.log_name.should == Harvestdor::LOG_NAME_DEFAULT
+        @config_via_yml_only.purl.should == Harvestdor::PURL_DEFAULT
         @config_via_yml_only.default_until_date.should == Harvestdor::DEFAULT_UNTIL_DATE
         @config_via_yml_only.default_set.should == Harvestdor::DEFAULT_SET
       end
@@ -76,6 +78,7 @@ describe Harvestdor::Client do
         no_args = Harvestdor::Client.new.config
         no_args.log_name.should == Harvestdor::LOG_NAME_DEFAULT
         no_args.log_dir.should == Harvestdor::LOG_DIR_DEFAULT
+        no_args.purl.should == Harvestdor::PURL_DEFAULT
         no_args.http_options.should == Confstruct::Configuration.new(Harvestdor::HTTP_OPTIONS_DEFAULT)
         no_args.oai_client_debug.should == Harvestdor::OAI_CLIENT_DEBUG_DEFAULT
         no_args.oai_repository_url.should == Harvestdor::OAI_REPOSITORY_URL_DEFAULT

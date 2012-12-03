@@ -11,6 +11,7 @@ module Harvestdor
   
   LOG_NAME_DEFAULT = "harvestdor.log"
   LOG_DIR_DEFAULT = File.join(File.dirname(__FILE__), "..", "logs")
+  PURL_DEFAULT = 'http://purl-test.stanford.edu'
   HTTP_OPTIONS_DEFAULT = { 'ssl' => { 'verify' => false }, 
                            'timeout' => 500, 
                            'open_timeout' => 500 }
@@ -27,6 +28,7 @@ module Harvestdor
       @class_config ||= Confstruct::Configuration.new({
         :log_dir => LOG_DIR_DEFAULT,
         :log_name => LOG_NAME_DEFAULT,
+        :purl => PURL_DEFAULT,
         :http_options => HTTP_OPTIONS_DEFAULT,
         :oai_repository_url => OAI_REPOSITORY_URL_DEFAULT,
         :oai_client_debug => OAI_CLIENT_DEBUG_DEFAULT,
