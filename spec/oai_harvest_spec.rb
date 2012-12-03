@@ -28,7 +28,12 @@ describe 'Harvestdor::Client oai harvesting' do
       @harvestdor_client.harvest_ids(oai_options_hash)
     end
     it "should return druids" do
-      pending "to be implemented"
+      header1 = OAI::Header.new(nil)
+      header1.identifier = 'oai:searchworks.stanford.edu/druid:foo'
+      header2 = OAI::Header.new(nil)
+      header2.identifier = 'oai:searchworks.stanford.edu/druid:bar'
+      @oai_response.stub(:entries).and_return([header1, header2])
+      @harvestdor_client.harvest_ids().should == ['foo', 'bar']
     end
     it "should have results viewable as an array" do
       @harvestdor_client.harvest_ids.should be_an_instance_of(Array)
@@ -43,11 +48,11 @@ describe 'Harvestdor::Client oai harvesting' do
   
   describe "harvest_records" do
     before(:each) do
-      oai_response = mock('oai_response')
-      oai_response.stub(:entries).and_return([1, 2])
-      oai_response.stub(:resumption_token).and_return('')
+      @oai_response = mock('oai_response')
+      @oai_response.stub(:entries).and_return([1, 2])
+      @oai_response.stub(:resumption_token).and_return('')
       @harvestdor_client.oai_client.stub(:list_records).with(an_instance_of(Hash)) { 
-          oai_response
+          @oai_response
       }
     end
     it "should use client's default values for OAI arguments if they are not present in the method param hash" do
@@ -60,7 +65,16 @@ describe 'Harvestdor::Client oai harvesting' do
       @harvestdor_client.harvest_records(oai_options_hash)
     end
     it "should return OAI::Record objects" do
-      pending "to be implemented"
+      header1 = OAI::Header.new(nil)
+      header1.identifier = 'oai:searchworks.stanford.edu/druid:foo'
+      oai_rec1 = OAI::Record.new(nil)
+      oai_rec1.header = header1
+      header2 = OAI::Header.new(nil)
+      header2.identifier = 'oai:searchworks.stanford.edu/druid:bar'
+      oai_rec2 = OAI::Record.new(nil)
+      oai_rec2.header = header2
+      @oai_response.stub(:entries).and_return([oai_rec1, oai_rec2])
+      @harvestdor_client.harvest_records().should == [oai_rec1, oai_rec2]
     end
     it "should have results viewable as an array" do
       @harvestdor_client.harvest_records.should be_an_instance_of(Array)
@@ -155,36 +169,7 @@ describe 'Harvestdor::Client oai harvesting' do
       end      
     end # resumption tokens
   end
-  
-  describe "collection_harvest?" do
-    it "should do something" do
-      pending "to be implemented"
-    end
-  end
-  
-  context "#is_a_collection?" do
-    it "true if an OAI record is for a collection object" do
-      pending
-      @records[@batchelor_collection_druid.to_sym].solr_mapper.is_a_collection?.should eql(true)
-    end
-    it "true if an OAI header is for a collection object" do
-      pending
-    end
-    it "false if an OAI record is not a collection object" do
-      pending
-      @records[:bc497ws1916].solr_mapper.is_a_collection?.should eql(false)
-    end
-    it "false if an OAI header is not a collection object" do
-      pending
-    end
-  end
-
-  describe "collection_object_druid" do
-    it "should do something" do
-      pending "to be implemented"
-    end
-  end
-  
+    
   it "should keep utf-8 encoded characters intact" do
     pending "to be implemented"
   end

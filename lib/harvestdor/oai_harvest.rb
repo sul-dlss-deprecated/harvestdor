@@ -5,18 +5,7 @@ module Harvestdor
   # Mixin:  methods to perform an OAI harvest
   class Client
 
-=begin
-    def find_by_sparql query, options = { :binding => 'pid' }
-      return to_enum(:find_by_sparql, query, options).to_a unless block_given?
-
-      self.sparql(query).each do |x|
-        obj = self.find(x[options[:binding]]) rescue nil
-        yield obj if obj
-      end
-    end
-=end
-  
-    # NAOMI_MUST_COMMENT_THIS_METHOD
+    # return Array of OAI::Records from the OAI harvest indicated by OAI params (metadata_prefix, from, until, set)
     # @return [Array<OAI::Record>] or enumeration over it, if block is given
     def harvest_records options = {}
       return to_enum(:harvest_records, options).to_a unless block_given?
@@ -32,8 +21,8 @@ module Harvestdor
       end
     end
   
-    # NAOMI_MUST_COMMENT_THIS_METHOD
-    # @return [Array<OAI::Header>] or enumeration over it, if block is given
+    # return Array of druids contained in the OAI harvest indicated by OAI params (metadata_prefix, from, until, set)
+    # @return [Array<String>] or enumeration over it, if block is given
     def harvest_ids options = {}
       return to_enum(:harvest_ids, options).to_a unless block_given?
       
@@ -89,24 +78,7 @@ module Harvestdor
       Harvestdor.logger.error "Received unexpected OAI::Exception"
       Harvestdor.logger.error e
     end
-    
-    
-    
-    # Are we harvesting a set that contains a collection object? 
-    def collection_harvest?
-      oai_options && oai_options[:set] && oai_options[:set].match(/is_member_of_collection/)
-    end
-  
-    # If the set we're harvesting includes a collection object, return the druid of the collection object.
-    # Otherwise, return nil. 
-    def collection_object_druid
-      if collection_harvest?
-        oai_options[:set].split('_').last
-      else
-        nil
-      end
-    end  
-  
+
   end # class OaiHarvester
 
 end # module Harvestdor
