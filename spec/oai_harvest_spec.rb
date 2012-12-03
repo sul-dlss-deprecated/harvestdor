@@ -18,15 +18,6 @@ describe 'Harvestdor::Client oai harvesting' do
           oai_response
       }
     end
-    it "should use client's default values for OAI arguments if they are not present in the method param hash" do
-      @harvestdor_client.oai_client.should_receive(:list_identifiers).with(@oai_arg_defaults)
-      @harvestdor_client.harvest_ids()
-    end
-    it "should use OAI arguments from the method param hash if they are present" do
-      oai_options_hash = {:metadata_prefix => 'mods', :until => '2012-11-30'}
-      @harvestdor_client.oai_client.should_receive(:list_identifiers).with(@oai_arg_defaults.merge(oai_options_hash))
-      @harvestdor_client.harvest_ids(oai_options_hash)
-    end
     it "should return druids" do
       header1 = OAI::Header.new(nil)
       header1.identifier = 'oai:searchworks.stanford.edu/druid:foo'
@@ -54,15 +45,6 @@ describe 'Harvestdor::Client oai harvesting' do
       @harvestdor_client.oai_client.stub(:list_records).with(an_instance_of(Hash)) { 
           @oai_response
       }
-    end
-    it "should use client's default values for OAI arguments if they are not present in the method param hash" do
-      @harvestdor_client.oai_client.should_receive(:list_records).with(@oai_arg_defaults)
-      @harvestdor_client.harvest_records()
-    end
-    it "should use OAI arguments from the method param hash if they are present" do
-      oai_options_hash = {:metadata_prefix => 'mods', :from => '2012-11-30'}
-      @harvestdor_client.oai_client.should_receive(:list_records).with(@oai_arg_defaults.merge(oai_options_hash))
-      @harvestdor_client.harvest_records(oai_options_hash)
     end
     it "should return OAI::Record objects" do
       header1 = OAI::Header.new(nil)
@@ -96,15 +78,6 @@ describe 'Harvestdor::Client oai harvesting' do
           @oai_response
       }
     end
-    it "should use client's default values for OAI arguments if they are not present in the method param hash" do
-      @harvestdor_client.oai_client.should_receive(:list_identifiers).with(@oai_arg_defaults)
-      @harvestdor_client.harvest_headers()
-    end
-    it "should use OAI arguments from the method param hash if they are present" do
-      oai_options_hash = {:metadata_prefix => 'mods', :from => '2012-11-30'}
-      @harvestdor_client.oai_client.should_receive(:list_identifiers).with(@oai_arg_defaults.merge(oai_options_hash))
-      @harvestdor_client.harvest_headers(oai_options_hash)
-    end
     it "should return OAI::Record objects" do
       header1 = OAI::Header.new(nil)
       header1.identifier = 'oai:searchworks.stanford.edu/druid:foo'
@@ -123,6 +96,16 @@ describe 'Harvestdor::Client oai harvesting' do
       expect { |b| @harvestdor_client.harvest_headers(&b) }.to yield_successive_args(1, 2)
     end
   end  
+  
+  describe "oai_options" do
+    it "should use client's default values for OAI arguments if they are not present in the method param hash" do
+      @harvestdor_client.oai_options.should == @oai_arg_defaults
+    end
+    it "should use OAI arguments from the method param hash if they are present" do
+      passed_options = {:metadata_prefix => 'mods', :from => '2012-11-30'}
+      @harvestdor_client.oai_options(passed_options).should == @oai_arg_defaults.merge(passed_options)
+    end    
+  end
 
   describe "each_oai_object" do
     it "should perform a list_records OAI request when first arg is true" do
