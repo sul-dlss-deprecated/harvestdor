@@ -9,32 +9,41 @@ module Harvestdor
     # @return [Array<OAI::Record>] or enumeration over it, if block is given
     def harvest_records options = {}
       return to_enum(:harvest_records, options).to_a unless block_given?
-      
-      oai_options={}
-      oai_options[:metadata_prefix] = options[:metadata_prefix] ? options[:metadata_prefix] : config.default_metadata_prefix 
-      oai_options[:from] = options[:from] ? options[:from] : config.default_from_date
-      oai_options[:until] = options[:until] ? options[:until] : config.default_until_date
-      oai_options[:set] = options[:set] ? options[:set] : config.default_set
 
-      each_record(oai_options) do |oai_rec|
+      each_record(oai_options(options)) do |oai_rec|
         yield oai_rec
       end
     end
   
+    # return Array of OAI::Headers from the OAI harvest indicated by OAI params (metadata_prefix, from, until, set)
+    # @return [Array<OAI::Header>] or enumeration over it, if block is given
+    def harvest_headers options = {}
+      return to_enum(:harvest_headers, options).to_a unless block_given?
+      
+      each_header(oai_options(options)) do |oai_hdr|
+        yield oai_hdr
+      end
+    end
+
     # return Array of druids contained in the OAI harvest indicated by OAI params (metadata_prefix, from, until, set)
     # @return [Array<String>] or enumeration over it, if block is given
     def harvest_ids options = {}
       return to_enum(:harvest_ids, options).to_a unless block_given?
       
+      each_header(oai_options(options)) do |oai_hdr|
+        yield Harvestdor.druid(oai_hdr)
+      end
+    end
+    
+    # @options [Hash] of OAI params (metadata_prefix, from, until, set) to be used in lieu of config.defaults
+    # @return [Hash] of OAI params (metadata_prefix, from, until, set) set from options param or config.default values
+    def oai_options options = {}
       oai_options={}
       oai_options[:metadata_prefix] = options[:metadata_prefix] ? options[:metadata_prefix] : config.default_metadata_prefix 
       oai_options[:from] = options[:from] ? options[:from] : config.default_from_date
       oai_options[:until] = options[:until] ? options[:until] : config.default_until_date
       oai_options[:set] = options[:set] ? options[:set] : config.default_set
-
-      each_header(oai_options) do |oai_hdr|
-        yield Harvestdor.druid(oai_hdr)
-      end
+      oai_options
     end
     
     # Iterate over the OAI client's records (following resumption tokens) and yield OAI::Record
