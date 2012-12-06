@@ -4,6 +4,7 @@
 .config
 .yardoc
 .travis
+.rvmrc
 Gemfile.lock
 InstalledFiles
 _yardoc
