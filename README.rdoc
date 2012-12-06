@@ -62,7 +62,7 @@ Configuration Option 4:  set the OAI parameters as params in call to Harvestdor:
     # do stuff with the druid
   end
 
-=== Harvesting
+=== OAI Harvesting
 
 Harvestdor::Client.harvest_ids  gets enumerated druids for the records in your specified set / date range
 
@@ -72,18 +72,36 @@ You can also get these as arrays:
 
 druid_array = client.harvest_ids(:metadataPrefix => 'foo', :from => '(last_harvested_date)', :set => 'asdfasdf')
 
+=== Public XML from PURL pages
+
+You can get, for example, the contentMetadata for a druid:
+
+	it "#content_metadata retrieves contentMetadata as a Nokogiri::XML::Document" do
+	  cm = Harvestdor.content_metadata('bb375wb8869', 'http://purl-test.stanford.edu')
+	  cm.should be_kind_of(Nokogiri::XML::Document)
+	  cm.root.name.should == 'contentMetadata'
+	  cm.root.attributes['objectId'].text.should == @druid
+	end
+
+Similarly for
+# public_xml  (all of it)
+# content_metadata
+# identity_metadata
+# rights_metadata
+# rdf
+# dc
+
+You can also do this from a Harvestdor::Client object, and it will use the purl from the Client.config:
+
+	client = Harvestdor::Client.new({:purl_url => 'http://thisone.org'})
+	client.identity_metadata('bb375wb8869')
+
 
 === TODO: Last Harvested Datestamp (Incremental Harvests)
 
 Harvestdor::Client.last_datestamp
 
 persist this information with your app for incremental harvests
-
-
-=== FIXME:  for workflow update gem, when we get there
-
-get workflow_update gem
-write "indexed_for_sw_on_today" in workflow datastream
 
 
 == Contributing
