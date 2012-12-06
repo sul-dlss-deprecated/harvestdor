@@ -20,42 +20,42 @@ Or install it yourself as:
 
 === Configuration
 
-Configuration Option 1:  use a yaml file
+==== Option 1:  use a yaml file
 
 for contents of yml --  see spec/config/oai.yml
 
-	client = Harvestdor::Client.new({:config_yml_path => path_to_my_yml})
-	client.harvest_ids do |druid|
-	  # do stuff with the druid, e.g. 
-	  #  get public xml from purl
-	  #  get mods from purl
-	  #  create solr doc
-	  #  write solr doc to your app's index
-	end
+  client = Harvestdor::Client.new({:config_yml_path => path_to_my_yml})
+  client.harvest_ids do |druid|
+    # do stuff with the druid, e.g. 
+    #  get public xml from purl
+    #  get mods from purl
+    #  create solr doc
+    #  write solr doc to your app's index
+  end
 
-Configuration Option 2:  pass in non-default configurations as a hash
+==== Option 2:  pass in non-default configurations as a hash
 
-	client = Harvestdor::Client.new({:oai_repository_url => 'http://my_oai.org, :default_from_date => '2012-12-01'})
-	client.harvest_ids do |druid|
-	  # do stuff with the druid, e.g. 
-	  #  get public xml from purl
-	  #  get mods from purl
-	  #  create solr doc
-	  #  write solr doc to your app's index
-	end
+  client = Harvestdor::Client.new({:oai_repository_url => 'http://my_oai.org, :default_from_date => '2012-12-01'})
+  client.harvest_ids do |druid|
+    # do stuff with the druid, e.g. 
+    #  get public xml from purl
+    #  get mods from purl
+    #  create solr doc
+    #  write solr doc to your app's index
+  end
 
-Configuration Option 3:  set the attributes explicitly in your code
+==== Option 3:  set the attributes explicitly in your code
 
-  client = Harvestdor::CLient.new
-	client.config.oai_repository_url = 'http://my_oai.org'
-	client.harvest_records do |rec|
-	  # do stuff with the OAI rec, e.g.
-	  #  manipulate metadata into solr doc
-	  #  manipulate stuff from record.about into solr doc
-	  #  write solr doc to your app's index
-	end
+  client = Harvestdor::Client.new
+  client.config.oai_repository_url = 'http://my_oai.org'
+  client.harvest_records do |rec|
+    # do stuff with the OAI rec, e.g.
+    #  manipulate metadata into solr doc
+    #  manipulate stuff from record.about into solr doc
+    #  write solr doc to your app's index
+  end
 
-Configuration Option 4:  set the OAI parameters as params in call to Harvestdor::Client.harvest_xx
+==== Option 4:  set the OAI parameters as params in call to Harvestdor::Client.harvest_xx
 
   client = Harvestdor.new({oai_repository_url = 'http://my_oai.org'})
   client.harvest_ids(:metadataPrefix => 'foo', :from => '2012-11-27', :set => 'isGovernedBy:hy787xj5878') do | id |
@@ -64,24 +64,24 @@ Configuration Option 4:  set the OAI parameters as params in call to Harvestdor:
 
 === OAI Harvesting
 
-Harvestdor::Client.harvest_ids  gets enumerated druids for the records in your specified set / date range
+  Harvestdor::Client.harvest_ids  gets enumerated druids for the records in your specified set / date range
 
-Harvestdor::Client.harvest_records  gets enumerated OAI record objects in your specified set / data range, with the metadata format you indicated
+  Harvestdor::Client.harvest_records  gets enumerated OAI record objects in your specified set / data range, with the metadata format you indicated
 
 You can also get these as arrays:
 
-druid_array = client.harvest_ids(:metadataPrefix => 'foo', :from => '(last_harvested_date)', :set => 'asdfasdf')
+  druid_array = client.harvest_ids(:metadataPrefix => 'foo', :from => '(last_harvested_date)', :set => 'asdfasdf')
 
 === Public XML from PURL pages
 
 You can get, for example, the contentMetadata for a druid:
 
-	it "#content_metadata retrieves contentMetadata as a Nokogiri::XML::Document" do
-	  cm = Harvestdor.content_metadata('bb375wb8869', 'http://purl-test.stanford.edu')
-	  cm.should be_kind_of(Nokogiri::XML::Document)
-	  cm.root.name.should == 'contentMetadata'
-	  cm.root.attributes['objectId'].text.should == @druid
-	end
+  it "#content_metadata retrieves contentMetadata as a Nokogiri::XML::Document" do
+    cm = Harvestdor.content_metadata('bb375wb8869', 'http://purl-test.stanford.edu')
+    cm.should be_kind_of(Nokogiri::XML::Document)
+    cm.root.name.should == 'contentMetadata'
+    cm.root.attributes['objectId'].text.should == @druid
+  end
 
 Similarly for
 # public_xml  (all of it)
@@ -93,8 +93,8 @@ Similarly for
 
 You can also do this from a Harvestdor::Client object, and it will use the purl from the Client.config:
 
-	client = Harvestdor::Client.new({:purl_url => 'http://thisone.org'})
-	client.identity_metadata('bb375wb8869')
+  client = Harvestdor::Client.new({:purl_url => 'http://thisone.org'})
+  client.identity_metadata('bb375wb8869')
 
 
 === TODO: Last Harvested Datestamp (Incremental Harvests)
@@ -115,4 +115,5 @@ persist this information with your app for incremental harvests
 
 == Releases
 
+0.0.2 tidy up README
 0.0.1 initial commit
