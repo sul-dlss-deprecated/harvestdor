@@ -19,8 +19,7 @@ Gem::Specification.new do |gem|
   
   gem.add_dependency 'oai', '~> 0.2.0'
   gem.add_dependency 'confstruct'
-#  gem.add_dependency 'rest-client'
-  
+  gem.add_dependency 'nokogiri'
   
   # Runtime dependencies
   # gem.add_runtime_dependency 'nokogiri'
