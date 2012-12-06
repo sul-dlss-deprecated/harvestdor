@@ -27,9 +27,9 @@ for contents of yml --  see spec/config/oai.yml
   client = Harvestdor::Client.new({:config_yml_path => path_to_my_yml})
   client.harvest_ids do |druid|
     # do stuff with the druid, e.g. 
-    #  get public xml from purl
-    #  get mods from purl
-    #  create solr doc
+    #  cm = client.content_metadata(druid)
+    #  mods = client.mods(druid)
+    #  create solr doc from mods and cm
     #  write solr doc to your app's index
   end
 
@@ -38,9 +38,9 @@ for contents of yml --  see spec/config/oai.yml
   client = Harvestdor::Client.new({:oai_repository_url => 'http://my_oai.org, :default_from_date => '2012-12-01'})
   client.harvest_ids do |druid|
     # do stuff with the druid, e.g. 
-    #  get public xml from purl
-    #  get mods from purl
-    #  create solr doc
+    #  cm = client.content_metadata(druid)
+    #  mods = client.mods(druid)
+    #  create solr doc from mods and cm
     #  write solr doc to your app's index
   end
 
@@ -72,7 +72,7 @@ You can also get these as arrays:
 
   druid_array = client.harvest_ids(:metadataPrefix => 'foo', :from => '(last_harvested_date)', :set => 'asdfasdf')
 
-=== Public XML from PURL pages
+=== XML from PURL pages
 
 You can get, for example, the contentMetadata for a druid:
 
@@ -83,7 +83,17 @@ You can get, for example, the contentMetadata for a druid:
     cm.root.attributes['objectId'].text.should == @druid
   end
 
+Or the MODS metadata:
+
+  it "#mods returns a Nokogiri::XML::Document from the purl mods" do
+    x = Harvestdor.mods('bb375wb8869', 'http://purl-test.stanford.edu')
+    x.should be_kind_of(Nokogiri::XML::Document)
+    x.root.name.should == 'mods'
+    x.root.namespace.href.should == Harvestdor::MODS_NAMESPACE
+  end
+
 Similarly for
+# mods
 # public_xml  (all of it)
 # content_metadata
 # identity_metadata
@@ -115,5 +125,6 @@ persist this information with your app for incremental harvests
 
 == Releases
 
+0.0.3 add method to get mods from purl
 0.0.2 tidy up README
 0.0.1 initial commit

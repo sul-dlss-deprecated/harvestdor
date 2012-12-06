@@ -3,6 +3,7 @@
 module Harvestdor
   module Errors
     MissingPurlPage = Class.new(StandardError) 
+    MissingMods = Class.new(StandardError) 
     MissingPublicXml = Class.new(StandardError) 
     MissingContentMetadata = Class.new(StandardError) 
     MissingIdentityMetadata = Class.new(StandardError) 

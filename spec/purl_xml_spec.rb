@@ -16,34 +16,41 @@ describe Harvestdor::Client do
     px.root.name.should == 'publicObject'
     px.root.attributes['id'].text.should == "druid:#{@druid}"
   end
-  it "#content_metadata retrieves contentMetadata as a Nokogiri::XML::Document" do
+  it "#content_metadata returns a Nokogiri::XML::Document from the public xml" do
     cm = Harvestdor.content_metadata(@druid, @purl)
     cm.should be_kind_of(Nokogiri::XML::Document)
     cm.root.name.should == 'contentMetadata'
     cm.root.attributes['objectId'].text.should == @druid
   end
-  it "#identity_metadata retrieves identityMetadata as a Nokogiri::XML::Document" do
+  it "#identity_metadata returns a Nokogiri::XML::Document from the public xml" do
     im = Harvestdor.identity_metadata(@druid, @purl)
     im.should be_kind_of(Nokogiri::XML::Document)
     im.root.name.should == 'identityMetadata'
     im.root.xpath('objectId').text.should == "druid:#{@druid}"
   end
-  it "#rights_metadata retrieves rightsMetadata as a Nokogiri::XML::Document" do
+  it "#rights_metadata returns a Nokogiri::XML::Document from the public xml" do
     rm = Harvestdor.rights_metadata(@druid, @purl)
     rm.should be_kind_of(Nokogiri::XML::Document)
     rm.root.name.should == 'rightsMetadata'
   end
-  it "#rdf retrieves rdf as a Nokogiri::XML::Document" do
+  it "#rdf returns a Nokogiri::XML::Document from the public xml" do
     rdf = Harvestdor.rdf(@druid, @purl)
     rdf.should be_kind_of(Nokogiri::XML::Document)
     rdf.root.name.should == 'RDF'
     rdf.root.namespace.href.should == Harvestdor::RDF_NAMESPACE
   end
-  it "#dc retrieves dc as a Nokogiri::XML::Document" do
+  it "#dc returns a Nokogiri::XML::Document from the public xml" do
     dc = Harvestdor.dc(@druid, @purl)
     dc.should be_kind_of(Nokogiri::XML::Document)
     dc.root.name.should == 'dc'
     dc.root.namespace.href.should == Harvestdor::OAI_DC_NAMESPACE
+  end
+  
+  it "#mods returns a Nokogiri::XML::Document from the purl mods" do
+    x = Harvestdor.mods(@druid, @purl)
+    x.should be_kind_of(Nokogiri::XML::Document)
+    x.root.name.should == 'mods'
+    x.root.namespace.href.should == Harvestdor::MODS_NAMESPACE
   end
 
   context "Harvestdor:Client" do
@@ -74,6 +81,10 @@ describe Harvestdor::Client do
     it "dc calls Harvestdor.dc with config.purl" do
       Harvestdor.should_receive(:dc).with(@druid, @client.config.purl)
       @client.dc(@druid)
+    end
+    it "mods calls Harvestdor.mods with config.purl" do
+      Harvestdor.should_receive(:mods).with(@druid, @client.config.purl)
+      @client.mods(@druid)
     end
   end
 

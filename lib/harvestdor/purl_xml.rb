@@ -5,6 +5,19 @@ module Harvestdor
   
   RDF_NAMESPACE = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'
   OAI_DC_NAMESPACE = 'http://www.openarchives.org/OAI/2.0/oai_dc/'
+  MODS_NAMESPACE = 'http://www.loc.gov/mods/v3'
+
+  # the MODS metadata for this fedora object, from the purl server
+  # @param [String] the druid
+  # @param [String] url for the purl server.  default is Harvestdor::PURL_DEFAULT
+  # @return [Nokogiri::XML::Document] the MODS for the fedora object
+  def self.mods druid, purl_url = Harvestdor::PURL_DEFAULT
+    begin
+      Nokogiri::XML(open("#{purl_url}/#{druid}.mods"))
+    rescue OpenURI::HTTPError
+      raise Harvestdor::Errors::MissingMods.new(druid)
+    end
+  end
 
   # the public xml for this fedora object, from the purl page
   # @param [String] the druid
@@ -92,6 +105,13 @@ module Harvestdor
 
   class Client
     
+    # the public xml for this fedora object, from the purl server
+    # @param [String] the druid for the purl url
+    # @return [Nokogiri::XML::Document] the MODS metadata for the fedora object
+    def mods druid
+      Harvestdor.mods(druid, config.purl)
+    end
+
     # the public xml for this fedora object, from the purl xml
     # @param [String] the druid for the purl url
     # @return [Nokogiri::XML::Document] the public xml for the fedora object
