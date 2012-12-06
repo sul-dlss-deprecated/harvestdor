@@ -100,38 +100,7 @@ module Harvestdor
         raise Harvestdor::Errors::MissingDC.new(druid)
       end
     end
-
-    def logger
-      @logger ||= self.class.logger(config.log_dir, config.log_name)
-    end
-
-    protected #---------------------------------------------------------------------
     
-    def oai_http_client
-      logger.info "Constructing OAI http client with faraday options #{config.http_options.to_hash.inspect}"
-      @oai_http_client ||= Faraday.new config.oai_repository_url, config.http_options.to_hash
-    end
-
-    # Global, memoized, lazy initialized instance of a logger
-    # @param String directory for to get log file
-    # @param String name of log file
-    def self.logger(log_dir, log_name)
-      Dir.mkdir(log_dir) unless File.directory?(log_dir) 
-      @logger ||= Logger.new(File.join(log_dir, log_name), 'daily')
-    end
-
   end # class Client
-  
-  # @param oai_header object or oai_identifier
-  # @return [String] the druid part of an OAI identifier in an OAI header
-  def self.druid(arg)
-    oai_id = arg
-    if arg.is_a?(OAI::Header)
-      oai_id = arg.identifier
-    elsif arg.is_a?(OAI::Record)
-      oai_id = arg.header.identifier
-    end
-    oai_id.split('druid:').last
-  end
 
 end # module Harvestdor
