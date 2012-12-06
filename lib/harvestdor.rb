@@ -5,7 +5,6 @@ require 'harvestdor/version'
 # external gems
 require 'confstruct'
 require 'oai'
-require 'nokogiri'
 # stdlib
 require 'logger'
 require 'open-uri'
@@ -26,9 +25,6 @@ module Harvestdor
   DEFAULT_UNTIL_DATE = nil
   DEFAULT_SET = nil
   
-  RDF_NAMESPACE = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'
-  OAI_DC_NAMESPACE = 'http://www.openarchives.org/OAI/2.0/oai_dc/'
-
   class Client
     
     def self.default_config
