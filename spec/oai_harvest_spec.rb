@@ -23,7 +23,8 @@ describe 'Harvestdor::Client oai harvesting' do
       header1.identifier = 'oai:searchworks.stanford.edu/druid:foo'
       header2 = OAI::Header.new(nil)
       header2.identifier = 'oai:searchworks.stanford.edu/druid:bar'
-      @oai_response.stub(:entries).and_return([header1, header2])
+      oai_response = mock('oai_response')
+      oai_response.stub(:entries).and_return([header1, header2])
       @harvestdor_client.harvest_ids().should == ['foo', 'bar']
     end
     it "should have results viewable as an array" do

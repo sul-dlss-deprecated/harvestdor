@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe Harvestdor do
 
-  context "druid class method" do
+  context "#druid" do
     it "should return the druid part of an oai identifier" do
       Harvestdor.druid('oai:searchworks.stanford.edu/druid:foo').should == 'foo'
     end
