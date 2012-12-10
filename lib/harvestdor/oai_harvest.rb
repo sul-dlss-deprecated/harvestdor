@@ -35,14 +35,17 @@ module Harvestdor
       end
     end
     
-    # @param [Hash] options of OAI params (metadata_prefix, from, until, set) to be used in lieu of config.defaults
-    # @return [Hash] OAI params (metadata_prefix, from, until, set) with values from options param or config.default values
+    # @param [Hash] options of OAI params (metadata_prefix, from, until, set) to be used in lieu of config default values
+    # @return [Hash] OAI params (metadata_prefix, from, until, set) to be used
     def oai_options options = {}
       oai_options={}
       oai_options[:metadata_prefix] = options.keys.include?(:metadata_prefix) ? options[:metadata_prefix] : config.default_metadata_prefix 
       oai_options[:from] = options.keys.include?(:from) ? options[:from] : config.default_from_date
       oai_options[:until] = options.keys.include?(:until) ? options[:until] : config.default_until_date
       oai_options[:set] = options.keys.include?(:set) ? options[:set] : config.default_set
+      oai_options.each { |k, v|  
+        oai_options[k] = '' if v.nil?
+      }
       oai_options
     end
     
@@ -68,7 +71,6 @@ module Harvestdor
         list_method_sym = :list_records
       end
 
-p oai_args
       response = oai_client.send list_method_sym, oai_args
       while response && response.entries.size > 0
         response.entries.each &block

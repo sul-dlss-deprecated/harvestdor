@@ -99,18 +99,25 @@ describe 'Harvestdor::Client oai harvesting' do
   end  
   
   describe "oai_options" do
+    before(:all) do
+      @expected_oai_args = @oai_arg_defaults.dup
+      @expected_oai_args.each { |k, v|  
+        @expected_oai_args[k] = '' if v.nil?
+      }
+      
+    end
     it "should use client's default values for OAI arguments if they are not present in the method param hash" do
-      @harvestdor_client.oai_options.should == @oai_arg_defaults
+      @harvestdor_client.oai_options.should == @expected_oai_args
     end
     it "should use OAI arguments from the method param hash if they are present" do
       passed_options = {:metadata_prefix => 'mods', :from => '2012-11-30'}
-      @harvestdor_client.oai_options(passed_options).should == @oai_arg_defaults.merge(passed_options)
+      @harvestdor_client.oai_options(passed_options).should == @expected_oai_args.merge(passed_options)
     end
     it "should use nil value for option when it is passed in options hash" do
       client = Harvestdor::Client.new({:default_from_date => '2012-01-01'})
       client.config.default_from_date.should == '2012-01-01'
       passed_options = {:from => nil}
-      client.oai_options(passed_options)[:from].should == nil
+      client.oai_options(passed_options)[:from].should == ''
     end
   end
 
