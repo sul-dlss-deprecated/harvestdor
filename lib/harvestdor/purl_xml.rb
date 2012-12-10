@@ -8,8 +8,8 @@ module Harvestdor
   MODS_NAMESPACE = 'http://www.loc.gov/mods/v3'
 
   # the MODS metadata for this fedora object, from the purl server
-  # @param [String] the druid
-  # @param [String] url for the purl server.  default is Harvestdor::PURL_DEFAULT
+  # @param [String] druid
+  # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the MODS for the fedora object
   def self.mods druid, purl_url = Harvestdor::PURL_DEFAULT
     begin
@@ -20,8 +20,8 @@ module Harvestdor
   end
 
   # the public xml for this fedora object, from the purl page
-  # @param [String] the druid
-  # @param [String] url for the purl server.  default is Harvestdor::PURL_DEFAULT
+  # @param [String] druid
+  # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the public xml for the fedora object
   def self.public_xml druid, purl_url = Harvestdor::PURL_DEFAULT
     begin
@@ -34,8 +34,8 @@ module Harvestdor
   end
 
   # the contentMetadata for this fedora object, from the purl xml
-  # @param [String] the druid
-  # @param [String] url for the purl server.  default is Harvestdor::PURL_DEFAULT
+  # @param [String] druid
+  # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the contentMetadata for the fedora object
   def self.content_metadata druid, purl_url = Harvestdor::PURL_DEFAULT
     xml = Harvestdor.public_xml(druid, purl_url)
@@ -48,8 +48,8 @@ module Harvestdor
   end
 
   # the identityMetadata for this fedora object, from the purl xml
-  # @param [String] the druid
-  # @param [String] url for the purl server.  default is Harvestdor::PURL_DEFAULT
+  # @param [String] druid
+  # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the identityMetadata for the fedora object
   def self.identity_metadata druid, purl_url = Harvestdor::PURL_DEFAULT
     xml = Harvestdor.public_xml(druid, purl_url)
@@ -62,8 +62,8 @@ module Harvestdor
   end
 
   # the rightsMetadata for this fedora object, from the purl xml
-  # @param [String] the druid
-  # @param [String] url for the purl server.  default is Harvestdor::PURL_DEFAULT
+  # @param [String] druid
+  # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the rightsMetadata for the fedora object
   def self.rights_metadata druid, purl_url = Harvestdor::PURL_DEFAULT
     xml = Harvestdor.public_xml(druid, purl_url)
@@ -76,8 +76,8 @@ module Harvestdor
   end
 
   # the RDF for this fedora object, from the purl xml
-  # @param [String] the druid
-  # @param [String] url for the purl server.  default is Harvestdor::PURL_DEFAULT
+  # @param [String] druid
+  # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the RDF for the fedora object
   def self.rdf druid, purl_url = Harvestdor::PURL_DEFAULT
     xml = Harvestdor.public_xml(druid, purl_url)
@@ -90,8 +90,8 @@ module Harvestdor
   end
 
   # the Dublin Core for this fedora object, from the purl xml
-  # @param [String] the druid
-  # @param [String] url for the purl server.  default is Harvestdor::PURL_DEFAULT
+  # @param [String] druid
+  # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the dc for the fedora object
   def self.dc druid, purl_url = Harvestdor::PURL_DEFAULT
     xml = Harvestdor.public_xml(druid, purl_url)
@@ -106,49 +106,49 @@ module Harvestdor
   class Client
     
     # the public xml for this fedora object, from the purl server
-    # @param [String] the druid for the purl url
+    # @param [String] druid for the purl url
     # @return [Nokogiri::XML::Document] the MODS metadata for the fedora object
     def mods druid
       Harvestdor.mods(druid, config.purl)
     end
 
     # the public xml for this fedora object, from the purl xml
-    # @param [String] the druid for the purl url
+    # @param [String] druid for the purl url
     # @return [Nokogiri::XML::Document] the public xml for the fedora object
     def public_xml druid
       Harvestdor.public_xml(druid, config.purl)
     end
 
     # the contentMetadata for this fedora object, from the purl xml
-    # @param [String] the druid for the purl url
+    # @param [String] druid for the purl url
     # @return [Nokogiri::XML::Document] the contentMetadata for the fedora object
     def content_metadata druid
       Harvestdor.content_metadata(druid, config.purl)
     end
 
     # the identityMetadata for this fedora object, from the purl xml
-    # @param [String] the druid for the purl url
+    # @param [String] druid for the purl url
     # @return [Nokogiri::XML::Document] the identityMetadata for the fedora object
     def identity_metadata druid
       Harvestdor.identity_metadata(druid, config.purl)
     end
 
     # the rightsMetadata for this fedora object, from the purl xml
-    # @param [String] the druid for the purl url
+    # @param [String] druid for the purl url
     # @return [Nokogiri::XML::Document] the rightsMetadata for the fedora object
     def rights_metadata druid
       Harvestdor.rights_metadata(druid, config.purl)
     end
 
     # the RDF for this fedora object, from the purl xml
-    # @param [String] the druid for the purl url
+    # @param [String] druid for the purl url
     # @return [Nokogiri::XML::Document] the RDF for the fedora object
     def rdf druid
       Harvestdor.rdf(druid, config.purl)
     end
 
     # the Dublin Core for this fedora object, from the purl xml
-    # @param [String] the druid for the purl url
+    # @param [String] druid for the purl url
     # @return [Nokogiri::XML::Document] the dc for the fedora object
     def dc druid
       Harvestdor.dc(druid, config.purl)

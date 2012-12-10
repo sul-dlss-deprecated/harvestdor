@@ -69,8 +69,8 @@ module Harvestdor
     end
 
     # Global, memoized, lazy initialized instance of a logger
-    # @param String directory for to get log file
-    # @param String name of log file
+    # @param [String] log_dir directory for to get log file
+    # @param [String] log_name name of log file
     def self.logger(log_dir, log_name)
       Dir.mkdir(log_dir) unless File.directory?(log_dir) 
       @logger ||= Logger.new(File.join(log_dir, log_name), 'daily')
@@ -78,7 +78,7 @@ module Harvestdor
 
   end # class Client
   
-  # @param oai_header object or oai_identifier
+  # @param [Object] arg OAI::Header object or OAI::Record object or String (oai identifier)
   # @return [String] the druid part of an OAI identifier in an OAI header
   def self.druid(arg)
     oai_id = arg
