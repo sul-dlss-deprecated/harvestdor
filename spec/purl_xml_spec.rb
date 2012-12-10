@@ -1,5 +1,6 @@
 require "spec_helper"
 
+# these are Integration specs!  They do go out to the purl page.
 describe Harvestdor::Client do
 
   before(:all) do
