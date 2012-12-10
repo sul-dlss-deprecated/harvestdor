@@ -3,7 +3,7 @@ log_dir: spec/test_logs
 
 # log_name: name of log file  (default: harvestdor.log)
 
-# purl: url for the DOR purl server (uses to get ContentMetadata, etc.)
+# purl: url for the DOR purl server (used to get ContentMetadata, etc.)
 purl: http://purl-test.stanford.edu
 
 # ---------- OAI harvesting parameters -----------
@@ -28,7 +28,6 @@ default_from_date: '2012-11-01'
 #   can be overridden on calls to harvest_ids and harvest_records
 
 # Additional options to pass to Faraday http client (https://github.com/technoweenie/faraday)
-#  note that keys for subvalues must be symbols
 http_options:
   ssl:
     verify: false
