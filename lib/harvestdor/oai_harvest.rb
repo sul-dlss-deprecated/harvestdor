@@ -39,10 +39,10 @@ module Harvestdor
     # @return [Hash] of OAI params (metadata_prefix, from, until, set) set from options param or config.default values
     def oai_options options = {}
       oai_options={}
-      oai_options[:metadata_prefix] = options[:metadata_prefix] ? options[:metadata_prefix] : config.default_metadata_prefix 
-      oai_options[:from] = options[:from] ? options[:from] : config.default_from_date
-      oai_options[:until] = options[:until] ? options[:until] : config.default_until_date
-      oai_options[:set] = options[:set] ? options[:set] : config.default_set
+      oai_options[:metadata_prefix] = options.keys.include?(:metadata_prefix) ? options[:metadata_prefix] : config.default_metadata_prefix 
+      oai_options[:from] = options.keys.include?(:from) ? options[:from] : config.default_from_date
+      oai_options[:until] = options.keys.include?(:until) ? options[:until] : config.default_until_date
+      oai_options[:set] = options.keys.include?(:set) ? options[:set] : config.default_set
       oai_options
     end
     
@@ -67,9 +67,9 @@ module Harvestdor
       if harvest_records
         list_method_sym = :list_records
       end
-      
+
       response = oai_client.send list_method_sym, oai_args
-      while response.entries.size > 0
+      while response && response.entries.size > 0
         response.entries.each &block
 
         token = response.resumption_token

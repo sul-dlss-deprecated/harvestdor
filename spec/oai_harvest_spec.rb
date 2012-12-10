@@ -25,7 +25,7 @@ describe 'Harvestdor::Client oai harvesting' do
       header2.identifier = 'oai:searchworks.stanford.edu/druid:bar'
       oai_response = mock('oai_response')
       oai_response.stub(:entries).and_return([header1, header2])
-      @harvestdor_client.harvest_ids().should == ['foo', 'bar']
+      @harvestdor_client.harvest_ids.should == ['foo', 'bar']
     end
     it "should have results viewable as an array" do
       @harvestdor_client.harvest_ids.should be_an_instance_of(Array)
@@ -57,7 +57,7 @@ describe 'Harvestdor::Client oai harvesting' do
       oai_rec2 = OAI::Record.new(nil)
       oai_rec2.header = header2
       @oai_response.stub(:entries).and_return([oai_rec1, oai_rec2])
-      @harvestdor_client.harvest_records().should == [oai_rec1, oai_rec2]
+      @harvestdor_client.harvest_records.should == [oai_rec1, oai_rec2]
     end
     it "should have results viewable as an array" do
       @harvestdor_client.harvest_records.should be_an_instance_of(Array)
@@ -85,7 +85,7 @@ describe 'Harvestdor::Client oai harvesting' do
       header2 = OAI::Header.new(nil)
       header2.identifier = 'oai:searchworks.stanford.edu/druid:bar'
       @oai_response.stub(:entries).and_return([header1, header2])
-      @harvestdor_client.harvest_headers().should == [header1, header2]
+      @harvestdor_client.harvest_headers.should == [header1, header2]
     end
     it "should have results viewable as an array" do
       @harvestdor_client.harvest_headers.should be_an_instance_of(Array)
@@ -105,7 +105,13 @@ describe 'Harvestdor::Client oai harvesting' do
     it "should use OAI arguments from the method param hash if they are present" do
       passed_options = {:metadata_prefix => 'mods', :from => '2012-11-30'}
       @harvestdor_client.oai_options(passed_options).should == @oai_arg_defaults.merge(passed_options)
-    end    
+    end
+    it "should use nil value for option when it is passed in options hash" do
+      client = Harvestdor::Client.new({:default_from_date => '2012-01-01'})
+      client.config.default_from_date.should == '2012-01-01'
+      passed_options = {:from => nil}
+      client.oai_options(passed_options)[:from].should == nil
+    end
   end
 
   describe "each_oai_object" do
