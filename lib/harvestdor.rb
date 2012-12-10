@@ -44,9 +44,7 @@ module Harvestdor
     
     def initialize options = {}
       config.configure(YAML.load_file(options[:config_yml_path])) if options[:config_yml_path]
-      
       config.configure options
-      
       yield(config) if block_given?
     end
     
@@ -56,7 +54,7 @@ module Harvestdor
     
     # @return OAI::Client an instantiated OAI::Client object, based on config options
     def oai_client
-      @oai_client ||= OAI::Client.new config.oai_repository_url, :debug => config.oai_client_debug, :http => config.oai_http_client
+      @oai_client ||= OAI::Client.new config.oai_repository_url, :debug => config.oai_client_debug, :http => oai_http_client
     end
 
     def logger

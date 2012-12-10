@@ -113,6 +113,10 @@ describe Harvestdor::Client do
     it "oai_client should return an OAI::Client object based on config data" do
       @default_oai_client.should be_an_instance_of(OAI::Client)
     end 
+    
+    it "oai_client should have an http_client" do
+      @default_oai_client.instance_variable_get(:@http_client).should be_an_instance_of(Faraday::Connection)
+    end
 
     context "oai_http_client (protected method)" do
 	    before(:all) do
