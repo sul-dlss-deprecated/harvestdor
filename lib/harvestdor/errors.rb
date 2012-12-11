@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Harvestdor
   module Errors
     MissingPurlPage = Class.new(StandardError) 
