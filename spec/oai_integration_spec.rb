@@ -15,14 +15,14 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => 
         @opts = {:metadata_prefix => 'mods', :from => nil, :until => nil, :set => 'is_governed_by_hy787xj5878'}
       end
       it "should be able to harvest headers" do
-        headers = @test_hclient.harvest_headers(@opts)
+        headers = @test_hclient.oai_headers(@opts)
         headers.should be_an_instance_of(Array)
         headers.size.should > 0
         headers.size.should < 50  # no resumption token
         headers.first.should be_an_instance_of(OAI::Header)
       end
       it "should be able to harvest records" do
-        records = @test_hclient.harvest_records(@opts)
+        records = @test_hclient.oai_records(@opts)
         records.should be_an_instance_of(Array)
         records.size.should > 0
         records.size.should < 50  # no resumption token
@@ -35,7 +35,7 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => 
       end
       it "should be able to harvest headers" do
         pending "need to find small set > 50 on test"
-        headers = @test_hclient.harvest_headers(@opts)
+        headers = @test_hclient.oai_headers(@opts)
         headers.should be_an_instance_of(Array)
         headers.size.should > 50
         headers.first.should be_an_instance_of(OAI::Header)
@@ -59,14 +59,14 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => 
         @opts = {:metadata_prefix => 'mods', :from => nil, :until => '2012-05-03T19:19:33Z', :set => 'is_governed_by_hy787xj5878'}
       end
       it "should be able to harvest headers" do
-        headers = @prod_hclient.harvest_headers(@opts)
+        headers = @prod_hclient.oai_headers(@opts)
         headers.should be_an_instance_of(Array)
         headers.size.should > 0
         headers.size.should < 50  # no resumption token
         headers.first.should be_an_instance_of(OAI::Header)
       end
       it "should be able to harvest records" do
-        records = @prod_hclient.harvest_records(@opts)
+        records = @prod_hclient.oai_records(@opts)
         records.should be_an_instance_of(Array)
         records.size.should > 0
         records.size.should < 50  # no resumption token
@@ -78,14 +78,14 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => 
         @opts = {:metadata_prefix => 'mods', :from => nil, :until => nil, :set => 'is_member_of_collection_jh957jy1101'}
       end
       it "should be able to harvest headers" do
-        headers = @prod_hclient.harvest_headers(@opts)
+        headers = @prod_hclient.oai_headers(@opts)
         headers.should be_an_instance_of(Array)
         headers.size.should > 50
         headers.first.should be_an_instance_of(OAI::Header)
       end
       it "should be able to harvest records" do
         pending "the request always seems to time out"
-        records = @prod_hclient.harvest_records(@opts)
+        records = @prod_hclient.oai_records(@opts)
         records.should be_an_instance_of(Array)
         records.size.should > 50
         records.first.should be_an_instance_of(OAI::Record)

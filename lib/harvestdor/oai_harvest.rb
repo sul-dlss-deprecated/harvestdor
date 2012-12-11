@@ -2,71 +2,65 @@ require 'oai'
 
 module Harvestdor
 
-  # Mixin:  methods to perform an OAI harvest
+  # Mixin:  methods to perform an OAI harvest and iterate over results
   class Client
 
     # return Array of OAI::Records from the OAI harvest indicated by OAI params (metadata_prefix, from, until, set)
+    # @param [Hash] oai_args optional OAI params (:metadata_prefix, :from, :until, :set) to be used in lieu of config default values
     # @return [Array<OAI::Record>] or enumeration over it, if block is given
-    def harvest_records options = {}
-      return to_enum(:harvest_records, options).to_a unless block_given?
+    def oai_records oai_args = {}
+      return to_enum(:oai_records, oai_args).to_a unless block_given?
 
-      each_record(oai_options(options)) do |oai_rec|
+      harvest(:list_records, scrub_oai_args(oai_args)) do |oai_rec|
         yield oai_rec
       end 
     end
   
     # return Array of OAI::Headers from the OAI harvest indicated by OAI params (metadata_prefix, from, until, set)
+    # @param [Hash] oai_args optional OAI params (:metadata_prefix, :from, :until, :set) to be used in lieu of config default values
     # @return [Array<OAI::Header>] or enumeration over it, if block is given
-    def harvest_headers options = {}
-      return to_enum(:harvest_headers, options).to_a unless block_given?
+    def oai_headers oai_args = {}
+      return to_enum(:oai_headers, oai_args).to_a unless block_given?
       
-      each_header(oai_options(options)) do |oai_hdr|
+      harvest(:list_identifiers, scrub_oai_args(oai_args)) do |oai_hdr|
         yield oai_hdr
       end
     end
 
     # return Array of druids contained in the OAI harvest indicated by OAI params (metadata_prefix, from, until, set)
+    # @param [Hash] oai_args optional OAI params (:metadata_prefix, :from, :until, :set) to be used in lieu of config default values
     # @return [Array<String>] or enumeration over it, if block is given
-    def harvest_ids options = {}
-      return to_enum(:harvest_ids, options).to_a unless block_given?
+    def druids_via_oai oai_args = {}
+      return to_enum(:druids_via_oai, oai_args).to_a unless block_given?
 
-      each_header(oai_options(options)) do |oai_hdr|
+      harvest(:list_identifiers, scrub_oai_args(oai_args)) do |oai_hdr|
         yield Harvestdor.druid(oai_hdr)
       end
     end
     
-    # @param [Hash] options of OAI params (metadata_prefix, from, until, set) to be used in lieu of config default values
-    # @return [Hash] OAI params (metadata_prefix, from, until, set) to be used
-    def oai_options options = {}
-      oai_options={}
-      oai_options[:metadata_prefix] = options.keys.include?(:metadata_prefix) ? options[:metadata_prefix] : config.default_metadata_prefix 
-      oai_options[:from] = options.keys.include?(:from) ? options[:from] : config.default_from_date
-      oai_options[:until] = options.keys.include?(:until) ? options[:until] : config.default_until_date
-      oai_options[:set] = options.keys.include?(:set) ? options[:set] : config.default_set
-      oai_options.each { |k, v|  
-        oai_options.delete(k) if v.nil? || v.size == 0
+    protected #---------------------------------------------------------------------
+
+    # @param [Hash] oai_args Hash of OAI params (metadata_prefix, from, until, set) to be used in lieu of config default values
+    # @return [Hash] OAI params (metadata_prefix, from, until, set) cleaned up for making harvest request
+    def scrub_oai_args oai_args = {}
+      scrubbed_args={}
+      scrubbed_args[:metadata_prefix] = oai_args.keys.include?(:metadata_prefix) ? oai_args[:metadata_prefix] : config.default_metadata_prefix 
+      scrubbed_args[:from] = oai_args.keys.include?(:from) ? oai_args[:from] : config.default_from_date
+      scrubbed_args[:until] = oai_args.keys.include?(:until) ? oai_args[:until] : config.default_until_date
+      scrubbed_args[:set] = oai_args.keys.include?(:set) ? oai_args[:set] : config.default_set
+      scrubbed_args.each { |k, v|  
+        scrubbed_args.delete(k) if v.nil? || v.size == 0
       }
-      oai_options
+      scrubbed_args
     end
     
-    # Iterate over the OAI client's records (following resumption tokens) and yield OAI::Record
-    # @return enumeration of [OAI::Record]
-    def each_record (oai_args, &block)
-      each_oai_object(:list_records, oai_args, &block)
-    end
-    
-    # Iterate over the OAI client's headers (following resumption tokens) and yield OAI::Header
-    # @return enumeration of [OAI::Header]
-    def each_header (oai_args, &block)
-      each_oai_object(:list_identifiers, oai_args, &block)
-    end
-    
-    # harvest identifiers or records and return a response object with one entry for each record/header retrieved
+    # harvest OAI headers or OAI records and return a response object with one entry for each record/header retrieved
+    #  follows resumption tokens (i.e. chunks are all present in result)
     # @param [Symbol] verb :list_identifiers or :list_records
-    # @param [Hash] oai_args 
-    # @return response to OAI request, as one large enumerable object (i.e. chunks are all present in one object)
+    # @param [Hash] oai_args OAI params (metadata_prefix, from, until, set) used for request
+    # @return response to OAI request, as one enumerable object 
     # TODO: This could be moved into ruby-oai?
-    def each_oai_object (verb, oai_args, &block)
+    def harvest (verb, oai_args, &block)
       response = oai_client.send verb, oai_args
       while response && response.entries.size > 0
         response.entries.each &block
@@ -81,10 +75,12 @@ module Harvestdor
     rescue Faraday::Error::TimeoutError => e
       logger.error "No response from OAI Provider"
       logger.error e
+      raise e
     rescue OAI::Exception => e
       # possibly unnecessary after ruby-oai 0.0.14
       logger.error "Received unexpected OAI::Exception"
       logger.error e
+      raise e
     end
 
   end # class OaiHarvester
