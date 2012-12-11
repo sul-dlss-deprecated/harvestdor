@@ -12,7 +12,7 @@ module Harvestdor
 
       each_record(oai_options(options)) do |oai_rec|
         yield oai_rec
-      end
+      end 
     end
   
     # return Array of OAI::Headers from the OAI harvest indicated by OAI params (metadata_prefix, from, until, set)
@@ -29,7 +29,7 @@ module Harvestdor
     # @return [Array<String>] or enumeration over it, if block is given
     def harvest_ids options = {}
       return to_enum(:harvest_ids, options).to_a unless block_given?
-      
+
       each_header(oai_options(options)) do |oai_hdr|
         yield Harvestdor.druid(oai_hdr)
       end
@@ -44,7 +44,7 @@ module Harvestdor
       oai_options[:until] = options.keys.include?(:until) ? options[:until] : config.default_until_date
       oai_options[:set] = options.keys.include?(:set) ? options[:set] : config.default_set
       oai_options.each { |k, v|  
-        oai_options[k] = '' if v.nil?
+        oai_options.delete(k) if v.nil? || v.size == 0
       }
       oai_options
     end
@@ -52,26 +52,22 @@ module Harvestdor
     # Iterate over the OAI client's records (following resumption tokens) and yield OAI::Record
     # @return enumeration of [OAI::Record]
     def each_record (oai_args, &block)
-      each_oai_object(true, oai_args, &block)
+      each_oai_object(:list_records, oai_args, &block)
     end
     
     # Iterate over the OAI client's headers (following resumption tokens) and yield OAI::Header
     # @return enumeration of [OAI::Header]
     def each_header (oai_args, &block)
-      each_oai_object(false, oai_args, &block)
+      each_oai_object(:list_identifiers, oai_args, &block)
     end
     
-    # Iterate over the OAI client's records (following resumption tokens) and yield OAI::Record
-    # @param [Boolean] harvest_records set to true to harvest OAI::Record objects; false for OAI::Header objects
-    # @return enumeration of [OAI::Record]
+    # harvest identifiers or records and return a response object with one entry for each record/header retrieved
+    # @param [Symbol] verb :list_identifiers or :list_records
+    # @param [Hash] oai_args 
+    # @return response to OAI request, as one large enumerable object (i.e. chunks are all present in one object)
     # TODO: This could be moved into ruby-oai?
-    def each_oai_object (harvest_records, oai_args, &block)
-      list_method_sym = :list_identifiers
-      if harvest_records
-        list_method_sym = :list_records
-      end
-
-      response = oai_client.send list_method_sym, oai_args
+    def each_oai_object (verb, oai_args, &block)
+      response = oai_client.send verb, oai_args
       while response && response.entries.size > 0
         response.entries.each &block
 
@@ -79,16 +75,16 @@ module Harvestdor
         if token.nil? or token.empty?
           break
         else
-          response = oai_client.send(list_method_sym, :resumption_token => token)
+          response = oai_client.send(verb, :resumption_token => token)
         end
       end
     rescue Faraday::Error::TimeoutError => e
-      Harvestdor.logger.error "No response from OAI Provider"
-      Harvestdor.logger.error e
+      logger.error "No response from OAI Provider"
+      logger.error e
     rescue OAI::Exception => e
       # possibly unnecessary after ruby-oai 0.0.14
-      Harvestdor.logger.error "Received unexpected OAI::Exception"
-      Harvestdor.logger.error e
+      logger.error "Received unexpected OAI::Exception"
+      logger.error e
     end
 
   end # class OaiHarvester

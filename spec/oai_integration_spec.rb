@@ -15,10 +15,18 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests' do
         @opts = {:metadata_prefix => 'mods', :from => nil, :until => nil, :set => 'is_governed_by_hy787xj5878'}
       end
       it "should be able to harvest headers" do
-        @test_hclient.harvest_headers(@opts).should be_an_instance_of(Array)
+        headers = @test_hclient.harvest_headers(@opts)
+        headers.should be_an_instance_of(Array)
+        headers.size.should > 0
+        headers.size.should < 50  # no resumption token
+        headers.first.should be_an_instance_of(OAI::Header)
       end
       it "should be able to harvest records" do
-        @test_hclient.harvest_records(@opts).should be_an_instance_of(Array)
+        records = @test_hclient.harvest_records(@opts)
+        records.should be_an_instance_of(Array)
+        records.size.should > 0
+        records.size.should < 50  # no resumption token
+        records.first.should be_an_instance_of(OAI::Record)
       end
     end
     context "with resumption tokens" do
@@ -26,10 +34,18 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests' do
         @opts = {:metadata_prefix => 'mods', :from => nil, :until => nil, :set => 'is_member_of_kh678dr8608'}
       end
       it "should be able to harvest headers" do
-        @test_hclient.harvest_headers(@opts).should be_an_instance_of(Array)
+        pending "need to find small set > 50 on test"
+        headers = @test_hclient.harvest_headers(@opts)
+        headers.should be_an_instance_of(Array)
+        headers.size.should > 50
+        headers.first.should be_an_instance_of(OAI::Header)
       end
       it "should be able to harvest records" do
-        @test_hclient.harvest_records(@opts).should be_an_instance_of(Array)
+        pending "need to find small set > 50 on test"
+        records = @test_hclient.harvest_records(@opts)
+        records.should be_an_instance_of(Array)
+        records.size.should > 50
+        records.first.should be_an_instance_of(OAI::Record)
       end
     end
   end
@@ -43,10 +59,18 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests' do
         @opts = {:metadata_prefix => 'mods', :from => nil, :until => '2012-05-03T19:19:33Z', :set => 'is_governed_by_hy787xj5878'}
       end
       it "should be able to harvest headers" do
-        @prod_hclient.harvest_headers(@opts).should be_an_instance_of(Array)
+        headers = @prod_hclient.harvest_headers(@opts)
+        headers.should be_an_instance_of(Array)
+        headers.size.should > 0
+        headers.size.should < 50  # no resumption token
+        headers.first.should be_an_instance_of(OAI::Header)
       end
       it "should be able to harvest records" do
-        @prod_hclient.harvest_records(@opts).should be_an_instance_of(Array)
+        records = @prod_hclient.harvest_records(@opts)
+        records.should be_an_instance_of(Array)
+        records.size.should > 0
+        records.size.should < 50  # no resumption token
+        records.first.should be_an_instance_of(OAI::Record)
       end
     end
     context "with resumption tokens" do
@@ -54,10 +78,17 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests' do
         @opts = {:metadata_prefix => 'mods', :from => nil, :until => nil, :set => 'is_member_of_collection_jh957jy1101'}
       end
       it "should be able to harvest headers" do
-        @prod_hclient.harvest_headers(@opts).should be_an_instance_of(Array)
+        headers = @prod_hclient.harvest_headers(@opts)
+        headers.should be_an_instance_of(Array)
+        headers.size.should > 50
+        headers.first.should be_an_instance_of(OAI::Header)
       end
       it "should be able to harvest records" do
-        @prod_hclient.harvest_records(@opts).should be_an_instance_of(Array)
+        pending "the request always seems to time out"
+        records = @prod_hclient.harvest_records(@opts)
+        records.should be_an_instance_of(Array)
+        records.size.should > 50
+        records.first.should be_an_instance_of(OAI::Record)
       end
     end
   end

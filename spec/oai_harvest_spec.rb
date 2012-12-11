@@ -102,7 +102,7 @@ describe 'Harvestdor::Client oai harvesting' do
     before(:all) do
       @expected_oai_args = @oai_arg_defaults.dup
       @expected_oai_args.each { |k, v|  
-        @expected_oai_args[k] = '' if v.nil?
+        @expected_oai_args.delete(k) if v.nil? || v.size == 0
       }
       
     end
@@ -117,7 +117,7 @@ describe 'Harvestdor::Client oai harvesting' do
       client = Harvestdor::Client.new({:default_from_date => '2012-01-01'})
       client.config.default_from_date.should == '2012-01-01'
       passed_options = {:from => nil}
-      client.oai_options(passed_options)[:from].should == ''
+      client.oai_options(passed_options)[:from].should == nil
     end
   end
 
@@ -129,7 +129,7 @@ describe 'Harvestdor::Client oai harvesting' do
           oai_response
       }
       @harvestdor_client.oai_client.should_receive(:list_records)
-      @harvestdor_client.each_oai_object(true, {})
+      @harvestdor_client.each_oai_object(:list_records, {})
     end
     
     it "should perform a list_identifiers OAI request when first arg is false" do
@@ -139,7 +139,7 @@ describe 'Harvestdor::Client oai harvesting' do
           oai_response
       }
       @harvestdor_client.oai_client.should_receive(:list_identifiers)
-      @harvestdor_client.each_oai_object(false, {})
+      @harvestdor_client.each_oai_object(:list_identifiers, {})
     end
 
     it "should use passed OAI arguments" do
@@ -150,7 +150,7 @@ describe 'Harvestdor::Client oai harvesting' do
       }
       oai_options_hash = {:metadata_prefix => 'mods', :from => '2012-11-30'}
       @harvestdor_client.oai_client.should_receive(:list_identifiers).with(oai_options_hash)
-      @harvestdor_client.each_oai_object(false, oai_options_hash)
+      @harvestdor_client.each_oai_object(:list_identifiers, oai_options_hash)
     end
     
     it "should yield to a passed block" do
@@ -160,7 +160,7 @@ describe 'Harvestdor::Client oai harvesting' do
       @harvestdor_client.oai_client.stub(:list_records).with(an_instance_of(Hash)) { 
           oai_response
       }
-      expect { |b| @harvestdor_client.each_oai_object(true, {}, &b) }.to yield_successive_args(1, 2)
+      expect { |b| @harvestdor_client.each_oai_object(:list_records, {}, &b) }.to yield_successive_args(1, 2)
     end
 
     context "resumption tokens" do
@@ -172,7 +172,7 @@ describe 'Harvestdor::Client oai harvesting' do
         }
 
         i = 0
-        @harvestdor_client.each_oai_object(true, {}) { |record| i += 1 }
+        @harvestdor_client.each_oai_object(:list_records, {}) { |record| i += 1 }
         i.should == 0
       end
 
@@ -185,7 +185,7 @@ describe 'Harvestdor::Client oai harvesting' do
         }
 
         i = 0
-        @harvestdor_client.each_oai_object(true, {}) { |record| i += 1 }
+        @harvestdor_client.each_oai_object(:list_records, {}) { |record| i += 1 }
         i.should == 5
       end
 
@@ -198,7 +198,7 @@ describe 'Harvestdor::Client oai harvesting' do
         }
 
         i = 0
-        @harvestdor_client.each_oai_object(true, {}) { |record| i += 1 }
+        @harvestdor_client.each_oai_object(:list_records, {}) { |record| i += 1 }
         i.should == 5
       end      
     end # resumption tokens
