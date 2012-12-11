@@ -38,6 +38,15 @@ module Harvestdor
       end
     end
     
+    # get a single OAI record using a get_record OAI request
+    # @param [String] druid (which will be turned into OAI identifier)
+    # @param [String] md_prefix the OAI metadata prefix determining which metadata will be in the retrieved OAI::Record object
+    # @return [OAI::Record] record object retrieved from OAI server
+    def oai_record druid, md_prefix = 'mods'
+      prefix = md_prefix ? md_prefix : config.default_metadata_prefix
+      oai_client.get_record({:identifier => "oai:searchworks.stanford.edu/druid:#{druid}", :metadata_prefix => prefix}).record
+    end
+    
     protected #---------------------------------------------------------------------
 
     # @param [Hash] oai_args Hash of OAI params (metadata_prefix, from, until, set) to be used in lieu of config default values

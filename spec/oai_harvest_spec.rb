@@ -79,7 +79,7 @@ describe 'Harvestdor::Client oai harvesting' do
           @oai_response
       }
     end
-    it "should return OAI::Record objects" do
+    it "should return OAI::Header objects" do
       header1 = OAI::Header.new(nil)
       header1.identifier = 'oai:searchworks.stanford.edu/druid:foo'
       header2 = OAI::Header.new(nil)
@@ -97,7 +97,20 @@ describe 'Harvestdor::Client oai harvesting' do
       expect { |b| @harvestdor_client.oai_headers(&b) }.to yield_successive_args(1, 2)
     end
   end  
-  
+    
+  describe "oai_record (single record request)" do
+    it "should return OAI::Record object" do
+      oai_rec = OAI::Record.new(nil)
+      oai_resp = mock('oai_response')
+      oai_resp.stub(:record).and_return(oai_rec)
+      @harvestdor_client.oai_client.stub(:get_record) { 
+          oai_resp
+      }
+      @harvestdor_client.oai_record('druid').should == oai_rec
+      @harvestdor_client.oai_record('druid', 'mods').should == oai_rec
+    end
+  end  
+
   describe "scrub_oai_args" do
     before(:all) do
       @expected_oai_args = @oai_arg_defaults.dup
@@ -203,9 +216,5 @@ describe 'Harvestdor::Client oai harvesting' do
       end      
     end # resumption tokens
   end
-    
-  it "should keep utf-8 encoded characters intact" do
-    pending "to be implemented"
-  end
-    
+        
 end
