@@ -125,6 +125,7 @@ persist this information with your app for incremental harvests
 
 == Releases
 
+* <b>0.0.6</b> refactoring oai_harvest for greater simplicity and passing errors through, add oai_record (get_record OAI request)
 * <b>0.0.5</b> don't send empty string arguments to OAI server so you can get actual results
 * <b>0.0.4</b> add integration spec and get it working with actual OAI server
 * <b>0.0.3</b> add method to get mods from purl
