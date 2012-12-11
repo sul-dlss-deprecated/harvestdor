@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Harvestdor::Client OAI Harvesting Integration Tests' do
+describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => true do
 
   before(:all) do
     @config_yml_path = File.join(File.dirname(__FILE__), "config", "oai.yml")
