@@ -16,8 +16,9 @@ module Harvestdor
   LOG_DIR_DEFAULT = File.join(File.dirname(__FILE__), "..", "logs")
   PURL_DEFAULT = 'http://purl-test.stanford.edu'
   HTTP_OPTIONS_DEFAULT = { 'ssl' => { 'verify' => false }, 
-                           'timeout' => 500, 
-                           'open_timeout' => 500 }
+                           'timeout' => 180, # open/read timeout (seconds)
+                           'open_timeout' => 180 # connection open timeout (seconds)
+                          }
   OAI_CLIENT_DEBUG_DEFAULT = false
   OAI_REPOSITORY_URL_DEFAULT = 'https://dor-oaiprovider-prod.stanford.edu/oai'
   DEFAULT_METADATA_PREFIX = 'mods'

@@ -104,8 +104,10 @@ module OAI
       # OLD: response = @http_client.get uri
       response = @http_client.get do |req|
         req.url uri
-        req.options[:timeout] = 500           # open/read timeout in seconds
-        req.options[:open_timeout] = 500      # connection open timeout in seconds
+        # FIXME: hard-coded default settings in harvestdor are used here
+        # values are in seconds
+        req.options[:timeout] = Harvestdor::Client.default_config.http_options.timeout     # open/read timeout
+        req.options[:open_timeout] = Harvestdor::Client.default_config.http_options.open_timeout   # connection open timeout
       end
       response.body
     end
