@@ -25,7 +25,7 @@ Or install it yourself as:
 for contents of yml --  see spec/config/oai.yml
 
   client = Harvestdor::Client.new({:config_yml_path => path_to_my_yml})
-  client.harvest_ids do |druid|
+  client.druids_via_oai do |druid|
     # do stuff with the druid, e.g. 
     #  cm = client.content_metadata(druid)
     #  mods = client.mods(druid)
@@ -36,7 +36,7 @@ for contents of yml --  see spec/config/oai.yml
 ==== Option 2:  pass in non-default configurations as a hash
 
   client = Harvestdor::Client.new({:oai_repository_url => 'http://my_oai.org, :default_from_date => '2012-12-01'})
-  client.harvest_ids do |druid|
+  client.druids_via_oai do |druid|
     # do stuff with the druid, e.g. 
     #  cm = client.content_metadata(druid)
     #  mods = client.mods(druid)
@@ -48,7 +48,7 @@ for contents of yml --  see spec/config/oai.yml
 
   client = Harvestdor::Client.new
   client.config.oai_repository_url = 'http://my_oai.org'
-  client.harvest_records do |rec|
+  client.oai_records do |rec|
     # do stuff with the OAI rec, e.g.
     #  manipulate metadata into solr doc
     #  manipulate stuff from record.about into solr doc
@@ -58,19 +58,19 @@ for contents of yml --  see spec/config/oai.yml
 ==== Option 4:  set the OAI parameters as params in call to Harvestdor::Client.harvest_xx
 
   client = Harvestdor.new({oai_repository_url = 'http://my_oai.org'})
-  client.harvest_ids(:metadataPrefix => 'foo', :from => '2012-11-27', :set => 'isGovernedBy:hy787xj5878') do | id |
+  client.oai_headers(:metadataPrefix => 'foo', :from => '2012-11-27', :set => 'isGovernedBy:hy787xj5878') do | id |
     # do stuff with the druid
   end
 
 === OAI Harvesting
 
-  Harvestdor::Client.harvest_ids  gets enumerated druids for the records in your specified set / date range
+  Harvestdor::Client.druids_via_oai  gets enumerated druids for the records in your specified set / date range  (druids are not preceded by 'druid:')
 
-  Harvestdor::Client.harvest_records  gets enumerated OAI record objects in your specified set / data range, with the metadata format you indicated
+  Harvestdor::Client.oai_records  gets enumerated OAI record objects in your specified set / data range, with the metadata format you indicated
 
 You can also get these as arrays:
 
-  druid_array = client.harvest_ids(:metadataPrefix => 'foo', :from => '(last_harvested_date)', :set => 'asdfasdf')
+  druid_array = client.druids_via_oai(:metadataPrefix => 'foo', :from => '(last_harvested_date)', :set => 'asdfasdf')
 
 === XML from PURL pages
 
@@ -125,6 +125,7 @@ persist this information with your app for incremental harvests
 
 == Releases
 
+* <b>0.0.7</b> add oai client timeout overrides, update README
 * <b>0.0.6</b> refactoring oai_harvest for greater simplicity and passing errors through, add oai_record (get_record OAI request)
 * <b>0.0.5</b> don't send empty string arguments to OAI server so you can get actual results
 * <b>0.0.4</b> add integration spec and get it working with actual OAI server
