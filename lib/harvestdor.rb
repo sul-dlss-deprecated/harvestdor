@@ -79,7 +79,7 @@ module Harvestdor
   end # class Client
   
   # @param [Object] arg OAI::Header object or OAI::Record object or String (oai identifier)
-  # @return [String] the druid part of an OAI identifier in an OAI header
+  # @return [String] the druid part of an OAI identifier in an OAI header, e.g.  bb134cc1324
   def self.druid(arg)
     oai_id = arg
     if arg.is_a?(OAI::Header)
