@@ -28,8 +28,9 @@ default_from_date: '2012-11-01'
 #   can be overridden on calls to harvest_ids and harvest_records
 
 # Additional options to pass to Faraday http client (https://github.com/technoweenie/faraday)
+# timeouts are in seconds
 http_options:
   ssl:
     verify: false
-  timeout: 501
-  open_timeout: 502
+  timeout: 121
+  open_timeout: 122
