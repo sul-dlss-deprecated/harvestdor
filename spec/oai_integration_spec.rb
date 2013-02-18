@@ -70,7 +70,8 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => 
     end
     context "withOUT resumption tokens" do
       before(:all) do
-        @oai_args = {:metadata_prefix => 'mods', :from => nil, :until => '2012-05-03T19:19:33Z', :set => 'is_governed_by_hy787xj5878'}
+        # Reid-Dennis: 47 objects
+        @oai_args = {:metadata_prefix => 'mods', :from => nil, :until => nil, :set => 'is_governed_by_sd064kn5856'}
       end
       it "should be able to harvest headers" do
         headers = @prod_hclient.oai_headers(@oai_args)
@@ -89,6 +90,7 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => 
     end
     context "with resumption tokens" do
       before(:all) do
+        # Archives Parlementaires - 8x objects
         @oai_args = {:metadata_prefix => 'mods', :from => nil, :until => nil, :set => 'is_member_of_collection_jh957jy1101'}
       end
       it "should be able to harvest headers" do
