@@ -96,3 +96,18 @@ module Harvestdor
 
 end # module Harvestdor
 
+module OAI
+  class Client
+    # monkey patch to adjust timeouts
+    # Do the actual HTTP get, following any temporary redirects
+    def get(uri)
+      # OLD: response = @http_client.get uri
+      response = @http_client.get do |req|
+        req.url uri
+        req.options[:timeout] = 500           # open/read timeout in seconds
+        req.options[:open_timeout] = 500      # connection open timeout in seconds
+      end
+      response.body
+    end
+  end
+end
