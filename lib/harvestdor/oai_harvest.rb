@@ -58,7 +58,7 @@ module Harvestdor
       scrubbed_args[:until] = oai_args.keys.include?(:until) ? oai_args[:until] : config.default_until_date
       scrubbed_args[:set] = oai_args.keys.include?(:set) ? oai_args[:set] : config.default_set
       scrubbed_args.each { |k, v|  
-        scrubbed_args.delete(k) if v.nil? || v.size == 0
+        scrubbed_args.delete(k) if v.nil? || v == ''
       }
       scrubbed_args
     end

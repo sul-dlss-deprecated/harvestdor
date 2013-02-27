@@ -125,6 +125,7 @@ persist this information with your app for incremental harvests
 
 == Releases
 
+* <b>0.0.8</b> avoid undefined method 'size' from scrub_oai_args when using a non-nil default date param
 * <b>0.0.7</b> add oai client timeout overrides, update README
 * <b>0.0.6</b> refactoring oai_harvest for greater simplicity and passing errors through, add oai_record (get_record OAI request)
 * <b>0.0.5</b> don't send empty string arguments to OAI server so you can get actual results
