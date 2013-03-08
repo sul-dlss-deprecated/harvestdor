@@ -7,6 +7,7 @@ describe Harvestdor::Client do
     @druid = 'bb375wb8869'
     @purl = 'http://purl-test.stanford.edu'
   end
+  
   it "raises Harvestdor::Errors::MissingPurlPage if there is no purl page for the druid" do
     druid = 'oo134oo1010'
     expect { Harvestdor.public_xml(druid, @purl) }.to raise_error(Harvestdor::Errors::MissingPurlPage)
@@ -57,7 +58,7 @@ describe Harvestdor::Client do
       @rdf_xml = "<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'><rdf:Description rdf:about=\"info:fedora/druid:#{@druid}\">relationship!</rdf:Description></rdf:RDF>"
       @dc_xml = "<oai_dc:dc xmlns:oai_dc='#{Harvestdor::OAI_DC_NAMESPACE}'><oai_dc:title>hoo ha</oai_dc:title</oai_dc:dc>"
       @pub_xml = "<publicObject id='druid:#{@druid}'>#{@id_md_xml}#{@cntnt_md_xml}#{@rights_md_xml}#{@rdf_xml}#{@dc_xml}</publicObject>"
-      @ng_pub_xml = Nokogiri::XML(@pub_xml)
+      @ng_pub_xml = Nokogiri::XML(@pub_xml)      
     end
     it "#content_metadata returns a Nokogiri::XML::Document from the public xml" do
       cm = Harvestdor.content_metadata(@ng_pub_xml)
@@ -92,22 +93,22 @@ describe Harvestdor::Client do
 
   context "public xml methods called with unknown object type" do
     before(:all) do
-      @errmsg = "method expected String or Nokogiri::XML::Document for first argument, got Array"
+      @errmsg = "expected String or Nokogiri::XML::Document for first argument, got Array"
     end
     it "#content_metadata raises error for unknown type" do
-      expect { Harvestdor.content_metadata(Array.new)}.to raise_error(RuntimeError, "content_metadata #{@errmsg}")
+      expect { Harvestdor.content_metadata(Array.new)}.to raise_error(RuntimeError, "#{@errmsg}")
     end
     it "#identity_metadata raises error for unknown type" do
-      expect { Harvestdor.identity_metadata(Array.new)}.to raise_error(RuntimeError, "identity_metadata #{@errmsg}")
+      expect { Harvestdor.identity_metadata(Array.new)}.to raise_error(RuntimeError, "#{@errmsg}")
     end
     it "#rights_metadata raises error for unknown type" do
-      expect { Harvestdor.rights_metadata(Array.new)}.to raise_error(RuntimeError, "rights_metadata #{@errmsg}")
+      expect { Harvestdor.rights_metadata(Array.new)}.to raise_error(RuntimeError, "#{@errmsg}")
     end
     it "#rdf raises error for unknown type" do
-      expect { Harvestdor.rdf(Array.new)}.to raise_error(RuntimeError, "rdf #{@errmsg}")
+      expect { Harvestdor.rdf(Array.new)}.to raise_error(RuntimeError, "#{@errmsg}")
     end
     it "#dc raises error for unknown type" do
-      expect { Harvestdor.dc(Array.new)}.to raise_error(RuntimeError, "dc #{@errmsg}")
+      expect { Harvestdor.dc(Array.new)}.to raise_error(RuntimeError, "#{@errmsg}")
     end
   end
 
@@ -151,9 +152,5 @@ describe Harvestdor::Client do
       Harvestdor.should_receive(:mods).with(@druid, @client.config.purl)
       @client.mods(@druid)
     end
-    it "do something!" do
-      pending "to be implemented"
-    end    
   end
-
 end

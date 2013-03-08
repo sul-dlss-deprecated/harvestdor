@@ -24,6 +24,7 @@ module Harvestdor
   # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the public xml for the fedora object
   def self.public_xml druid, purl_url = Harvestdor::PURL_DEFAULT
+    return druid if druid.instance_of?(Nokogiri::XML::Document)
     begin
       Nokogiri::XML(open("#{purl_url}/#{druid}.xml"))
     rescue OpenURI::HTTPError
@@ -39,15 +40,7 @@ module Harvestdor
   # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the contentMetadata for the fedora object
   def self.content_metadata object, purl_url = Harvestdor::PURL_DEFAULT
-    case 
-      when object.instance_of?(String)
-        # it's a druid
-        pub_xml_ng_doc = Harvestdor.public_xml(object, purl_url)
-      when object.instance_of?(Nokogiri::XML::Document)
-        pub_xml_ng_doc = object
-      else
-        raise "content_metadata method expected String or Nokogiri::XML::Document for first argument, got #{object.class}"
-    end    
+    pub_xml_ng_doc = pub_xml(object, purl_url)
     begin
       # preserve namespaces, etc for the node
       Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/contentMetadata').to_xml)
@@ -62,15 +55,7 @@ module Harvestdor
   # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the identityMetadata for the fedora object
   def self.identity_metadata object, purl_url = Harvestdor::PURL_DEFAULT
-    case 
-      when object.instance_of?(String)
-        # it's a druid
-        pub_xml_ng_doc = Harvestdor.public_xml(object, purl_url)
-      when object.instance_of?(Nokogiri::XML::Document)
-        pub_xml_ng_doc = object
-      else
-        raise "identity_metadata method expected String or Nokogiri::XML::Document for first argument, got #{object.class}"
-    end
+    pub_xml_ng_doc = pub_xml(object, purl_url)
     begin
       # preserve namespaces, etc for the node
       Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/identityMetadata').to_xml)
@@ -85,15 +70,7 @@ module Harvestdor
   # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the rightsMetadata for the fedora object
   def self.rights_metadata object, purl_url = Harvestdor::PURL_DEFAULT
-    case 
-      when object.instance_of?(String)
-        # it's a druid
-        pub_xml_ng_doc = Harvestdor.public_xml(object, purl_url)
-      when object.instance_of?(Nokogiri::XML::Document)
-        pub_xml_ng_doc = object
-      else
-        raise "rights_metadata method expected String or Nokogiri::XML::Document for first argument, got #{object.class}"
-    end    
+    pub_xml_ng_doc = pub_xml(object, purl_url)
     begin
       # preserve namespaces, etc for the node
       Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/rightsMetadata').to_xml)
@@ -108,15 +85,7 @@ module Harvestdor
   # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the RDF for the fedora object
   def self.rdf object, purl_url = Harvestdor::PURL_DEFAULT
-    case 
-      when object.instance_of?(String)
-        # it's a druid
-        pub_xml_ng_doc = Harvestdor.public_xml(object, purl_url)
-      when object.instance_of?(Nokogiri::XML::Document)
-        pub_xml_ng_doc = object
-      else
-        raise "rdf method expected String or Nokogiri::XML::Document for first argument, got #{object.class}"
-    end    
+    pub_xml_ng_doc = pub_xml(object, purl_url)
     begin
       # preserve namespaces, etc for the node
       Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/rdf:RDF', {'rdf' => Harvestdor::RDF_NAMESPACE}).to_xml)
@@ -131,15 +100,7 @@ module Harvestdor
   # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the dc for the fedora object
   def self.dc object, purl_url = Harvestdor::PURL_DEFAULT
-    case 
-      when object.instance_of?(String)
-        # it's a druid
-        pub_xml_ng_doc = Harvestdor.public_xml(object, purl_url)
-      when object.instance_of?(Nokogiri::XML::Document)
-        pub_xml_ng_doc = object
-      else
-        raise "dc method expected String or Nokogiri::XML::Document for first argument, got #{object.class}"
-    end
+    pub_xml_ng_doc = pub_xml(object, purl_url)
     begin
       # preserve namespaces, etc for the node
       Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/dc:dc', {'dc' => Harvestdor::OAI_DC_NAMESPACE}).to_xml)
@@ -165,40 +126,64 @@ module Harvestdor
     end
 
     # the contentMetadata for this fedora object, from the purl xml
-    # @param [String] druid e.g. ab123cd4567, in the purl url
+    # @param [Object] object a String containing a druid (e.g. ab123cd4567), or 
+    #  a Nokogiri::XML::Document containing the public_xml for an object
     # @return [Nokogiri::XML::Document] the contentMetadata for the fedora object
-    def content_metadata druid
-      Harvestdor.content_metadata(druid, config.purl)
+    def content_metadata object
+      Harvestdor.content_metadata(object, config.purl)
     end
 
     # the identityMetadata for this fedora object, from the purl xml
-    # @param [String] druid e.g. ab123cd4567, in the purl url
+    # @param [Object] object a String containing a druid (e.g. ab123cd4567), or 
+    #  a Nokogiri::XML::Document containing the public_xml for an object
     # @return [Nokogiri::XML::Document] the identityMetadata for the fedora object
-    def identity_metadata druid
-      Harvestdor.identity_metadata(druid, config.purl)
+    def identity_metadata object
+      Harvestdor.identity_metadata(object, config.purl)
     end
 
     # the rightsMetadata for this fedora object, from the purl xml
-    # @param [String] druid e.g. ab123cd4567, in the purl url
+    # @param [Object] object a String containing a druid (e.g. ab123cd4567), or 
+    #  a Nokogiri::XML::Document containing the public_xml for an object
     # @return [Nokogiri::XML::Document] the rightsMetadata for the fedora object
-    def rights_metadata druid
-      Harvestdor.rights_metadata(druid, config.purl)
+    def rights_metadata object
+      Harvestdor.rights_metadata(object, config.purl)
     end
 
     # the RDF for this fedora object, from the purl xml
-    # @param [String] druid e.g. ab123cd4567, in the purl url
+    # @param [Object] object a String containing a druid (e.g. ab123cd4567), or 
+    #  a Nokogiri::XML::Document containing the public_xml for an object
     # @return [Nokogiri::XML::Document] the RDF for the fedora object
-    def rdf druid
-      Harvestdor.rdf(druid, config.purl)
+    def rdf object
+      Harvestdor.rdf(object, config.purl)
     end
 
     # the Dublin Core for this fedora object, from the purl xml
-    # @param [String] druid e.g. ab123cd4567, in the purl url
+    # @param [Object] object a String containing a druid (e.g. ab123cd4567), or 
+    #  a Nokogiri::XML::Document containing the public_xml for an object
     # @return [Nokogiri::XML::Document] the dc for the fedora object
-    def dc druid
-      Harvestdor.dc(druid, config.purl)
+    def dc object
+      Harvestdor.dc(object, config.purl)
     end
     
   end # class Client
+
+  protected #--------------------------------------------
+  
+  # @param [Object] object a String containing a druid (e.g. ab123cd4567), or 
+  #  a Nokogiri::XML::Document containing the public_xml for an object
+  # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
+  # @return [Nokogiri::XML::Document] the public xml for a DOR object
+  def self.pub_xml(object, purl_url = Harvestdor::PURL_DEFAULT)
+    case 
+      when object.instance_of?(String)
+        # it's a druid
+        pub_xml_ng_doc = Harvestdor.public_xml(object, purl_url)
+      when object.instance_of?(Nokogiri::XML::Document)
+        pub_xml_ng_doc = object
+      else
+        raise "expected String or Nokogiri::XML::Document for first argument, got #{object.class}"
+    end
+    pub_xml_ng_doc    
+  end
 
 end # module Harvestdor
