@@ -6,6 +6,13 @@ describe Harvestdor::Client do
   before(:all) do
     @druid = 'bb375wb8869'
     @purl = 'http://purl-test.stanford.edu'
+    @id_md_xml = "<identityMetadata><objectId>druid:#{@druid}</objectId></identityMetadata>"
+    @cntnt_md_xml = "<contentMetadata type='image' objectId='#{@druid}'>foo</contentMetadata>"
+    @rights_md_xml = "<rightsMetadata><access type=\"discover\"><machine><world>bar</world></machine></access></rightsMetadata>"
+    @rdf_xml = "<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'><rdf:Description rdf:about=\"info:fedora/druid:#{@druid}\">relationship!</rdf:Description></rdf:RDF>"
+    @dc_xml = "<oai_dc:dc xmlns:oai_dc='#{Harvestdor::OAI_DC_NAMESPACE}'><oai_dc:title>hoo ha</oai_dc:title</oai_dc:dc>"
+    @pub_xml = "<publicObject id='druid:#{@druid}'>#{@id_md_xml}#{@cntnt_md_xml}#{@rights_md_xml}#{@rdf_xml}#{@dc_xml}</publicObject>"
+    @ng_pub_xml = Nokogiri::XML(@pub_xml)      
   end
   
   it "raises Harvestdor::Errors::MissingPurlPage if there is no purl page for the druid" do
@@ -51,15 +58,6 @@ describe Harvestdor::Client do
   end # public xml methods called with druids
   
   context "public xml methods called with public xml as Nokogiri::XML::Document" do
-    before(:all) do
-      @id_md_xml = "<identityMetadata><objectId>druid:#{@druid}</objectId></identityMetadata>"
-      @cntnt_md_xml = "<contentMetadata type='image' objectId='#{@druid}'>foo</contentMetadata>"
-      @rights_md_xml = "<rightsMetadata><access type=\"discover\"><machine><world>bar</world></machine></access></rightsMetadata>"
-      @rdf_xml = "<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'><rdf:Description rdf:about=\"info:fedora/druid:#{@druid}\">relationship!</rdf:Description></rdf:RDF>"
-      @dc_xml = "<oai_dc:dc xmlns:oai_dc='#{Harvestdor::OAI_DC_NAMESPACE}'><oai_dc:title>hoo ha</oai_dc:title</oai_dc:dc>"
-      @pub_xml = "<publicObject id='druid:#{@druid}'>#{@id_md_xml}#{@cntnt_md_xml}#{@rights_md_xml}#{@rdf_xml}#{@dc_xml}</publicObject>"
-      @ng_pub_xml = Nokogiri::XML(@pub_xml)      
-    end
     it "#content_metadata returns a Nokogiri::XML::Document from the public xml" do
       cm = Harvestdor.content_metadata(@ng_pub_xml)
       cm.should be_kind_of(Nokogiri::XML::Document)
@@ -151,6 +149,13 @@ describe Harvestdor::Client do
     it "mods calls Harvestdor.mods with config.purl" do
       Harvestdor.should_receive(:mods).with(@druid, @client.config.purl)
       @client.mods(@druid)
+    end
+    it "public xml pieces methods should work with Nokogiri::XML::Document arg" do
+      @client.content_metadata(@ng_pub_xml).should be_kind_of(Nokogiri::XML::Document)
+      @client.identity_metadata(@ng_pub_xml).should be_kind_of(Nokogiri::XML::Document)
+      @client.rights_metadata(@ng_pub_xml).should be_kind_of(Nokogiri::XML::Document)
+      @client.rdf(@ng_pub_xml).should be_kind_of(Nokogiri::XML::Document)
+      @client.dc(@ng_pub_xml).should be_kind_of(Nokogiri::XML::Document)
     end
   end
 end
