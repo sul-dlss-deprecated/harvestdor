@@ -58,30 +58,35 @@ describe Harvestdor::Client do
   end # public xml methods called with druids
   
   context "public xml methods called with public xml as Nokogiri::XML::Document" do
-    it "#content_metadata returns a Nokogiri::XML::Document from the public xml" do
+    it "#content_metadata returns a Nokogiri::XML::Document from the passed object and do no fetch" do
+      URI::HTTP.any_instance.should_not_receive(:open)
       cm = Harvestdor.content_metadata(@ng_pub_xml)
       cm.should be_kind_of(Nokogiri::XML::Document)
       cm.root.name.should == 'contentMetadata'
       cm.root.attributes['objectId'].text.should == @druid
     end
-    it "#identity_metadata returns a Nokogiri::XML::Document from the public xml" do
+    it "#identity_metadata returns a Nokogiri::XML::Document from the passed object and do no fetch" do
+      URI::HTTP.any_instance.should_not_receive(:open)
       im = Harvestdor.identity_metadata(@ng_pub_xml)
       im.should be_kind_of(Nokogiri::XML::Document)
       im.root.name.should == 'identityMetadata'
       im.root.xpath('objectId').text.should == "druid:#{@druid}"
     end
-    it "#rights_metadata returns a Nokogiri::XML::Document from the public xml" do
+    it "#rights_metadata returns a Nokogiri::XML::Document from the passed object and do no fetch" do
+      URI::HTTP.any_instance.should_not_receive(:open)
       rm = Harvestdor.rights_metadata(@ng_pub_xml)
       rm.should be_kind_of(Nokogiri::XML::Document)
       rm.root.name.should == 'rightsMetadata'
     end
-    it "#rdf returns a Nokogiri::XML::Document from the public xml" do
+    it "#rdf returns a Nokogiri::XML::Document from the passed object and do no fetch" do
+      URI::HTTP.any_instance.should_not_receive(:open)
       rdf = Harvestdor.rdf(@ng_pub_xml)
       rdf.should be_kind_of(Nokogiri::XML::Document)
       rdf.root.name.should == 'RDF'
       rdf.root.namespace.href.should == Harvestdor::RDF_NAMESPACE
     end
-    it "#dc returns a Nokogiri::XML::Document from the public xml" do
+    it "#dc returns a Nokogiri::XML::Document from the passed object and do no fetch" do
+      URI::HTTP.any_instance.should_not_receive(:open)
       dc = Harvestdor.dc(@ng_pub_xml)
       dc.should be_kind_of(Nokogiri::XML::Document)
       dc.root.name.should == 'dc'
@@ -150,7 +155,8 @@ describe Harvestdor::Client do
       Harvestdor.should_receive(:mods).with(@druid, @client.config.purl)
       @client.mods(@druid)
     end
-    it "public xml pieces methods should work with Nokogiri::XML::Document arg" do
+    it "public xml pieces methods should work with Nokogiri::XML::Document arg (and not fetch)" do
+      URI::HTTP.any_instance.should_not_receive(:open)
       @client.content_metadata(@ng_pub_xml).should be_kind_of(Nokogiri::XML::Document)
       @client.identity_metadata(@ng_pub_xml).should be_kind_of(Nokogiri::XML::Document)
       @client.rights_metadata(@ng_pub_xml).should be_kind_of(Nokogiri::XML::Document)

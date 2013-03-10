@@ -125,6 +125,7 @@ persist this information with your app for incremental harvests
 
 == Releases
 
+* <b>0.0.10</b> tweak specs to test that unnec fetching isn't done.
 * <b>0.0.9</b> allows public xml to be passed as Nokogiri::XML::Document to content_metadata, etc. to avoid unnec fetching
 * <b>0.0.8</b> avoid undefined method 'size' from scrub_oai_args when using a non-nil default date param
 * <b>0.0.7</b> add oai client timeout overrides, update README
