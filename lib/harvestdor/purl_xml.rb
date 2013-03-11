@@ -26,11 +26,11 @@ module Harvestdor
   def self.public_xml druid, purl_url = Harvestdor::PURL_DEFAULT
     return druid if druid.instance_of?(Nokogiri::XML::Document)
     begin
-      Nokogiri::XML(open("#{purl_url}/#{druid}.xml"))
+      ng_doc = Nokogiri::XML(open("#{purl_url}/#{druid}.xml"))
+      raise Harvestdor::Errors::MissingPublicXml.new(druid) if !ng_doc || ng_doc.children.empty?
+      ng_doc 
     rescue OpenURI::HTTPError
       raise Harvestdor::Errors::MissingPurlPage.new(druid)
-    rescue
-      raise Harvestdor::Errors::MissingPublicXml.new(druid)
     end
   end
 
@@ -43,9 +43,11 @@ module Harvestdor
     pub_xml_ng_doc = pub_xml(object, purl_url)
     begin
       # preserve namespaces, etc for the node
-      Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/contentMetadata').to_xml)
+      ng_doc = Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/contentMetadata').to_xml)
+      raise Harvestdor::Errors::MissingContentMetadata.new(object.inspect) if !ng_doc || ng_doc.children.empty?
+      ng_doc 
     rescue
-      raise Harvestdor::Errors::MissingContentMetadata.new(druid)
+      raise Harvestdor::Errors::MissingContentMetadata.new(object.inspect)
     end
   end
 
@@ -58,9 +60,11 @@ module Harvestdor
     pub_xml_ng_doc = pub_xml(object, purl_url)
     begin
       # preserve namespaces, etc for the node
-      Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/identityMetadata').to_xml)
+      ng_doc = Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/identityMetadata').to_xml)
+      raise Harvestdor::Errors::MissingIdentityMetadata.new(object.inspect) if !ng_doc || ng_doc.children.empty?
+      ng_doc 
     rescue
-      raise Harvestdor::Errors::MissingIdentityMetadata.new(druid)
+      raise Harvestdor::Errors::MissingIdentityMetadata.new(object.inspect)
     end
   end
 
@@ -73,9 +77,11 @@ module Harvestdor
     pub_xml_ng_doc = pub_xml(object, purl_url)
     begin
       # preserve namespaces, etc for the node
-      Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/rightsMetadata').to_xml)
+      ng_doc = Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/rightsMetadata').to_xml)
+      raise Harvestdor::Errors::MissingRightsMetadata.new(object.inspect) if !ng_doc || ng_doc.children.empty?
+      ng_doc
     rescue
-      raise Harvestdor::Errors::MissingRightsMetadata.new(druid)
+      raise Harvestdor::Errors::MissingRightsMetadata.new(object.inspect)
     end
   end
 
@@ -88,9 +94,11 @@ module Harvestdor
     pub_xml_ng_doc = pub_xml(object, purl_url)
     begin
       # preserve namespaces, etc for the node
-      Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/rdf:RDF', {'rdf' => Harvestdor::RDF_NAMESPACE}).to_xml)
+      ng_doc = Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/rdf:RDF', {'rdf' => Harvestdor::RDF_NAMESPACE}).to_xml)
+      raise Harvestdor::Errors::MissingRDF.new(object.inspect) if !ng_doc || ng_doc.children.empty?
+      ng_doc
     rescue
-      raise Harvestdor::Errors::MissingRDF.new(druid)
+      raise Harvestdor::Errors::MissingRDF.new(object.inspect)
     end
   end
 
@@ -103,11 +111,14 @@ module Harvestdor
     pub_xml_ng_doc = pub_xml(object, purl_url)
     begin
       # preserve namespaces, etc for the node
-      Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/dc:dc', {'dc' => Harvestdor::OAI_DC_NAMESPACE}).to_xml)
+      ng_doc = Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/dc:dc', {'dc' => Harvestdor::OAI_DC_NAMESPACE}).to_xml)
+      raise Harvestdor::Errors::MissingDC.new(object.inspect) if !ng_doc || ng_doc.children.empty?
+      ng_doc
     rescue
-      raise Harvestdor::Errors::MissingDC.new(druid)
+      raise Harvestdor::Errors::MissingDC.new(object.inspect)
     end
   end
+
 
   class Client
     
