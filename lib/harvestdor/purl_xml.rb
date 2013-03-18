@@ -13,7 +13,7 @@ module Harvestdor
   # @return [Nokogiri::XML::Document] the MODS for the fedora object
   def self.mods druid, purl_url = Harvestdor::PURL_DEFAULT
     begin
-      Nokogiri::XML(open("#{purl_url}/#{druid}.mods"))
+      Nokogiri::XML(open("#{purl_url}/#{druid}.mods"),nil,'UTF-8')
     rescue OpenURI::HTTPError
       raise Harvestdor::Errors::MissingMods.new(druid)
     end
