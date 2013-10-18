@@ -35,7 +35,7 @@ for contents of yml --  see spec/config/oai.yml
 
 ==== Option 2:  pass in non-default configurations as a hash
 
-  client = Harvestdor::Client.new({:oai_repository_url => 'http://my_oai.org', :default_from_date => '2012-12-01'})
+  client = Harvestdor::Client.new({:oai_repository_url => 'http://my_oai.org, :default_from_date => '2012-12-01'})
   client.druids_via_oai do |druid|
     # do stuff with the druid, e.g. 
     #  cm = client.content_metadata(druid)
@@ -58,7 +58,7 @@ for contents of yml --  see spec/config/oai.yml
 ==== Option 4:  set the OAI parameters as params in call to Harvestdor::Client.harvest_xx
 
   client = Harvestdor.new({oai_repository_url = 'http://my_oai.org'})
-  client.oai_headers(:metadataPrefix => 'foo', :from => '2012-11-27', :set => 'is_governed_by_hy787xj5878') do | id |
+  client.oai_headers(:metadataPrefix => 'foo', :from => '2012-11-27', :set => 'isGovernedBy:hy787xj5878') do | id |
     # do stuff with the druid
   end
 
