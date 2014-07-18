@@ -35,7 +35,7 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => 
         @oai_args = {:metadata_prefix => 'mods', :from => nil, :until => nil, :set => 'is_member_of_kh678dr8608'}
       end
       it "should be able to harvest headers" do
-        pending "need to find small set > 50 on test"
+        skip "need to find small set > 50 on test"
         headers = @test_hclient.oai_headers(@oai_args)
         headers.should be_an_instance_of(Array)
         headers.size.should > 50

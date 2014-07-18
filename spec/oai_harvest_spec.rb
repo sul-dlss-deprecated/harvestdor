@@ -11,7 +11,7 @@ describe 'Harvestdor::Client oai harvesting' do
   
   describe "druids_via_oai" do
     before(:each) do
-      oai_response = mock('oai_response')
+      oai_response = double('oai_response')
       oai_response.stub(:entries).and_return(['foo', 'bar'])
       oai_response.stub(:resumption_token).and_return('')
       @harvestdor_client.oai_client.stub(:list_identifiers).with(an_instance_of(Hash)) { 
@@ -23,7 +23,7 @@ describe 'Harvestdor::Client oai harvesting' do
       header1.identifier = 'oai:searchworks.stanford.edu/druid:foo'
       header2 = OAI::Header.new(nil)
       header2.identifier = 'oai:searchworks.stanford.edu/druid:bar'
-      oai_response = mock('oai_response')
+      oai_response = double('oai_response')
       oai_response.stub(:entries).and_return([header1, header2])
       @harvestdor_client.druids_via_oai.should == ['foo', 'bar']
     end
@@ -40,7 +40,7 @@ describe 'Harvestdor::Client oai harvesting' do
   
   describe "oai_records" do
     before(:each) do
-      @oai_response = mock('oai_response')
+      @oai_response = double('oai_response')
       @oai_response.stub(:entries).and_return([1, 2])
       @oai_response.stub(:resumption_token).and_return('')
       @harvestdor_client.oai_client.stub(:list_records).with(an_instance_of(Hash)) { 
@@ -72,7 +72,7 @@ describe 'Harvestdor::Client oai harvesting' do
 
   describe "oai_headers" do
     before(:each) do
-      @oai_response = mock('oai_response')
+      @oai_response = double('oai_response')
       @oai_response.stub(:entries).and_return([1, 2])
       @oai_response.stub(:resumption_token).and_return('')
       @harvestdor_client.oai_client.stub(:list_identifiers).with(an_instance_of(Hash)) { 
@@ -101,7 +101,7 @@ describe 'Harvestdor::Client oai harvesting' do
   describe "oai_record (single record request)" do
     it "should return OAI::Record object" do
       oai_rec = OAI::Record.new(nil)
-      oai_resp = mock('oai_response')
+      oai_resp = double('oai_response')
       oai_resp.stub(:record).and_return(oai_rec)
       @harvestdor_client.oai_client.stub(:get_record) { 
           oai_resp
@@ -136,7 +136,7 @@ describe 'Harvestdor::Client oai harvesting' do
 
   describe "harvest" do
     it "should perform a list_records OAI request when first arg is true" do
-      oai_response = mock('oai_response')
+      oai_response = double('oai_response')
       oai_response.stub(:entries).and_return([])
       @harvestdor_client.oai_client.stub(:list_records).with(an_instance_of(Hash)) { 
           oai_response
@@ -146,7 +146,7 @@ describe 'Harvestdor::Client oai harvesting' do
     end
     
     it "should perform a list_identifiers OAI request when first arg is false" do
-      oai_response = mock('oai_response')
+      oai_response = double('oai_response')
       oai_response.stub(:entries).and_return([])
       @harvestdor_client.oai_client.stub(:list_identifiers).with(an_instance_of(Hash)) { 
           oai_response
@@ -156,7 +156,7 @@ describe 'Harvestdor::Client oai harvesting' do
     end
 
     it "should use passed OAI arguments" do
-      oai_response = mock('oai_response')
+      oai_response = double('oai_response')
       oai_response.stub(:entries).and_return([])
       @harvestdor_client.oai_client.stub(:list_identifiers).with(an_instance_of(Hash)) { 
           oai_response
@@ -167,7 +167,7 @@ describe 'Harvestdor::Client oai harvesting' do
     end
     
     it "should yield to a passed block" do
-      oai_response = mock('oai_response')
+      oai_response = double('oai_response')
       oai_response.stub(:entries).and_return([1, 2])
       oai_response.stub(:resumption_token).and_return('')
       @harvestdor_client.oai_client.stub(:list_records).with(an_instance_of(Hash)) { 
@@ -178,7 +178,7 @@ describe 'Harvestdor::Client oai harvesting' do
 
     context "resumption tokens" do
       it "should stop processing when no records/headers are received" do
-        oai_response = mock('oai_response')
+        oai_response = double('oai_response')
         oai_response.stub(:entries).and_return([])
         @harvestdor_client.oai_client.stub(:list_records).with(an_instance_of(Hash)) { 
             oai_response
@@ -190,7 +190,7 @@ describe 'Harvestdor::Client oai harvesting' do
       end
 
       it "should stop processing when the resumption token is empty" do
-        oai_response_with_token = mock('oai_response')
+        oai_response_with_token = double('oai_response')
         oai_response_with_token.stub(:entries).and_return([1,2,3,4,5])
         oai_response_with_token.stub(:resumption_token).and_return('')
         @harvestdor_client.oai_client.stub(:list_records).with(an_instance_of(Hash)) { 
@@ -203,7 +203,7 @@ describe 'Harvestdor::Client oai harvesting' do
       end
 
       it "should stop processing when there was no resumption token" do
-        oai_response_with_token = mock('oai_response')
+        oai_response_with_token = double('oai_response')
         oai_response_with_token.stub(:entries).and_return([1,2,3,4,5])
         oai_response_with_token.stub(:resumption_token).and_return(nil)
         @harvestdor_client.oai_client.stub(:list_records).with(an_instance_of(Hash)) { 
@@ -212,7 +212,7 @@ describe 'Harvestdor::Client oai harvesting' do
 
         i = 0
         @harvestdor_client.send(:harvest, :list_records, {}) { |record| i += 1 }
-        i.should == 5
+        expect(i).to eql(5)
       end      
     end # resumption tokens
   end
