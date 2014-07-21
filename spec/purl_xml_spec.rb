@@ -1,7 +1,7 @@
 require "spec_helper"
 
 # these are Integration specs!  They do go out to the purl page.
-describe Harvestdor::Client do
+describe Harvestdor::Client, :integration => true do 
 
   before(:all) do
     @druid = 'bb375wb8869'
@@ -129,7 +129,7 @@ describe Harvestdor::Client do
     end  
   end
   
-  context "#dc" do
+  context "#dc" do 
     it "returns a Nokogiri::XML::Document from the public xml fetched with druid" do
       dc = Harvestdor.dc(@druid, @purl)
       dc.should be_kind_of(Nokogiri::XML::Document)
