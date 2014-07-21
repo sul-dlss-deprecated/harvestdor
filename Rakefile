@@ -7,9 +7,6 @@ require 'rspec/core/rake_task'
 require 'yard'
 require 'yard/rake/yardoc_task'
 
-require 'dlss/rake/dlss_release'
-Dlss::Release.new
-
 begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e
@@ -18,7 +15,6 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 
-desc "DO NOT USE! use dlss_release"
 task :release do
 end
 
@@ -30,11 +26,12 @@ task :ci => [:rspec, :doc]
 task :spec => :rspec
 
 desc "run specs EXCEPT integration specs"
-RSpec::Core::RakeTask.new(:spec_fast) do |spec|
+RSpec::Core::RakeTask.new(:rspec) do |spec|
   spec.rspec_opts = ["-c", "-f progress", "--tty", "-t ~integration", "-r ./spec/spec_helper.rb"]
 end
 
-RSpec::Core::RakeTask.new(:rspec) do |spec|
+desc "Run specs including integration specs. These will only run from the Stanford network."
+RSpec::Core::RakeTask.new(:integration) do |spec|
   spec.rspec_opts = ["-c", "-f progress", "--tty", "-r ./spec/spec_helper.rb"]
 end
 

@@ -18,6 +18,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   
   gem.add_dependency 'oai', '~> 0.3.0'
+  gem.add_dependency 'faraday', '>= 0.9.0'
   gem.add_dependency 'confstruct'
   gem.add_dependency 'nokogiri'
   

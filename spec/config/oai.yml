@@ -32,5 +32,6 @@ default_from_date: '2012-11-01'
 http_options:
   ssl:
     verify: false
-  timeout: 121
-  open_timeout: 122
+  request:
+    timeout: 121
+    open_timeout: 122
