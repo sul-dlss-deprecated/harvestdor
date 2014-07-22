@@ -20,6 +20,28 @@ Or install it yourself as:
 
 === Configuration
 
+==== Possible configuration options (with default values unless otherwise indicated)
+
+  client = Harvestdor::Client.new({ # Example with all possible options
+    :log_dir => File.join(File.dirname(__FILE__), "..", "logs"),
+    :log_name => 'harvestdor.log',
+    :purl => 'http://purl.stanford.edu',
+    :http_options => { 'ssl' => { 
+                       'verify' => false 
+                       }, 
+                     'request' => {
+                         'timeout' => 60, # open/read timeout (seconds)
+                         'open_timeout' => 60 # connection open timeout (seconds)
+                       }
+                     },
+    :oai_repository_url => 'https://dor-oaiprovider-prod.stanford.edu/oai', # The OAI repository to connect to
+    :oai_client_debug => false,
+    :default_metadata_prefix => 'mods',
+    :default_from_date => '2012-12-01', # default value is nil
+    :default_until_date => '2014-12-01', # default value is nil
+    :default_set => 'is_governed_by_hy787xj5878', # default value is nil
+ })
+
 ==== Option 1:  use a yaml file
 
 for contents of yml --  see spec/config/oai.yml
@@ -57,7 +79,7 @@ for contents of yml --  see spec/config/oai.yml
 
 ==== Option 4:  set the OAI parameters as params in call to Harvestdor::Client.harvest_xx
 
-  client = Harvestdor.new({oai_repository_url = 'http://my_oai.org'})
+  client = Harvestdor::Client.new({oai_repository_url = 'http://my_oai.org'})
   client.oai_headers(:metadataPrefix => 'foo', :from => '2012-11-27', :set => 'is_governed_by_hy787xj5878') do | id |
     # do stuff with the druid
   end

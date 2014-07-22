@@ -14,13 +14,13 @@ module Harvestdor
   
   LOG_NAME_DEFAULT = "harvestdor.log"
   LOG_DIR_DEFAULT = File.join(File.dirname(__FILE__), "..", "logs")
-  PURL_DEFAULT = 'http://purl-test.stanford.edu'
+  PURL_DEFAULT = 'http://purl.stanford.edu'
   HTTP_OPTIONS_DEFAULT = { 'ssl' => { 
                               'verify' => false 
                             }, 
                            'request' => {
-                              'timeout' => 180, # open/read timeout (seconds)
-                              'open_timeout' => 180 # connection open timeout (seconds)
+                              'timeout' => 60, # open/read timeout (seconds)
+                              'open_timeout' => 60 # connection open timeout (seconds)
                             }
                           }
   OAI_CLIENT_DEBUG_DEFAULT = false
@@ -32,6 +32,7 @@ module Harvestdor
   
   class Client
     
+    # Set default values for the construction of Harvestdor::Client objects
     def self.default_config
       @class_config ||= Confstruct::Configuration.new({
         :log_dir => LOG_DIR_DEFAULT,
@@ -47,6 +48,28 @@ module Harvestdor
       })
     end
     
+    # Initialize a new instance of Harvestdor::Client
+    # @param Hash options
+    # @example
+    #   client = Harvestdor::Client.new({ # Example with all possible options
+    #      :log_dir => File.join(File.dirname(__FILE__), "..", "logs"),
+    #      :log_name => 'harvestdor.log',
+    #      :purl => 'http://purl.stanford.edu',
+    #      :http_options => { 'ssl' => { 
+    #                          'verify' => false 
+    #                          }, 
+    #                         'request' => {
+    #                            'timeout' => 30, # open/read timeout (seconds)
+    #                            'open_timeout' => 30 # connection open timeout (seconds)
+    #                          }
+    #                        },
+    #      :oai_repository_url => 'https://dor-oaiprovider-prod.stanford.edu/oai', # The OAI repository to connect to
+    #      :oai_client_debug => false,
+    #      :default_metadata_prefix => 'mods',
+    #      :default_from_date => '2012-12-01', 
+    #      :default_until_date => '2014-12-01',
+    #      :default_set => nil, 
+    #   })
     def initialize options = {}
       config.configure(YAML.load_file(options[:config_yml_path])) if options[:config_yml_path]
       config.configure options
