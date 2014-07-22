@@ -4,7 +4,7 @@ log_dir: spec/test_logs
 # log_name: name of log file  (default: harvestdor.log)
 
 # purl: url for the DOR purl server (used to get ContentMetadata, etc.)
-purl: http://purl-test.stanford.edu
+# purl: http://purl-test.stanford.edu
 
 # ---------- OAI harvesting parameters -----------
 
