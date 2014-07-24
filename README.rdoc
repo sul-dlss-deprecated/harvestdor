@@ -1,5 +1,5 @@
 = Harvestdor
-{<img src="https://travis-ci.org/sul-dlss/harvestdor.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/sul-dlss/harvestdor] {<img src="https://gemnasium.com/sul-dlss/harvestdor.svg" alt="Dependency Status" />}[https://gemnasium.com/sul-dlss/harvestdor]
+{<img src="https://travis-ci.org/sul-dlss/harvestdor.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/sul-dlss/harvestdor] {<img src="https://gemnasium.com/sul-dlss/harvestdor.svg" alt="Dependency Status" />}[https://gemnasium.com/sul-dlss/harvestdor] {<img src="https://badge.fury.io/rb/harvestdor.svg" alt="Gem Version" />}[http://badge.fury.io/rb/harvestdor]
 
 A Gem to harvest metadata from DOR.
 
