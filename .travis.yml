@@ -1,0 +1,14 @@
+language: ruby
+script: rake rspec
+rvm:
+  - ruby-head
+  - 2.1.1
+  - 2.0.0
+  - 1.9.3
+  - jruby-19mode # JRuby in 1.9 mode
+#  - jruby-head
+notifications:
+  email:
+    - ndushay@stanford.edu
+    - laneymcg@stanford.edu
+    - bess@stanford.edu
