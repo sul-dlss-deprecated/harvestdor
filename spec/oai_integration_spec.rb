@@ -1,11 +1,5 @@
 # encoding: utf-8
 require 'spec_helper'
-require 'vcr'
-
-VCR.configure do |c|
-  c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
-  c.hook_into :webmock
-end
 
 describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => true do
 

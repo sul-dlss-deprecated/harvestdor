@@ -1,0 +1,93 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://purl-test.stanford.edu/bb375wb8869.mods
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Mon, 28 Jul 2014 22:21:03 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.19
+      X-Ua-Compatible:
+      - IE=Edge
+      Etag:
+      - '"34b035d74b8c77a9948beea44065b7ef"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 8254d9203d201f30c6b3c8d5b942288b
+      X-Runtime:
+      - '0.014492'
+      Status:
+      - '200'
+      Content-Length:
+      - '3704'
+      Content-Type:
+      - application/xml; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: "<mods xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.loc.gov/mods/v3\"
+        version=\"3.3\" xsi:schemaLocation=\"http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd\">\n
+        \  <titleInfo>\n      <title>Kita&#x12D;</title>\n   </titleInfo>\n   <titleInfo
+        type=\"alternative\">\n      <title>China</title>\n   </titleInfo>\n   <name
+        type=\"corporate\">\n      <namePart>Soviet Union</namePart>\n      <namePart>Sovetskai&#x361;a
+        Armii&#x361;a.</namePart>\n      <namePart>General&#x2B9;ny&#x12D; shtab.</namePart>\n
+        \     <role>\n         <roleTerm authority=\"marcrelator\" type=\"text\">creator</roleTerm>\n
+        \     </role>\n   </name>\n   <typeOfResource>cartographic</typeOfResource>\n
+        \  <genre authority=\"marcgt\">map</genre>\n   <originInfo>\n      <place>\n
+        \        <placeTerm type=\"code\" authority=\"marccountry\">ru</placeTerm>\n
+        \     </place>\n      <place>\n         <placeTerm type=\"text\">[Moscow?]</placeTerm>\n
+        \     </place>\n      <publisher>General&#x2B9;ny&#x12D; shtab</publisher>\n
+        \     <dateIssued>[1968?-</dateIssued>\n      <dateIssued encoding=\"marc\"
+        point=\"start\" keyDate=\"yes\">1968</dateIssued>\n      <dateIssued encoding=\"marc\"
+        point=\"end\">9999</dateIssued>\n      <issuance>monographic</issuance>\n
+        \  </originInfo>\n   <language>\n      <languageTerm authority=\"iso639-2b\"
+        type=\"code\">rus</languageTerm>\n   </language>\n   <physicalDescription>\n
+        \     <form authority=\"smd\">map</form>\n      <extent>maps : col. ; 37 x
+        53 cm. or smaller.</extent>\n   </physicalDescription>\n   <note>Military
+        topographic maps.</note>\n   <note>Relief shown by contours and spot heights.
+        Depths shown by contours and soundings on some sheets.</note>\n   <note>Name
+        of jurisdiction[s] covered by sheet quadrangle appears in upper margin at
+        left, e.g.: Provint&#x361;sii&#x361;a Guandun -- Avtonomny&#x12D; ra&#x12D;on
+        Vnutrenni&#x361;ai&#x361;a Mongolii&#x361;a, Provint&#x361;sii Kh&#x117;b&#x117;&#x12D;,
+        Shan&#x2B9;si. May include name and province of neighboring country.</note>\n
+        \  <note>Common title precedes jurisdiction name at upper left on each sheet.</note>\n
+        \  <note>Sheets individually subtitled and numbered (with roman-alphabet lettering)
+        in upper margin, e.g.: Ch&#x117;nma&#x12D;, E-49-III -- Sich&#x117;n, K-50-XXXI.</note>\n
+        \  <note>Ed./publication date in upper border at right, e.g.: Izdanie 1970
+        g. -- Izdanie 1986 g. -- Izdanie 1991 g.</note>\n   <note>Former security
+        classification in upper margin at right: Sekretno.</note>\n   <note>Includes
+        notes, diagrams, compilation date[s], and sheet compiler's/editor's names
+        in lower margin.</note>\n   <note>Blue sheet no. in upper margin precedes
+        black sheet no., e.g.: 05-49-01 -- 11-50-31.</note>\n   <note>Text and ancillary
+        map, \"Skhema gruntov,\" on verso.</note>\n   <note>In Russian.</note>\n   <subject>\n
+        \     <geographicCode authority=\"marcgac\">a-cc---</geographicCode>\n   </subject>\n
+        \  <subject>\n      <cartographics>\n         <scale>Scale 1:200,000. 1 cm.
+        to 2 km.</scale>\n      <coordinates>116.0,27.333333 \n117.0,27.333333 \n117.0,26.666667
+        \n116.0,26.666667 \n116.0,27.333333\n</coordinates><projection>Pulkovo 1942</projection></cartographics>\n
+        \  </subject>\n   <subject authority=\"lcsh\">\n      <topic>Military maps</topic>\n
+        \  </subject>\n   <subject authority=\"lcsh\">\n      <geographic>China</geographic>\n
+        \     <genre>Maps, Topographic</genre>\n   </subject>\n   <recordInfo>\n      <descriptionStandard>aacr2</descriptionStandard>\n
+        \     <recordContentSource authority=\"marcorg\">NYP</recordContentSource>\n
+        \     <recordCreationDate encoding=\"marc\">991004</recordCreationDate>\n
+        \     <recordChangeDate encoding=\"iso8601\">20080506185127.0</recordChangeDate>\n
+        \     <recordIdentifier source=\"SIRSI\">a3195852</recordIdentifier>\n   </recordInfo>\n</mods>\n"
+    http_version: 
+  recorded_at: Mon, 28 Jul 2014 22:21:03 GMT
+recorded_with: VCR 2.9.2

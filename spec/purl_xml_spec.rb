@@ -17,21 +17,27 @@ describe Harvestdor::Client do
   end
   
   it "#mods returns a Nokogiri::XML::Document from the purl mods" do
-    x = Harvestdor.mods(@druid, @purl)
-    x.should be_kind_of(Nokogiri::XML::Document)
-    x.root.name.should == 'mods'
-    x.root.namespace.href.should == Harvestdor::MODS_NAMESPACE
+    VCR.use_cassette('purl_mods') do
+      x = Harvestdor.mods(@druid, @purl)
+      x.should be_kind_of(Nokogiri::XML::Document)
+      x.root.name.should == 'mods'
+      x.root.namespace.href.should == Harvestdor::MODS_NAMESPACE
+    end
   end    
 
   context "#public_xml" do
     it "#public_xml retrieves entire public xml as a Nokogiri::XML::Document when called with druid" do
-      px = Harvestdor.public_xml(@druid, @purl)
-      px.should be_kind_of(Nokogiri::XML::Document)
-      px.root.name.should == 'publicObject'
-      px.root.attributes['id'].text.should == "druid:#{@druid}"
+      VCR.use_cassette('public_xml') do
+        px = Harvestdor.public_xml(@druid, @purl)
+        px.should be_kind_of(Nokogiri::XML::Document)
+        px.root.name.should == 'publicObject'
+        px.root.attributes['id'].text.should == "druid:#{@druid}"
+      end
     end
     it "raises Harvestdor::Errors::MissingPurlPage if there is no purl page for the druid" do
-      expect { Harvestdor.public_xml(@fake_druid, @purl) }.to raise_error(Harvestdor::Errors::MissingPurlPage)
+      VCR.use_cassette('missing_purl') do
+        expect { Harvestdor.public_xml(@fake_druid, @purl) }.to raise_error(Harvestdor::Errors::MissingPurlPage)
+      end
     end
     it "raises Harvestdor::Errors::MissingPublicXML if purl page returns nil document" do
       URI::HTTP.any_instance.should_receive(:open).and_return(nil)
@@ -54,10 +60,12 @@ describe Harvestdor::Client do
   
   context "#content_metadata" do
     it "returns a Nokogiri::XML::Document from the public xml fetched with druid" do
-      cm = Harvestdor.content_metadata(@druid, @purl)
-      cm.should be_kind_of(Nokogiri::XML::Document)
-      cm.root.name.should == 'contentMetadata'
-      cm.root.attributes['objectId'].text.should == @druid
+      VCR.use_cassette('content_metadata') do
+        cm = Harvestdor.content_metadata(@druid, @purl)
+        cm.should be_kind_of(Nokogiri::XML::Document)
+        cm.root.name.should == 'contentMetadata'
+        cm.root.attributes['objectId'].text.should == @druid
+      end
     end
     it "returns a Nokogiri::XML::Document from passed Nokogiri::XML::Document and does no fetch" do
       cm = Harvestdor.content_metadata(@ng_pub_xml)
@@ -73,10 +81,12 @@ describe Harvestdor::Client do
   
   context "#identity_metadata" do
     it "returns a Nokogiri::XML::Document from the public xml fetched with druid" do
-      im = Harvestdor.identity_metadata(@druid, @purl)
-      im.should be_kind_of(Nokogiri::XML::Document)
-      im.root.name.should == 'identityMetadata'
-      im.root.xpath('objectId').text.should == "druid:#{@druid}"
+      VCR.use_cassette('identity_metadata') do
+        im = Harvestdor.identity_metadata(@druid, @purl)
+        im.should be_kind_of(Nokogiri::XML::Document)
+        im.root.name.should == 'identityMetadata'
+        im.root.xpath('objectId').text.should == "druid:#{@druid}"
+      end
     end
     it "returns a Nokogiri::XML::Document from passed Nokogiri::XML::Document and does no fetch" do
       URI::HTTP.any_instance.should_not_receive(:open)
@@ -93,9 +103,11 @@ describe Harvestdor::Client do
   
   context "#rights_metadata" do
     it "#rights_metadata returns a Nokogiri::XML::Document from the public xml fetched with druid" do
-      rm = Harvestdor.rights_metadata(@druid, @purl)
-      rm.should be_kind_of(Nokogiri::XML::Document)
-      rm.root.name.should == 'rightsMetadata'
+      VCR.use_cassette('rights_metadata') do
+        rm = Harvestdor.rights_metadata(@druid, @purl)
+        rm.should be_kind_of(Nokogiri::XML::Document)
+        rm.root.name.should == 'rightsMetadata'
+      end
     end
     it "returns a Nokogiri::XML::Document from passed Nokogiri::XML::Document and does no fetch" do
       URI::HTTP.any_instance.should_not_receive(:open)
@@ -111,10 +123,12 @@ describe Harvestdor::Client do
   
   context "#rdf" do
     it "returns a Nokogiri::XML::Document from the public xml fetched with druid" do
-      rdf = Harvestdor.rdf(@druid, @purl)
-      rdf.should be_kind_of(Nokogiri::XML::Document)
-      rdf.root.name.should == 'RDF'
-      rdf.root.namespace.href.should == Harvestdor::RDF_NAMESPACE
+      VCR.use_cassette('rdf') do
+        rdf = Harvestdor.rdf(@druid, @purl)
+        rdf.should be_kind_of(Nokogiri::XML::Document)
+        rdf.root.name.should == 'RDF'
+        rdf.root.namespace.href.should == Harvestdor::RDF_NAMESPACE
+      end
     end
     it "returns a Nokogiri::XML::Document from passed Nokogiri::XML::Document and does no fetch" do
       URI::HTTP.any_instance.should_not_receive(:open)
@@ -131,10 +145,12 @@ describe Harvestdor::Client do
   
   context "#dc" do
     it "returns a Nokogiri::XML::Document from the public xml fetched with druid" do
-      dc = Harvestdor.dc(@druid, @purl)
-      dc.should be_kind_of(Nokogiri::XML::Document)
-      dc.root.name.should == 'dc'
-      dc.root.namespace.href.should == Harvestdor::OAI_DC_NAMESPACE
+      VCR.use_cassette('dc') do
+        dc = Harvestdor.dc(@druid, @purl)
+        dc.should be_kind_of(Nokogiri::XML::Document)
+        dc.root.name.should == 'dc'
+        dc.root.namespace.href.should == Harvestdor::OAI_DC_NAMESPACE
+      end
     end
     it "returns a Nokogiri::XML::Document from passed Nokogiri::XML::Document and does no fetch" do
       URI::HTTP.any_instance.should_not_receive(:open)

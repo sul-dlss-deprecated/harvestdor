@@ -1,0 +1,98 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://purl-test.stanford.edu/bb375wb8869.xml
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Mon, 28 Jul 2014 22:24:21 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      X-Powered-By:
+      - Phusion Passenger (mod_rails/mod_rack) 3.0.19
+      X-Ua-Compatible:
+      - IE=Edge
+      Etag:
+      - '"c7e2680ca3a1d497d6e46962eac8bb2d"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 1bf1dcf231fa7fa990b33b05d7ae222b
+      X-Runtime:
+      - '0.010396'
+      Status:
+      - '200'
+      Content-Length:
+      - '4349'
+      Content-Type:
+      - application/xml; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: "<publicObject id=\"druid:bb375wb8869\" published=\"2012-01-26T16:39:44-08:00\">\n
+        \ <identityMetadata>\n    <adminPolicy>druid:xs835jp8197</adminPolicy>\n    <objectCreator>DOR</objectCreator>\n
+        \   <objectId>druid:bb375wb8869</objectId>\n    <objectLabel>Kitai_bb375wb8869</objectLabel>\n
+        \   <objectType>item</objectType>\n    <otherId name=\"uuid\">15ffc446-25f5-11e1-b6f0-0016034322e7</otherId>\n
+        \   <tag>Project : Kitai</tag>\n  </identityMetadata>\n  <contentMetadata
+        type=\"image\" objectId=\"bb375wb8869\">\n    <resource type=\"image\" sequence=\"1\"
+        id=\"bb375wb8869_1\">\n      <label>kitai_4</label>\n      <file mimetype=\"image/jp2\"
+        format=\"JPEG2000\" size=\"8116154\" id=\"36105005868828_05_0001.jp2\">\n
+        \       <imageData height=\"6007\" width=\"7175\"/>\n        <attr name=\"representation\">uncropped</attr>\n
+        \     </file>\n    </resource>\n    <resource type=\"image\" sequence=\"2\"
+        id=\"bb375wb8869_2\">\n      <label>kitai_4</label>\n      <file mimetype=\"image/jp2\"
+        format=\"JPEG2000\" size=\"8141860\" id=\"36105005868828_05_0002.jp2\">\n
+        \       <imageData height=\"6017\" width=\"7174\"/>\n        <attr name=\"representation\">uncropped</attr>\n
+        \     </file>\n    </resource>\n  </contentMetadata>\n  <rightsMetadata>\n
+        \   <access type=\"discover\">\n      <machine>\n        <world/>\n      </machine>\n
+        \   </access>\n    <access type=\"read\">\n      <machine>\n        <group>stanford</group>\n
+        \     </machine>\n    </access>\n  </rightsMetadata>\n  <rdf:RDF xmlns:fedora-model=\"info:fedora/fedora-system:def/model#\"
+        xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\" xmlns:fedora=\"info:fedora/fedora-system:def/relations-external#\"
+        xmlns:hydra=\"http://projecthydra.org/ns/relations#\">\n    <rdf:Description
+        rdf:about=\"info:fedora/druid:bb375wb8869\">\n    </rdf:Description>\n  </rdf:RDF>\n
+        \ <oai_dc:dc xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:srw_dc=\"info:srw/schema/1/dc-schema\"
+        xmlns:oai_dc=\"http://www.openarchives.org/OAI/2.0/oai_dc/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
+        xsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd\">\n
+        \   <dc:title>Kita&#x12D;</dc:title>\n    <dc:title>China</dc:title>\n    <dc:creator>Soviet
+        Union Sovetskai&#x361;a Armii&#x361;a. General&#x2B9;ny&#x12D; shtab.</dc:creator>\n
+        \   <dc:type>map</dc:type>\n    <dc:date>1968-9999</dc:date>\n    <dc:publisher>General&#x2B9;ny&#x12D;
+        shtab</dc:publisher>\n    <dc:language>rus</dc:language>\n    <dc:format>maps
+        : col. ; 37 x 53 cm. or smaller.</dc:format>\n    <dc:format>map</dc:format>\n
+        \   <dc:description>Military topographic maps.</dc:description>\n    <dc:description>Relief
+        shown by contours and spot heights. Depths shown by contours and soundings
+        on some sheets.</dc:description>\n    <dc:description>Name of jurisdiction[s]
+        covered by sheet quadrangle appears in upper margin at left, e.g.: Provint&#x361;sii&#x361;a
+        Guandun -- Avtonomny&#x12D; ra&#x12D;on Vnutrenni&#x361;ai&#x361;a Mongolii&#x361;a,
+        Provint&#x361;sii Kh&#x117;b&#x117;&#x12D;, Shan&#x2B9;si. May include name
+        and province of neighboring country.</dc:description>\n    <dc:description>Common
+        title precedes jurisdiction name at upper left on each sheet.</dc:description>\n
+        \   <dc:description>Sheets individually subtitled and numbered (with roman-alphabet
+        lettering) in upper margin, e.g.: Ch&#x117;nma&#x12D;, E-49-III -- Sich&#x117;n,
+        K-50-XXXI.</dc:description>\n    <dc:description>Ed./publication date in upper
+        border at right, e.g.: Izdanie 1970 g. -- Izdanie 1986 g. -- Izdanie 1991
+        g.</dc:description>\n    <dc:description>Former security classification in
+        upper margin at right: Sekretno.</dc:description>\n    <dc:description>Includes
+        notes, diagrams, compilation date[s], and sheet compiler's/editor's names
+        in lower margin.</dc:description>\n    <dc:description>Blue sheet no. in upper
+        margin precedes black sheet no., e.g.: 05-49-01 -- 11-50-31.</dc:description>\n
+        \   <dc:description>Text and ancillary map, \"Skhema gruntov,\" on verso.</dc:description>\n
+        \   <dc:description>In Russian.</dc:description>\n    <dc:subject/>\n    <dc:coverage>Scale
+        1:200,000. 1 cm. to 2 km.</dc:coverage>\n    <dc:coverage>116.0,27.333333
+        \n117.0,27.333333 \n117.0,26.666667 \n116.0,26.666667 \n116.0,27.333333\n</dc:coverage>\n
+        \   <dc:coverage>Pulkovo 1942</dc:coverage>\n    <dc:subject>Military maps</dc:subject>\n
+        \   <dc:subject/>\n    <dc:coverage>China</dc:coverage>\n  </oai_dc:dc>\n</publicObject>\n"
+    http_version: 
+  recorded_at: Mon, 28 Jul 2014 22:24:21 GMT
+recorded_with: VCR 2.9.2
