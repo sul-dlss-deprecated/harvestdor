@@ -12,9 +12,9 @@ describe 'Harvestdor::Client oai harvesting' do
   describe "druids_via_oai" do
     before(:each) do
       oai_response = double('oai_response')
-      oai_response.stub(:entries).and_return(['foo', 'bar'])
-      oai_response.stub(:resumption_token).and_return('')
-      @harvestdor_client.oai_client.stub(:list_identifiers).with(an_instance_of(Hash)) { 
+      allow(oai_response).to receive(:entries).and_return(['foo', 'bar'])
+      allow(oai_response).to receive(:resumption_token).and_return('')
+      allow(@harvestdor_client.oai_client).to receive(:list_identifiers).with(an_instance_of(Hash)) { 
           oai_response
       }
     end
@@ -24,14 +24,14 @@ describe 'Harvestdor::Client oai harvesting' do
       header2 = OAI::Header.new(nil)
       header2.identifier = 'oai:searchworks.stanford.edu/druid:bar'
       oai_response = double('oai_response')
-      oai_response.stub(:entries).and_return([header1, header2])
-      @harvestdor_client.druids_via_oai.should == ['foo', 'bar']
+      allow(oai_response).to receive(:entries).and_return([header1, header2])
+      expect(@harvestdor_client.druids_via_oai).to eql(['foo', 'bar'])
     end
     it "should have results viewable as an array" do
-      @harvestdor_client.druids_via_oai.should be_an_instance_of(Array)
+      expect(@harvestdor_client.druids_via_oai).to be_an_instance_of(Array)
     end
     it "should have enumerable results" do
-      @harvestdor_client.druids_via_oai.should respond_to(:each, :count)
+      expect(@harvestdor_client.druids_via_oai).to respond_to(:each, :count)
     end
     it "should yield to a passed block" do
       expect { |b| @harvestdor_client.druids_via_oai(&b) }.to yield_successive_args('foo', 'bar')
@@ -41,9 +41,9 @@ describe 'Harvestdor::Client oai harvesting' do
   describe "oai_records" do
     before(:each) do
       @oai_response = double('oai_response')
-      @oai_response.stub(:entries).and_return([1, 2])
-      @oai_response.stub(:resumption_token).and_return('')
-      @harvestdor_client.oai_client.stub(:list_records).with(an_instance_of(Hash)) { 
+      allow(@oai_response).to receive(:entries).and_return([1, 2])
+      allow(@oai_response).to receive(:resumption_token).and_return('')
+      allow(@harvestdor_client.oai_client).to receive(:list_records).with(an_instance_of(Hash)) { 
           @oai_response
       }
     end
@@ -56,14 +56,14 @@ describe 'Harvestdor::Client oai harvesting' do
       header2.identifier = 'oai:searchworks.stanford.edu/druid:bar'
       oai_rec2 = OAI::Record.new(nil)
       oai_rec2.header = header2
-      @oai_response.stub(:entries).and_return([oai_rec1, oai_rec2])
-      @harvestdor_client.oai_records.should == [oai_rec1, oai_rec2]
+      allow(@oai_response).to receive(:entries).and_return([oai_rec1, oai_rec2])
+      expect(@harvestdor_client.oai_records).to eql([oai_rec1, oai_rec2])
     end
     it "should have results viewable as an array" do
-      @harvestdor_client.oai_records.should be_an_instance_of(Array)
+      expect(@harvestdor_client.oai_records).to be_an_instance_of(Array)
     end
     it "should have enumerable results" do
-      @harvestdor_client.oai_records.should respond_to(:each, :count)
+      expect(@harvestdor_client.oai_records).to respond_to(:each, :count)
     end
     it "should yield to a passed block" do
       expect { |b| @harvestdor_client.oai_records(&b) }.to yield_successive_args(1, 2)
@@ -73,9 +73,9 @@ describe 'Harvestdor::Client oai harvesting' do
   describe "oai_headers" do
     before(:each) do
       @oai_response = double('oai_response')
-      @oai_response.stub(:entries).and_return([1, 2])
-      @oai_response.stub(:resumption_token).and_return('')
-      @harvestdor_client.oai_client.stub(:list_identifiers).with(an_instance_of(Hash)) { 
+      allow(@oai_response).to receive(:entries).and_return([1, 2])
+      allow(@oai_response).to receive(:resumption_token).and_return('')
+      allow(@harvestdor_client.oai_client).to receive(:list_identifiers).with(an_instance_of(Hash)) { 
           @oai_response
       }
     end
@@ -84,14 +84,14 @@ describe 'Harvestdor::Client oai harvesting' do
       header1.identifier = 'oai:searchworks.stanford.edu/druid:foo'
       header2 = OAI::Header.new(nil)
       header2.identifier = 'oai:searchworks.stanford.edu/druid:bar'
-      @oai_response.stub(:entries).and_return([header1, header2])
-      @harvestdor_client.oai_headers.should == [header1, header2]
+      allow(@oai_response).to receive(:entries).and_return([header1, header2])
+      expect(@harvestdor_client.oai_headers).to eql([header1, header2])
     end
     it "should have results viewable as an array" do
-      @harvestdor_client.oai_headers.should be_an_instance_of(Array)
+      expect(@harvestdor_client.oai_headers).to be_an_instance_of(Array)
     end
     it "should have enumerable results" do
-      @harvestdor_client.oai_headers.should respond_to(:each, :count)
+      expect(@harvestdor_client.oai_headers).to respond_to(:each, :count)
     end
     it "should yield to a passed block" do
       expect { |b| @harvestdor_client.oai_headers(&b) }.to yield_successive_args(1, 2)
@@ -102,12 +102,12 @@ describe 'Harvestdor::Client oai harvesting' do
     it "should return OAI::Record object" do
       oai_rec = OAI::Record.new(nil)
       oai_resp = double('oai_response')
-      oai_resp.stub(:record).and_return(oai_rec)
-      @harvestdor_client.oai_client.stub(:get_record) { 
+      allow(oai_resp).to receive(:record).and_return(oai_rec)
+      allow(@harvestdor_client.oai_client).to receive(:get_record){
           oai_resp
       }
-      @harvestdor_client.oai_record('druid').should == oai_rec
-      @harvestdor_client.oai_record('druid', 'mods').should == oai_rec
+      expect(@harvestdor_client.oai_record('druid')).to eql(oai_rec)
+      expect(@harvestdor_client.oai_record('druid', 'mods')).to eql(oai_rec)
     end
   end  
 
@@ -120,57 +120,57 @@ describe 'Harvestdor::Client oai harvesting' do
       
     end
     it "should use client's default values for OAI arguments if they are not present in the method param hash" do
-      @harvestdor_client.send(:scrub_oai_args).should == @expected_oai_args
+      expect(@harvestdor_client.send(:scrub_oai_args)).to eql(@expected_oai_args)
     end
     it "should use OAI arguments from the method param hash if they are present" do
       passed_options = {:metadata_prefix => 'mods', :from => '2012-11-30'}
-      @harvestdor_client.send(:scrub_oai_args, passed_options).should == @expected_oai_args.merge(passed_options)
+      expect(@harvestdor_client.send(:scrub_oai_args, passed_options)).to eql(@expected_oai_args.merge(passed_options))
     end
     it "should use nil value for option when it is passed in options hash" do
       client = Harvestdor::Client.new({:default_from_date => '2012-01-01'})
-      client.config.default_from_date.should == '2012-01-01'
+      expect(client.config.default_from_date).to eql('2012-01-01')
       passed_options = {:from => nil}
-      client.send(:scrub_oai_args, passed_options)[:from].should == nil
+      expect(client.send(:scrub_oai_args, passed_options)[:from]).to eql(nil)
     end
   end
 
   describe "harvest" do
     it "should perform a list_records OAI request when first arg is true" do
       oai_response = double('oai_response')
-      oai_response.stub(:entries).and_return([])
-      @harvestdor_client.oai_client.stub(:list_records).with(an_instance_of(Hash)) { 
+      allow(oai_response).to receive(:entries).and_return([])
+      allow(@harvestdor_client.oai_client).to receive(:list_records).with(an_instance_of(Hash)) { 
           oai_response
       }
-      @harvestdor_client.oai_client.should_receive(:list_records)
+      expect(@harvestdor_client.oai_client).to receive(:list_records)
       @harvestdor_client.send(:harvest, :list_records, {})
     end
     
     it "should perform a list_identifiers OAI request when first arg is false" do
       oai_response = double('oai_response')
-      oai_response.stub(:entries).and_return([])
-      @harvestdor_client.oai_client.stub(:list_identifiers).with(an_instance_of(Hash)) { 
+      allow(oai_response).to receive(:entries).and_return([])
+      allow(@harvestdor_client.oai_client).to receive(:list_identifiers).with(an_instance_of(Hash)) { 
           oai_response
       }
-      @harvestdor_client.oai_client.should_receive(:list_identifiers)
+      expect(@harvestdor_client.oai_client).to receive(:list_identifiers)
       @harvestdor_client.send(:harvest, :list_identifiers, {})
     end
 
     it "should use passed OAI arguments" do
       oai_response = double('oai_response')
-      oai_response.stub(:entries).and_return([])
-      @harvestdor_client.oai_client.stub(:list_identifiers).with(an_instance_of(Hash)) { 
+      allow(oai_response).to receive(:entries).and_return([])
+      allow(@harvestdor_client.oai_client).to receive(:list_identifiers).with(an_instance_of(Hash)) { 
           oai_response
       }
       oai_options_hash = {:metadata_prefix => 'mods', :from => '2012-11-30'}
-      @harvestdor_client.oai_client.should_receive(:list_identifiers).with(oai_options_hash)
+      expect(@harvestdor_client.oai_client).to receive(:list_identifiers).with(oai_options_hash)
       @harvestdor_client.send(:harvest, :list_identifiers, oai_options_hash)
     end
     
     it "should yield to a passed block" do
       oai_response = double('oai_response')
-      oai_response.stub(:entries).and_return([1, 2])
-      oai_response.stub(:resumption_token).and_return('')
-      @harvestdor_client.oai_client.stub(:list_records).with(an_instance_of(Hash)) { 
+      allow(oai_response).to receive(:entries).and_return([1, 2])
+      allow(oai_response).to receive(:resumption_token).and_return('')
+      allow(@harvestdor_client.oai_client).to receive(:list_records).with(an_instance_of(Hash)) { 
           oai_response
       }
       expect { |b| @harvestdor_client.send(:harvest, :list_records, {}, &b) }.to yield_successive_args(1, 2)
@@ -179,34 +179,34 @@ describe 'Harvestdor::Client oai harvesting' do
     context "resumption tokens" do
       it "should stop processing when no records/headers are received" do
         oai_response = double('oai_response')
-        oai_response.stub(:entries).and_return([])
-        @harvestdor_client.oai_client.stub(:list_records).with(an_instance_of(Hash)) { 
+        allow(oai_response).to receive(:entries).and_return([])
+        allow(@harvestdor_client.oai_client).to receive(:list_records).with(an_instance_of(Hash)) { 
             oai_response
         }
 
         i = 0
         @harvestdor_client.send(:harvest, :list_records, {}) { |record| i += 1 }
-        i.should == 0
+        expect(i).to eql(0)
       end
 
       it "should stop processing when the resumption token is empty" do
         oai_response_with_token = double('oai_response')
-        oai_response_with_token.stub(:entries).and_return([1,2,3,4,5])
-        oai_response_with_token.stub(:resumption_token).and_return('')
-        @harvestdor_client.oai_client.stub(:list_records).with(an_instance_of(Hash)) { 
+        allow(oai_response_with_token).to receive(:entries).and_return([1,2,3,4,5])
+        allow(oai_response_with_token).to receive(:resumption_token).and_return('')
+        allow(@harvestdor_client.oai_client).to receive(:list_records).with(an_instance_of(Hash)) { 
           oai_response_with_token
         }
 
         i = 0
         @harvestdor_client.send(:harvest, :list_records, {}) { |record| i += 1 }
-        i.should == 5
+        expect(i).to eql(5)
       end
 
       it "should stop processing when there was no resumption token" do
         oai_response_with_token = double('oai_response')
-        oai_response_with_token.stub(:entries).and_return([1,2,3,4,5])
-        oai_response_with_token.stub(:resumption_token).and_return(nil)
-        @harvestdor_client.oai_client.stub(:list_records).with(an_instance_of(Hash)) { 
+        allow(oai_response_with_token).to receive(:entries).and_return([1,2,3,4,5])
+        allow(oai_response_with_token).to receive(:resumption_token).and_return(nil)
+        allow(@harvestdor_client.oai_client).to receive(:list_records).with(an_instance_of(Hash)) { 
           oai_response_with_token
         }
 

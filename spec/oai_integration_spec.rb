@@ -18,19 +18,19 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => 
       it "should be able to harvest headers" do
         VCR.use_cassette('headers') do
           headers = @test_hclient.oai_headers(@oai_args)
-          headers.should be_an_instance_of(Array)
-          headers.size.should > 0
-          headers.size.should < 50  # no resumption token
-          headers.first.should be_an_instance_of(OAI::Header)
+          expect(headers).to be_an_instance_of(Array)
+          expect(headers.size).to be > 0
+          expect(headers.size).to be < 50  # no resumption token
+          expect(headers.first).to be_an_instance_of(OAI::Header)
         end
       end
       it "should be able to harvest records" do
         VCR.use_cassette('records') do
           records = @test_hclient.oai_records(@oai_args)
-          records.should be_an_instance_of(Array)
-          records.size.should > 0
-          records.size.should < 50  # no resumption token
-          records.first.should be_an_instance_of(OAI::Record)
+          expect(records).to be_an_instance_of(Array)
+          expect(records.size).to be > 0
+          expect(records.size).to be < 50  # no resumption token
+          expect(records.first).to be_an_instance_of(OAI::Record)
         end
       end
     end
@@ -41,16 +41,16 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => 
       it "should be able to harvest headers" do
         skip "need to find small set > 50 on test"
         headers = @test_hclient.oai_headers(@oai_args)
-        headers.should be_an_instance_of(Array)
-        headers.size.should > 50
-        headers.first.should be_an_instance_of(OAI::Header)
+        expect(headers).to be_an_instance_of(Array)
+        expect(headers.size).to be > 50
+        expect(headers.first).to be_an_instance_of(OAI::Header)
       end
       it "should be able to harvest records" do
         skip "need to find small set > 50 on test"
         records = @test_hclient.harvest_records(@oai_args)
-        records.should be_an_instance_of(Array)
-        records.size.should > 50
-        records.first.should be_an_instance_of(OAI::Record)
+        expect(records).to be_an_instance_of(Array)
+        expect(records.size).to be > 50
+        expect(records.first).to be_an_instance_of(OAI::Record)
       end
     end
     context "oai_record (single record request)" do
@@ -60,12 +60,12 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => 
         end
       end
       it "should get a single OAI::Record object" do
-        @rec.should be_an_instance_of(OAI::Record)
+        expect(@rec).to be_an_instance_of(OAI::Record)
       end
       it "should keep utf-8 encoded characters intact" do
         xml = Nokogiri::XML(@rec.metadata.to_s)
         xml.remove_namespaces!
-        xml.root.xpath('/metadata/mods/titleInfo/subTitle').text.should =~ /^recueil complet des débats législatifs & politiques des chambres françaises/
+        expect(xml.root.xpath('/metadata/mods/titleInfo/subTitle').text).to match /^recueil complet des débats législatifs & politiques des chambres françaises/
       end
     end
   end
@@ -82,19 +82,19 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => 
       it "should be able to harvest headers" do
         VCR.use_cassette('prod_headers') do
           headers = @prod_hclient.oai_headers(@oai_args)
-          headers.should be_an_instance_of(Array)
-          headers.size.should > 0
-          headers.size.should < 50  # no resumption token
-          headers.first.should be_an_instance_of(OAI::Header)
+          expect(headers).to be_an_instance_of(Array)
+          expect(headers.size).to be > 0
+          expect(headers.size).to be < 50  # no resumption token
+          expect(headers.first).to be_an_instance_of(OAI::Header)
         end
       end
       it "should be able to harvest records" do
         VCR.use_cassette('prod_records') do
           records = @prod_hclient.oai_records(@oai_args)
-          records.should be_an_instance_of(Array)
-          records.size.should > 0
-          records.size.should < 50  # no resumption token
-          records.first.should be_an_instance_of(OAI::Record)
+          expect(records).to be_an_instance_of(Array)
+          expect(records.size).to be > 0
+          expect(records.size).to be < 50  # no resumption token
+          expect(records.first).to be_an_instance_of(OAI::Record)
         end
       end
     end
@@ -106,17 +106,17 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => 
       it "should be able to harvest headers" do
         VCR.use_cassette('headers_with_resumption') do
           headers = @prod_hclient.oai_headers(@oai_args)
-          headers.should be_an_instance_of(Array)
-          headers.size.should > 50
-          headers.first.should be_an_instance_of(OAI::Header)
+          expect(headers).to be_an_instance_of(Array)
+          expect(headers.size).to be > 50
+          expect(headers.first).to be_an_instance_of(OAI::Header)
         end
       end
       it "should be able to harvest records" do
-        pending "the request always seems to time out"
+        skip "the request always seems to time out"
         records = @prod_hclient.oai_records(@oai_args)
-        records.should be_an_instance_of(Array)
-        records.size.should > 50
-        records.first.should be_an_instance_of(OAI::Record)
+        expect(records).to be_an_instance_of(Array)
+        expect(records.size).to be > 50
+        expect(records.first).to be_an_instance_of(OAI::Record)
       end
     end
     context "oai_record (single record request)" do
@@ -126,12 +126,12 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => 
         end
       end
       it "should get a single OAI::Record object" do
-        @rec.should be_an_instance_of(OAI::Record)
+        expect(@rec).to be_an_instance_of(OAI::Record)
       end
       it "should keep utf-8 encoded characters intact" do
         xml = Nokogiri::XML(@rec.metadata.to_s)
         xml.remove_namespaces!
-        xml.root.xpath('/metadata/mods/titleInfo/subTitle').text.should =~ /^recueil complet des débats législatifs & politiques des chambres françaises/
+        expect(xml.root.xpath('/metadata/mods/titleInfo/subTitle').text).to  match /^recueil complet des débats législatifs & politiques des chambres françaises/
       end
     end
   end
