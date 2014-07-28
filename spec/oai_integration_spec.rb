@@ -1,5 +1,11 @@
 # encoding: utf-8
 require 'spec_helper'
+require 'vcr'
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
+  c.hook_into :webmock
+end
 
 describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => true do
 
@@ -16,18 +22,22 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => 
         @oai_args = {:metadata_prefix => 'mods', :from => nil, :until => nil, :set => 'is_governed_by_hy787xj5878'}
       end
       it "should be able to harvest headers" do
-        headers = @test_hclient.oai_headers(@oai_args)
-        headers.should be_an_instance_of(Array)
-        headers.size.should > 0
-        headers.size.should < 50  # no resumption token
-        headers.first.should be_an_instance_of(OAI::Header)
+        VCR.use_cassette('headers') do
+          headers = @test_hclient.oai_headers(@oai_args)
+          headers.should be_an_instance_of(Array)
+          headers.size.should > 0
+          headers.size.should < 50  # no resumption token
+          headers.first.should be_an_instance_of(OAI::Header)
+        end
       end
       it "should be able to harvest records" do
-        records = @test_hclient.oai_records(@oai_args)
-        records.should be_an_instance_of(Array)
-        records.size.should > 0
-        records.size.should < 50  # no resumption token
-        records.first.should be_an_instance_of(OAI::Record)
+        VCR.use_cassette('records') do
+          records = @test_hclient.oai_records(@oai_args)
+          records.should be_an_instance_of(Array)
+          records.size.should > 0
+          records.size.should < 50  # no resumption token
+          records.first.should be_an_instance_of(OAI::Record)
+        end
       end
     end
     context "with resumption tokens" do
@@ -42,7 +52,7 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => 
         headers.first.should be_an_instance_of(OAI::Header)
       end
       it "should be able to harvest records" do
-        pending "need to find small set > 50 on test"
+        skip "need to find small set > 50 on test"
         records = @test_hclient.harvest_records(@oai_args)
         records.should be_an_instance_of(Array)
         records.size.should > 50
@@ -51,7 +61,9 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => 
     end
     context "oai_record (single record request)" do
       before(:all) do
-        @rec = @test_hclient.oai_record('jt959wc5586')
+        VCR.use_cassette('jt959wc5586_test') do
+          @rec = @test_hclient.oai_record('jt959wc5586')
+        end
       end
       it "should get a single OAI::Record object" do
         @rec.should be_an_instance_of(OAI::Record)
@@ -74,18 +86,22 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => 
         @oai_args = {:metadata_prefix => 'mods', :from => nil, :until => nil, :set => 'is_governed_by_sd064kn5856'}
       end
       it "should be able to harvest headers" do
-        headers = @prod_hclient.oai_headers(@oai_args)
-        headers.should be_an_instance_of(Array)
-        headers.size.should > 0
-        headers.size.should < 50  # no resumption token
-        headers.first.should be_an_instance_of(OAI::Header)
+        VCR.use_cassette('prod_headers') do
+          headers = @prod_hclient.oai_headers(@oai_args)
+          headers.should be_an_instance_of(Array)
+          headers.size.should > 0
+          headers.size.should < 50  # no resumption token
+          headers.first.should be_an_instance_of(OAI::Header)
+        end
       end
       it "should be able to harvest records" do
-        records = @prod_hclient.oai_records(@oai_args)
-        records.should be_an_instance_of(Array)
-        records.size.should > 0
-        records.size.should < 50  # no resumption token
-        records.first.should be_an_instance_of(OAI::Record)
+        VCR.use_cassette('prod_records') do
+          records = @prod_hclient.oai_records(@oai_args)
+          records.should be_an_instance_of(Array)
+          records.size.should > 0
+          records.size.should < 50  # no resumption token
+          records.first.should be_an_instance_of(OAI::Record)
+        end
       end
     end
     context "with resumption tokens" do
@@ -94,10 +110,12 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => 
         @oai_args = {:metadata_prefix => 'mods', :from => nil, :until => nil, :set => 'is_member_of_collection_jh957jy1101'}
       end
       it "should be able to harvest headers" do
-        headers = @prod_hclient.oai_headers(@oai_args)
-        headers.should be_an_instance_of(Array)
-        headers.size.should > 50
-        headers.first.should be_an_instance_of(OAI::Header)
+        VCR.use_cassette('headers_with_resumption') do
+          headers = @prod_hclient.oai_headers(@oai_args)
+          headers.should be_an_instance_of(Array)
+          headers.size.should > 50
+          headers.first.should be_an_instance_of(OAI::Header)
+        end
       end
       it "should be able to harvest records" do
         pending "the request always seems to time out"
@@ -109,7 +127,9 @@ describe 'Harvestdor::Client OAI Harvesting Integration Tests', :integration => 
     end
     context "oai_record (single record request)" do
       before(:all) do
-        @rec = @prod_hclient.oai_record('jt959wc5586')
+        VCR.use_cassette('jt959wc5586_prod') do
+          @rec = @prod_hclient.oai_record('jt959wc5586')
+        end
       end
       it "should get a single OAI::Record object" do
         @rec.should be_an_instance_of(OAI::Record)

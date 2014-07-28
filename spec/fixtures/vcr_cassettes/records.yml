@@ -1,0 +1,214 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://dor-oaiprovider-test.stanford.edu/oai?metadataPrefix=mods&set=is_governed_by_hy787xj5878&verb=ListRecords
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 28 Jul 2014 22:06:30 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger 4.0.10
+      Content-Length:
+      - '10343'
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/xml;charset=utf-8
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <?xml-stylesheet type="text/xsl" href="https://dor-oaiprovider-test.stanford.edu/oai2.xsl" ?><OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd"><responseDate>2014-07-28T22:06:30Z</responseDate><request metadataPrefix="mods" set="is_governed_by_hy787xj5878" verb="ListRecords">https://dor-oaiprovider-test.stanford.edu/oai</request><ListRecords><record><header><identifier>oai:searchworks.stanford.edu/druid:jt959wc5586</identifier><datestamp>2012-02-27T23:11:50Z</datestamp><setSpec>is_member_of_jh957jy1101</setSpec><setSpec>is_member_of_collection_jh957jy1101</setSpec><setSpec>is_governed_by_hy787xj5878</setSpec></header><metadata><mods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/mods/v3" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+           <titleInfo>
+              <title>Archives parlementaires de 1787 &#xE0; 1860</title>
+              <subTitle>recueil complet des d&#xE9;bats l&#xE9;gislatifs &amp; politiques des chambres fran&#xE7;aises imprim&#xE9; par ordre du S&#xE9;nat et de la Chambre des d&#xE9;put&#xE9;s sous la direction de m. J. Mavidal ... et de m. E. Laurent</subTitle>
+           </titleInfo>
+           <name type="personal">
+              <namePart>Mavidal, J&#xE9;r&#xF4;me</namePart>
+              <namePart type="date">1825-1896</namePart>
+           </name>
+           <name type="personal">
+              <namePart>Colombey, Emile</namePart>
+              <namePart type="date">1819-1897</namePart>
+           </name>
+           <name type="personal">
+              <namePart>Claveau, Louis.</namePart>
+           </name>
+           <name type="personal">
+              <namePart>Pionnier, Constant.</namePart>
+           </name>
+           <name type="personal">
+              <namePart>Lataste, Louis Lodo&#xEF;s</namePart>
+              <namePart type="date">b. 1842</namePart>
+           </name>
+           <name type="personal">
+              <namePart>Reinhard, Marcel R.</namePart>
+              <namePart type="date">1899-</namePart>
+           </name>
+           <name type="personal">
+              <namePart>Bouloiseau, Marc.</namePart>
+           </name>
+           <name type="personal">
+              <namePart>Lefebvre, Georges</namePart>
+              <namePart type="date">1874-1959</namePart>
+           </name>
+           <name type="corporate">
+              <namePart>France</namePart>
+           </name>
+           <name type="corporate">
+              <namePart>Institut d'histoire de la R&#xE9;volution fran&#xE7;aise</namePart>
+           </name>
+           <name type="corporate">
+              <namePart>Centre national de la recherche scientifique (France)</namePart>
+           </name>
+           <typeOfResource>text</typeOfResource>
+           <originInfo>
+              <place>
+                 <placeTerm type="code" authority="marccountry">fr</placeTerm>
+              </place>
+              <place>
+                 <placeTerm type="text">Paris</placeTerm>
+              </place>
+              <publisher>Librairie administrative de P. Dupont</publisher>
+              <dateIssued>1862-19</dateIssued>
+              <dateIssued encoding="marc" point="start" keyDate="yes">1862</dateIssued>
+              <dateIssued encoding="marc" point="end">9999</dateIssued>
+              <issuance>monographic</issuance>
+           </originInfo>
+           <language>
+              <languageTerm authority="iso639-2b" type="code">fre</languageTerm>
+           </language>
+           <physicalDescription>
+              <form authority="marcform">print</form>
+              <extent>v. : tables (part fold.) 28 cm.</extent>
+           </physicalDescription>
+           <tableOfContents>1. s&#xE9;r. (1787 &#xE0; 1799) t. 1- 1875-19 .--2. s&#xE9;r. (1880-1860) t. 1-127, 1862-1913.</tableOfContents>
+           <note>Title varies slightly.</note>
+           <note>1. s&#xE9;r., v. 1-6: 2. &#xE9;d., 1879.</note>
+           <note>1. s&#xE9;r., v. 48-49 edited by E. Laurent, Louis Claveau and Constant Pionnier; 1. s&#xE9;r., v. 50-82, 2. s&#xE9;r., v. 95-127 by L. Lataste, Louis Claveau, Constant Pionnier [etc.]; 2. s&#xE9;r., v. 93-94, by E. Laurent, L. Lataste and Constant Pionnier; 1. s&#xE9;r., v. 82-86 by M. Reinhard and M. Bouloiseau, v. 83-86 by M. Reinhard, G. Lefebvre and M. Bouloiseau.</note>
+           <note>Vols. 82 bis- continued by Institut d'histoire de la R&#xE9;volution fran&#xE7;aise and published by the Centre national de la recherche scientifique, Paris.</note>
+           <note>Indexes: 1. s&#xE9;r. Vols. 8-32, May 5, 1789-Sept. 30, 1791, issued as v. 33. Vols. 34-50, Oct. 1, 1791-Sept. 21, 1792, issued as v. 51. Vols. 52-70, Sept. 20, 1792-Aug. 10, 1793, issued as v. 71. 1 v. in 2. Vols. 71-82, Aug. 11, 1793-Jan. 4, 1794, issued as v. 82bis. 2. s&#xE9;r. Vols. 15-61, July 8, 1815-Aug. 2, 1830, issued as v. 62.</note>
+           <subject authority="lcsh">
+              <geographic>France</geographic>
+              <topic>Politics and government</topic>
+              <temporal>1789-1900</temporal>
+           </subject>
+           <classification authority="lcc">J341 .H2</classification>
+           <identifier type="lccn">45045210</identifier>
+           <recordInfo>
+              <recordContentSource authority="marcorg">DLC</recordContentSource>
+              <recordCreationDate encoding="marc">840601</recordCreationDate>
+              <recordIdentifier>a1071767</recordIdentifier>
+           </recordInfo>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:pd817cv1860</identifier><datestamp>2012-03-28T21:25:56Z</datestamp><setSpec>is_member_of_jh957jy1101</setSpec><setSpec>is_member_of_collection_jh957jy1101</setSpec><setSpec>is_governed_by_hy787xj5878</setSpec></header><metadata><mods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/mods/v3" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+           <titleInfo>
+              <title>Archives parlementaires de 1787 &#xE0; 1860</title>
+              <subTitle>recueil complet des d&#xE9;bats l&#xE9;gislatifs &amp; politiques des chambres fran&#xE7;aises imprim&#xE9; par ordre du S&#xE9;nat et de la Chambre des d&#xE9;put&#xE9;s sous la direction de m. J. Mavidal ... et de m. E. Laurent</subTitle>
+           </titleInfo>
+           <name type="personal">
+              <namePart>Mavidal, J&#xE9;r&#xF4;me</namePart>
+              <namePart type="date">1825-1896</namePart>
+           </name>
+           <name type="personal">
+              <namePart>Colombey, Emile</namePart>
+              <namePart type="date">1819-1897</namePart>
+           </name>
+           <name type="personal">
+              <namePart>Claveau, Louis.</namePart>
+           </name>
+           <name type="personal">
+              <namePart>Pionnier, Constant.</namePart>
+           </name>
+           <name type="personal">
+              <namePart>Lataste, Louis Lodo&#xEF;s</namePart>
+              <namePart type="date">b. 1842</namePart>
+           </name>
+           <name type="personal">
+              <namePart>Reinhard, Marcel R.</namePart>
+              <namePart type="date">1899-</namePart>
+           </name>
+           <name type="personal">
+              <namePart>Bouloiseau, Marc.</namePart>
+           </name>
+           <name type="personal">
+              <namePart>Lefebvre, Georges</namePart>
+              <namePart type="date">1874-1959</namePart>
+           </name>
+           <name type="corporate">
+              <namePart>France</namePart>
+           </name>
+           <name type="corporate">
+              <namePart>Institut d'histoire de la R&#xE9;volution fran&#xE7;aise</namePart>
+           </name>
+           <name type="corporate">
+              <namePart>Centre national de la recherche scientifique (France)</namePart>
+           </name>
+           <typeOfResource>text</typeOfResource>
+           <originInfo>
+              <place>
+                 <placeTerm type="code" authority="marccountry">fr</placeTerm>
+              </place>
+              <place>
+                 <placeTerm type="text">Paris</placeTerm>
+              </place>
+              <publisher>Librairie administrative de P. Dupont</publisher>
+              <dateIssued>1862-19</dateIssued>
+              <dateIssued encoding="marc" point="start" keyDate="yes">1862</dateIssued>
+              <dateIssued encoding="marc" point="end">9999</dateIssued>
+              <issuance>monographic</issuance>
+           </originInfo>
+           <language>
+              <languageTerm authority="iso639-2b" type="code">fre</languageTerm>
+           </language>
+           <physicalDescription>
+              <form authority="marcform">print</form>
+              <extent>v. : tables (part fold.) 28 cm.</extent>
+           </physicalDescription>
+           <tableOfContents>1. s&#xE9;r. (1787 &#xE0; 1799) t. 1- 1875-19 .--2. s&#xE9;r. (1880-1860) t. 1-127, 1862-1913.</tableOfContents>
+           <note>Title varies slightly.</note>
+           <note>1. s&#xE9;r., v. 1-6: 2. &#xE9;d., 1879.</note>
+           <note>1. s&#xE9;r., v. 48-49 edited by E. Laurent, Louis Claveau and Constant Pionnier; 1. s&#xE9;r., v. 50-82, 2. s&#xE9;r., v. 95-127 by L. Lataste, Louis Claveau, Constant Pionnier [etc.]; 2. s&#xE9;r., v. 93-94, by E. Laurent, L. Lataste and Constant Pionnier; 1. s&#xE9;r., v. 82-86 by M. Reinhard and M. Bouloiseau, v. 83-86 by M. Reinhard, G. Lefebvre and M. Bouloiseau.</note>
+           <note>Vols. 82 bis- continued by Institut d'histoire de la R&#xE9;volution fran&#xE7;aise and published by the Centre national de la recherche scientifique, Paris.</note>
+           <note>Indexes: 1. s&#xE9;r. Vols. 8-32, May 5, 1789-Sept. 30, 1791, issued as v. 33. Vols. 34-50, Oct. 1, 1791-Sept. 21, 1792, issued as v. 51. Vols. 52-70, Sept. 20, 1792-Aug. 10, 1793, issued as v. 71. 1 v. in 2. Vols. 71-82, Aug. 11, 1793-Jan. 4, 1794, issued as v. 82bis. 2. s&#xE9;r. Vols. 15-61, July 8, 1815-Aug. 2, 1830, issued as v. 62.</note>
+           <subject authority="lcsh">
+              <geographic>France</geographic>
+              <topic>Politics and government</topic>
+              <temporal>1789-1900</temporal>
+           </subject>
+           <classification authority="lcc">J341 .H2</classification>
+           <identifier type="lccn">45045210</identifier>
+           <recordInfo>
+              <recordContentSource authority="marcorg">DLC</recordContentSource>
+              <recordCreationDate encoding="marc">840601</recordCreationDate>
+              <recordIdentifier>a1071767</recordIdentifier>
+           </recordInfo>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:qk487nd2690</identifier><datestamp>2013-05-22T23:38:57Z</datestamp><setSpec>is_member_of_jh957jy1101</setSpec><setSpec>is_member_of_collection_jh957jy1101</setSpec><setSpec>is_governed_by_hy787xj5878</setSpec></header><metadata>
+        <mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>test collection title</title>
+          </titleInfo>
+        <abstract>abstract</abstract></mods>
+        </metadata><about></about></record></ListRecords></OAI-PMH>
+    http_version: 
+  recorded_at: Mon, 28 Jul 2014 22:06:34 GMT
+recorded_with: VCR 2.9.2

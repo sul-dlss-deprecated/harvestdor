@@ -1,0 +1,2454 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://dor-oaiprovider-prod.stanford.edu/oai?metadataPrefix=mods&set=is_governed_by_sd064kn5856&verb=ListRecords
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 28 Jul 2014 22:02:51 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger 4.0.10
+      Content-Length:
+      - '133053'
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/xml;charset=utf-8
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <?xml-stylesheet type="text/xsl" href="https://dor-oaiprovider-prod.stanford.edu/oai2.xsl" ?><OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd"><responseDate>2014-07-28T22:02:51Z</responseDate><request metadataPrefix="mods" set="is_governed_by_sd064kn5856" verb="ListRecords">https://dor-oaiprovider-prod.stanford.edu/oai</request><ListRecords><record><header><identifier>oai:searchworks.stanford.edu/druid:kv330kk7855</identifier><datestamp>2012-04-28T04:38:10Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>San Francisco, 1851</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>San Francisco, 1851</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>Henry Bill, New York</namePart>
+            <role>
+              <roleTerm type="text">publisher</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>T. Sinclair&#x2019;s, Philadelphia</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>1851</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>color lithograph on paper</form>
+            <note displayLabel="Dimensions">11-1/2 x 16-1/2 inches</note>
+            <note displayLabel="Condition">good; folded in quarters lengthwise, repaired tear in right quadrant</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            View north and east towards Telegraph Hill, Alcatraz, and Contra Costa, looking down on city with figures on the streets and boats in the harbor; including a key to 25 businesses and locations.  From History of the World.  &#x201C;Entered According to Act of (continued on page 2)
+          </abstract>
+          <identifier type="local">rd-111</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:bt970vy9251</identifier><datestamp>2012-04-28T04:38:19Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>A View of the Town and Harbour of San Francisco</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Town and Harbor, San Francisco</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Baker, George H.</namePart>
+            <namePart type="date">1827-1906</namePart>
+            <description>American</description>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>black and white lithograph on paper with later hand-coloring</form>
+            <note displayLabel="Dimensions">10 x 13-1/2 inches</note>
+            <note displayLabel="Condition">good</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Two mounted figures and a third man on foot, looking west across a wooded area to the bay, city of San Francisco, and harbor ships to Telegraph.  Annotations:  &#x201C;Entered According to Act of Congress, in the Clerk&#x2019;s Office of the District Court for the District of Connecticut.&#x201D;
+          </abstract>
+          <identifier type="local">rd-151</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:dq860ms1450</identifier><datestamp>2012-04-28T04:39:39Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>San Francisco - California</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>San Francisco, 1875</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>Frederick Hess</namePart>
+            <role>
+              <roleTerm type="text">publisher</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Ferd. Lange, Darmstadt, Germany</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>copyright 1875</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>black and white lithograph on paper</form>
+            <note displayLabel="Dimensions">12 x 26 inches</note>
+            <note displayLabel="Condition">good to fair; thin sheet, conserved</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Rectangular view looking east and north of cityscape and harbor with passersby and farmers on a hill in foreground, Marin and mid bay in distance, surrounded by vignettes of twenty-two labeled buildings and sites.  Annotations: &#x201C;Entered According to Act of Congress in the year 1875 by Frederick Hess in the Office of the Librarian of Congress, Washington D.C.&#x201D;
+          </abstract>
+          <identifier type="local">rd-159</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:cj838gj2652</identifier><datestamp>2012-04-28T04:38:46Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Public Buildings, San Francisco</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Public Buildings, San Francisco</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>Britton &amp; Rey, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>circa 1865</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>black and white lithograph on paper</form>
+            <note displayLabel="Dimensions">11 x 18-1/2 inches</note>
+            <note displayLabel="Condition">good</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Fifty-eight vignettes of historic buildings, including the jail, mint, city hall, customs house, and mission.
+          </abstract>
+          <identifier type="local">rd-129</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:jk203jc5048</identifier><datestamp>2012-04-28T04:38:55Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Fireman&#x2019;s Certificate, Sansome Hook &amp; Ladder Co.</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>StilWell&#x2019;s Fireman&#x2019;s Certificate</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Nahl, Charles</namePart>
+            <namePart type="date">1818-1878</namePart>
+            <description>German/American</description>
+          </name>
+          <name type="corporate">
+            <namePart>Argonaut Book Shop, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>copyright 1855</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>black and white engraving on paper with seal</form>
+            <note displayLabel="Dimensions">22 x 15 inches</note>
+            <note displayLabel="Condition">good; some staining around edge, darkened overall</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Elaborate figural cartouche depicting various fire fighting scenes in corners, centering an inscription honoring George M. Stilwell&#x2019;s election to the Sansome Hook and Ladder Company, February of 1852; signed by Mayor Harris and Fire Chief Hossefros.
+          </abstract>
+          <identifier type="local">rd-130</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:zh399dm4626</identifier><datestamp>2012-04-28T04:40:05Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>The Original Design for the New City Hall/and Law Courts, San Francisco, Ca</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Design for San Francisco City Hall &amp; Law Courts, 1871</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>Britton &amp; Rey, San Francisc</namePart>
+            <role>
+              <roleTerm type="text">lithographer)</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>F. Marriott</namePart>
+            <role>
+              <roleTerm type="text">publisher</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Britton &amp; Rey, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>25 Feb. 1871</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>black and white lithograph on paper</form>
+            <note displayLabel="Dimensions">15-1/4 x 20-1/2 inches</note>
+            <note displayLabel="Condition">good; four vertical creases, one horizontal</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            City Hall with dome and flags.
+          </abstract>
+          <identifier type="local">rd-138</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:kg568mq8595</identifier><datestamp>2012-04-28T04:39:12Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Cosmopolitan Hotel, S.W. Corner of Bush and Sansome Streets, San Francisco</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Cosmopolitan Hotel</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>Kneitzer and Farquaharson</namePart>
+            <namePart type="date">19th century</namePart>
+            <description>American (San Francisco)</description>
+            <role>
+              <roleTerm type="text">architect</roleTerm>
+            </role>
+          </name>
+          <name type="personal">
+            <namePart>Otto Knirsch</namePart>
+            <description>Chicago</description>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>tinted lithograph on paper</form>
+            <note displayLabel="Dimensions">22 x 32 inches</note>
+            <note displayLabel="Condition">fair; numerous repairs, some discoloration</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Hotel facade with carriages and figures in the street.
+          </abstract>
+          <identifier type="local">rd-153</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:vv457vx4286</identifier><datestamp>2012-04-28T04:39:21Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Mission de San Luis Rey</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Mission de San Luis Rey, 1850</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Couts, C. J.</namePart>
+            <namePart type="date">19th century</namePart>
+            <description>American</description>
+          </name>
+          <name type="corporate">
+            <namePart>Britton &amp; Rey, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>The Old Print Shop, New York</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>1850</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>black and white lithograph on paper</form>
+            <note displayLabel="Dimensions">12-1/2 x 16 inches</note>
+            <note displayLabel="Condition">good</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Mission facade with arcaded walkway, figures, and animal in foreground.
+          </abstract>
+          <identifier type="local">rd-118</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:jw825tj7575</identifier><datestamp>2012-04-28T04:40:48Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>View of San Francisco, California/Taken from Telegraph Hill April 1850</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>San Francisco, Telegraph Hill, 1850</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>McMurtrie, William B.</namePart>
+            <namePart type="date">1816-1872</namePart>
+            <description>American</description>
+          </name>
+          <name type="corporate">
+            <namePart>N. Currier, 152 Nassau St., New York</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+            <role>
+              <roleTerm type="text">publisher</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>copyright 1851</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>hand-colored lithograph on paper</form>
+            <note displayLabel="Dimensions">17-1/2 x 30-1/2 inches</note>
+            <note displayLabel="Condition">good; &#x201C;California&#x201D; in stone a bit rubbed, grayed overall, some white streaks in left margin</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Miners and goats overlooking structures and tents above the harbor, including a key to nine locations; legend reads:  &#x201C;Clarkes Point, Rincon Point, Happy Valley, Long Wharf, Pacific Street Wharf, Apollo Warehouse, Niantic Warehouse, Sansome St., Portsmouth Square&#x201D;; McMurtrie was a draughtsman of the U. S. Surveying Expedition. Plate #58.  (continued on page 2)
+          </abstract>
+          <identifier type="local">rd-119</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:rm673kv3302</identifier><datestamp>2012-04-28T04:38:29Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>San Francisco</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>San Francisco, 1851</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Marryat, S. F. (drawn by)</namePart>
+          </name>
+          <name type="corporate">
+            <namePart>Henry Squire &amp; Co. London</namePart>
+            <role>
+              <roleTerm type="text">publisher</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>M. &amp; N. Hanhart, London</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>W. Graham Arader III, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>published 1st July, 1851</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>chromolithograph on paper with hand-coloring</form>
+            <note displayLabel="Dimensions">16-1/2 x 25-1/4 inches</note>
+            <note displayLabel="Condition">fair; some foxing</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Various workers, gentlemen, and Chinese figures in the foreground with harbor buildings and sailing ships in harbor, East Bay Hills in distance
+          </abstract>
+          <identifier type="local">rd-161</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:qk537sk2253</identifier><datestamp>2012-04-28T04:38:37Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Grand Parade of the 20th National Encampment G.A.R., San Francisco, California, August 3rd, 1886</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Grand Parade, 1886</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>H. S. Crocker &amp; Co., San Francisco</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Baird, #135</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>Aug. 3rd, 1886</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>color lithograph on paper</form>
+            <note displayLabel="Dimensions">18 x 24 inches</note>
+            <note displayLabel="Condition">good; crease stain</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Parade of walking and mounted figures on streets filled with parade viewers in front of building facades; numerous flags, a trolley car, and a parade arch. Annotations:  &#x201C;R. Marcuse, Sole Proprietor, Jos. A. Hofmann, 208 Montgomery Street, San Francisco, Sole Agent and Souvenir G.A.R.&#x201D;
+          </abstract>
+          <identifier type="local">rd-171</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:qm720yv6180</identifier><datestamp>2012-04-28T04:39:47Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>San Francisco, 1860</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>San Francisco, 1860</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>Hutchings &amp; Rosenfield</namePart>
+            <role>
+              <roleTerm type="text">publisher</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>L. Nagel, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">printer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>The Old Print Shop, New York</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>1860</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>tinted lithograph on paper</form>
+            <note displayLabel="Dimensions">28-1/2 x 40-1/2 inches</note>
+            <note displayLabel="Condition">fair; missing u.l. corner, repaired tears at l., margin tear l. and u.edge, large tear center r., margin tear r.</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            View from hill looking east and slightly south, with figures, &#x201C;gouchos,&#x201D; goats, donkey, man with telescope, and vignettes of thirty-eight buildings around the edge.  Annotations:  &#x201C;LIXE&#x201D; in pencil, lower left.
+          </abstract>
+          <identifier type="local">rd-143</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:tq458hr1323</identifier><datestamp>2012-04-28T04:39:56Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Custom House, San Francisco, California, Perspective View</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Custom House, San Francisco, 1851</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Richards, Joseph R.</namePart>
+          </name>
+          <name type="corporate">
+            <namePart>Joseph R. Richards</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>The Old Print Shop, New York</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>Boston, November 25, 1851</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>black and white lithograph on paper</form>
+            <note displayLabel="Dimensions">15-1/2 x 23-1/2 inches</note>
+            <note displayLabel="Condition">good</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Custom house with figures and flag.  Annotations:  &#x201C;Plan no. 1...Gridley J. F. Bryant, Architect, Boston, Mas.&#x201D;
+          </abstract>
+          <identifier type="local">rd-131</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:cp894pc4843</identifier><datestamp>2012-04-28T04:39:03Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Jenny Lind Theater, San Francisco</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Jenny Lind Theater, San Francisco</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>Quirot and Company</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Quirot &amp; Co., San Francisco</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+            <role>
+              <roleTerm type="text">publisher</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>1851</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>black and white lithograph on paper</form>
+            <note displayLabel="Dimensions">5-3/4 x 8 inches</note>
+            <note displayLabel="Condition">good</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Fenced square in foreground with walking and figures mounted on horses; Jenny Lind, the Union, and El Dorado facades in middle ground.
+          </abstract>
+          <identifier type="local">rd-134</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:cq482hj7635</identifier><datestamp>2012-04-28T04:40:13Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>San Jose, California, 1892</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>San Jose, 1892</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>W. Graham Arader III, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>1892, Jan. 1</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>black and white lithograph on paper</form>
+            <note displayLabel="Dimensions">22 x 32 inches</note>
+            <note displayLabel="Condition">good; folded and creased, some areas of discoloration</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            &#x201C;Supplement to the Daily Mercury, Jan 1, 1892&#x201D;
+          </abstract>
+          <note>
+            Aerial view map of San Jose surrounded by fifteen vignettes of various residences and businesses.
+          </note>
+          <identifier type="local">rd-141</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:nz525ps5073</identifier><datestamp>2012-04-28T04:40:22Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Bird&#x2019;s Eye View of California</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Bird&#x2019;s Eye View of California, 1856</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>W. Graham Arader III, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>1856</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>color lithograph on paper</form>
+            <note displayLabel="Dimensions">20-1/4 x 28-1/4 inches</note>
+            <note displayLabel="Condition">fair; creased, folded in eighteen parts</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Map of California with San Francisco Bay as the center focus; lower right, &#x201C;The Morning Call, Established in 1856,&#x201D; lower left, &#x201C;The Weekly Cal,&#x201D; showing the mountains surrounding the region and parts of Oregon, Nevada, and Arizona.
+          </abstract>
+          <identifier type="local">rd-140</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:nm230vv3600</identifier><datestamp>2012-04-28T04:40:31Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>View of that Portion of the City of San Francisco/from the Residence of N. Larco Esq....</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>San Francisco, Larco Residence, 1859</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Camerer, Eugene</namePart>
+            <namePart type="date">1830-1898</namePart>
+            <description>German/American</description>
+          </name>
+          <name type="corporate">
+            <namePart>F. R. Reynolds, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">publisher</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Kuchel &amp; Dresel</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>L. Nagel</namePart>
+            <role>
+              <roleTerm type="text">printer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>1859</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>hand-colored lithograph on paper </form>
+            <note displayLabel="Dimensions">19 x 34 inches</note>
+            <note displayLabel="Condition">good; foxing, tear right side margin, crease right half above horizon, staining/discoloration bottom half</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Drawn from Nature by E. Camerer
+          </abstract>
+          <note>
+            Figures, children playing on wheels, sheep, dogs, &amp; roosters in foreground overlooking cityscape with harbor and ships in the distance.  Annotations:  &#x201C;Drawn from nature by E. Camerer&#x201D;; entire title reads: &#x201C;View of that Portion of the City of San Francisco from the Residence of N. Larco Esq. Green St. Telegraph Hill Looking South, 1859.&#x201D;
+          </note>
+          <identifier type="local">rd-150</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:ms304tg5151</identifier><datestamp>2012-04-28T04:40:40Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Mission of San Diego, 1850</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Mission of San Diego, 1850</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Couts, C. J.</namePart>
+            <namePart type="date">19th century</namePart>
+            <description>American</description>
+          </name>
+          <name type="corporate">
+            <namePart>Britton &amp; Rey, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>The Old Print Shop, New York</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>1850</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>black and white lithograph on paper</form>
+            <note displayLabel="Dimensions">13 x 16 inches</note>
+            <note displayLabel="Condition">good; minor abrasion</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Mission tower and facade with arcaded porch; two horse-mounted figures in left foreground.
+          </abstract>
+          <identifier type="local">rd-116</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:bw260mc4853</identifier><datestamp>2012-04-28T04:40:57Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Bird&#x2019;s Eye View of the City and County of San Francisco, 1872</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Bird&#x2019;s Eye view of San Francisco, 1872</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Gray, W. Vallance</namePart>
+            <namePart type="date">born 1839</namePart>
+            <description>Scottish/American</description>
+          </name>
+          <name type="corporate">
+            <namePart>A. L. Bancroft and Co.</namePart>
+            <role>
+              <roleTerm type="text">printer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>W. V. Gray and C. B. Gifford</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>copyright 1868</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>tinted lithograph on paper</form>
+            <note displayLabel="Dimensions">22-1/2 x 28 inches</note>
+            <note displayLabel="Condition">fair; some foxing, dark brown spots ringed by &#x201C;bleached&#x201D; halo, scattered creases</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            View looking southward toward the Peninsula from between Market and Telegraph Streets, including ships in the harbor and sailing around the point.  Annotations:  &#x201C;Entered According to Act of Congress in 1868 by W. Vallance Gray &amp; C. B. Gifford in the Clerk&#x2019;s Office in the Northern District of the State of California.&#x201D;
+          </abstract>
+          <identifier type="local">rd-122</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:rc301fn5504</identifier><datestamp>2012-04-28T04:41:06Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>New Auction House, 978C 99 Battery Street, San Francisco, California</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>New Auction House, San Francisco</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Kuchel, Charles C.</namePart>
+            <namePart type="date">1820 - circa 1865</namePart>
+            <description>Swiss/American</description>
+          </name>
+          <name type="corporate">
+            <namePart>Britton &amp; Rey</namePart>
+            <role>
+              <roleTerm type="text">printer</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>circa 1851-1852</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>tinted lithograph on paper</form>
+            <note displayLabel="Dimensions">18 x 18-1/2 inches</note>
+            <note displayLabel="Condition">good</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Middleton, Davis, and Claghorn auction house facade with flag above, and barrels and crates on street below, with many gentlemen standing around the entrance. Annotations:  inscribed, &#x201C;Auction this date at 10 o&#x2019;clock.&#x201D;
+          </abstract>
+          <identifier type="local">rd-132</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:ns717xg1210</identifier><datestamp>2012-04-28T04:41:17Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>View of the Procession in Celebration/of the Admission of California, October 29th 1850</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>California Admission Procession, 1850</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Prendergast, John</namePart>
+            <namePart type="date">born 1815</namePart>
+            <description>American</description>
+          </name>
+          <name type="corporate">
+            <namePart>Zakreski &amp; Hartman</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>1850</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>tinted lithograph on paper</form>
+            <note displayLabel="Dimensions">16 x 20-1/2 inches</note>
+            <note displayLabel="Condition">good</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Large procession of figures rimmed by spectators in front of building facades, including the El Dorado, the Parker House, and the City Hotel.  Plate #110.
+          </abstract>
+          <identifier type="local">rd-133</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:yc087vq3249</identifier><datestamp>2012-04-30T21:33:31Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>San Francisco, Cal.</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>San Francisco, CAL., 1868</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>A. L. Bancroft and Co.</namePart>
+            <role>
+              <roleTerm type="text">printer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>W. V. Gray and C. B. Gifford</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Argonaut Book Shop, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>1868</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>color lithograph on paper</form>
+            <note displayLabel="Dimensions">18 x 28 inches</note>
+            <note displayLabel="Condition">good</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            The bird&#x2019;s eye view of San Francisco including the Golden Gate looking toward the west.
+          </abstract>
+          <identifier type="local">rd-149</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:jv965kd8574</identifier><datestamp>2012-04-30T22:33:53Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>The Port of San Francisco, June 1st, 1849</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Port of San Francisco, 1849</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>Geo. H. Baker, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>1849</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>black and white lithograph on paper</form>
+            <note displayLabel="Dimensions">12-1/2 x 16-1/2 inches</note>
+            <note displayLabel="Condition">good; margin stain upper left</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Miners and burros approaching San Francisco on a trail, with boats in the harbor; noted on print:  &#x201C;From the original drawing by Geo. H. Baker made at date expressly for the NY Tribune and published in that paper&#x2019;s issue of August 28, 1849.  About 200 vessels were then detained here their crews leaving for the mines on arrival in port.  Only a (continued on page 2)
+          </abstract>
+          <identifier type="local">rd-114</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:sk628wv2884</identifier><datestamp>2012-04-30T22:49:02Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>View of San Francisco, 1850,/Taken from a High Point on the South Side</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>San Francisco, 1850. South Side</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>Henry Bill, New York</namePart>
+            <role>
+              <roleTerm type="text">publisher</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>P. S. Duval, Philadelphia</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Baird #18a</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>1850</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>tinted lithograph on paper</form>
+            <note displayLabel="Dimensions">12 x 13-1/2 inches</note>
+            <note displayLabel="Condition">good; slight vertical creases, particularly on right</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Gold miners and burro on path toward the city.  Annotations:  &#x201C;Entered According to Act of Congress in the year 1850 by Theodore T. Johnson, in the Clerk&#x2019;s Office in the District Court of the Eastern District of Pennsylvania.&#x201D;
+          </abstract>
+          <identifier type="local">rd-110</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:cj765pw7168</identifier><datestamp>2012-04-30T22:49:10Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>San Francisco, Cal.</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>San Francisco, circa 1900</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>Ghilion Beach, 107 Montgomery Street; Elliott Litho. Co., S. F.</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>circa 1900</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>tinted lithograph on paper</form>
+            <note displayLabel="Dimensions">19 x 38-1/4 inches</note>
+            <note displayLabel="Condition">fair; deep soiled vertical center crease, two verticals at quarters, secondary creases</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Bird&#x2019;s eye view of the city with steam and sailing ships in the harbor and Golden Gate Park identified; including a key to 87 locations.
+          </abstract>
+          <identifier type="local">rd-115</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:hb125np8905</identifier><datestamp>2012-04-28T04:39:30Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Grand Parade of the Knights Templar</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Grand Parade, Knights Templar, 1883</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Wyttenbach, E.</namePart>
+          </name>
+          <name type="corporate">
+            <namePart>H. S. Crocker &amp; Co., San Francisco</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>Aug. 20, 1883</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>tinted lithograph on paper</form>
+            <note displayLabel="Dimensions">17-3/4 x 23-3/4 inches</note>
+            <note displayLabel="Condition">fair; slightly buckled and stained</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Mounted parade proceeding through the arches and city streets lined with parade watchers on foot and in carriages, in front of building facades.  Annotations:  &#x201C;Triennial Conclave, San Francisco, August 20, 1883.&#x201D;
+          </abstract>
+          <identifier type="local">rd-172</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:bf098tm0241</identifier><datestamp>2012-04-30T19:46:08Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Vue de San Francisco</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Vue de San Francisco</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Fleury, Leon (del.)</namePart>
+          </name>
+          <name type="corporate">
+            <namePart>La Cie L&#x2019;Aurifere</namePart>
+            <role>
+              <roleTerm type="text">publisher</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>L. Sabatier</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Cattier</namePart>
+            <role>
+              <roleTerm type="text">printer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>chromolithograph on paper</form>
+            <note displayLabel="Dimensions">13 x 19 inches</note>
+            <note displayLabel="Condition">good; slight stains and buckling</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            View overlooking rocky foreground hills with travelers sitting on sacks, and a figure on horseback, with the port of San Francisco with ships in the harbor.  Annotations:  &#x201C;Se vent chez Aubert and cie Place de la Bourse.&#x201D;
+          </abstract>
+          <identifier type="local">rd-200</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:zb483ft8379</identifier><datestamp>2012-04-30T19:46:35Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>San Francisco</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>San Francisco, 1852</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>Henry Bill, New York</namePart>
+            <role>
+              <roleTerm type="text">publisher</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection, 1988</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>1852</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>color lithograph on paper</form>
+            <note displayLabel="Dimensions">7-1/2 x 16 inches</note>
+            <note displayLabel="Condition">good; three vertical creases and one horizontal crease, margin cut lower right</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Looking across the city toward Yerba Buena Island with trees and figures in a fenced foreground.  From The History of the World.
+          </abstract>
+          <identifier type="local">rd-273</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:yh685qm8974</identifier><datestamp>2012-04-30T19:46:44Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>San Francisco, 1851</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>San Francisco, 1851</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>Henry Bill, New York</namePart>
+            <role>
+              <roleTerm type="text">publisher</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>T. Sinclair&#x2019;s, Philadelphia</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>1851</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>color lithograph on paper</form>
+            <note displayLabel="Dimensions">12-1/2 x 17 inches</note>
+            <note displayLabel="Condition">good; minor spots and three central creases</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            The hilltop view of the city facing North with various sites and a key with various important sites.  Annotation:  &#x201C;Entered according to Act of Congress 1851 by Henry Bill in the Clerk&#x2019;s Office in the District Court of the Southern District of New York.&#x201D;
+          </abstract>
+          <identifier type="local">rd-305</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:jp231tb3379</identifier><datestamp>2012-04-30T19:47:02Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>San Diego, 1850</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>San Diego, 1850</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Couts, C. J.</namePart>
+            <namePart type="date">19th century</namePart>
+            <description>American</description>
+          </name>
+          <name type="corporate">
+            <namePart>Britton &amp; Rey, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>The Old Print Shop, New York</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>circa 1850</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>black and white lithograph on paper</form>
+            <note displayLabel="Dimensions">12-1/2 x 16 inches</note>
+            <note displayLabel="Condition">good; discoloration upper left, some creasing</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Four Native American figures on a hill looking down on the city surrounding a flag.
+          </abstract>
+          <identifier type="local">rd-117</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:ps292jd8410</identifier><datestamp>2012-04-30T19:47:11Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>The Call New Era Edition/December 19th 1897, San Francisco</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>The Call, New Era</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Crocker, H. S.</namePart>
+          </name>
+          <name type="corporate">
+            <namePart>H. S. Crocker &amp; Co., San Francisco</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>December 19th, 1897</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>color lithograph on paper</form>
+            <note displayLabel="Dimensions">20-1/2 x 15 inches</note>
+            <note displayLabel="Condition">fair; central crease</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Clay Spreckel&#x2019;s building tower rising above city street and crowded with pedestrians and Haight trolley cars; &#x201C;San Francisco Call&#x201D; in lower window.
+          </abstract>
+          <identifier type="local">rd-173</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:qw685fw6269</identifier><datestamp>2012-04-30T19:45:49Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>L. &amp; A. B. Burr&#x2019;s North Beach, San Francisco</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Burr&#x2019;s North Beach</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Gifford, Charles B. (drawn by)</namePart>
+            <namePart type="date">1830-1880</namePart>
+            <description>American</description>
+          </name>
+          <name type="corporate">
+            <namePart>L. Nagel, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">printer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>black and white lithograph on paper</form>
+            <note displayLabel="Dimensions">9 x 12-3/4 inches</note>
+            <note displayLabel="Condition">good; some discoloration</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Figures and the Eureka building in the foreground along the seashore with pier and ships in bay.
+          </abstract>
+          <identifier type="local">rd-176</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:wt030np1013</identifier><datestamp>2012-04-30T19:47:20Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>U. S. Navy Yard at Mare Island, California</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>U. S. Navy Yard</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Dunlap, J. B. (lithographer and engraver)</namePart>
+            <namePart type="date">1825-1864</namePart>
+            <description>American</description>
+          </name>
+          <name type="corporate">
+            <namePart>Britton &amp; Rey, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">printer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>The Old Print Shop, New York</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>Dec. 10 &amp; 11, 1855</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>black and white lithograph on paper</form>
+            <note displayLabel="Dimensions">13-1/4 x 19-1/4 inches</note>
+            <note displayLabel="Condition">fair; horizontal tear from left, crease from right, some discoloration</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Cows, figures, and fenced yard in foreground with view of small and large ships in harbor, buildings on island in mid ground, bay and hills in distance.  Annotations:  &#x201C;Capt. D. G. Farragut Commanding.  Showing the works already completed in the Navy yard, and the U. S. Frigate Independence as she appeared upon the U. S. Dry Dock in its trial test of Dec. 10th and 11th, 1855.&#x201D;
+          </abstract>
+          <identifier type="local">rd-189</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:xn563rv5499</identifier><datestamp>2012-04-30T19:47:29Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>The New California Sugar Refinery, San Francisco</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>New California Sugar Refinery</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Mathews, Arthur Frank</namePart>
+            <namePart type="date">1860-1945</namePart>
+            <description>American</description>
+          </name>
+          <name type="corporate">
+            <namePart>Britton &amp; Rey, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>color lithograph on paper</form>
+            <note displayLabel="Dimensions">17-1/2 x 23-1/4 inches</note>
+            <note displayLabel="Condition">fair; moisture ripples right side 3&#x201D; in, vertical and horizontal fold across middle</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            View of refinery looking towards bay, insert upper left of Claus Spreckels - President, insert upper right of bay front view.  Issued with San Francisco News Letter, Christmas, #1881.
+          </abstract>
+          <identifier type="local">rd-190</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:zz400gd3785</identifier><datestamp>2012-04-30T19:45:29Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Reproduction from the Official Map of San Francisco, Showing the District Swept... </title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>San Francisco District Swept by Fire, 1906 (reproduction)</title>
+          </titleInfo>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>copyright 1906</dateIssued>
+          </originInfo>
+          <subject>
+            <topic authority="lcsh">1906 Earthquake</topic>
+          </subject>
+          <physicalDescription>
+            <form>offset lithograph on paper</form>
+            <note displayLabel="Dimensions">13-1/4 x 10 inches</note>
+            <note displayLabel="Condition">good</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Topographical and street map of the western part of the city of San Francisco, with red indicating fire area.  Annotations:  &#x201C;Area, approximately 4 square miles&#x201D;;  entire title reads: &#x201C;Reproduction from the Official Map of San Francisco, Showing the District Swept by Fire of April 18, 19, 20, 1906.&#x201D;
+          </abstract>
+          <identifier type="local">rd-412</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:pd337xr9038</identifier><datestamp>2012-04-30T19:47:57Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>The Leland Stanford, Jun. University at Palo Alto, Ca.</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Stanford University</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Hawley, Hughson</namePart>
+            <namePart type="date">1850-1936</namePart>
+            <description>American</description>
+          </name>
+          <name type="corporate">
+            <namePart>Harper&#x2019;s Weekly</namePart>
+            <role>
+              <roleTerm type="text">publisher</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>October 3, [18]91</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>photo offset on paper with later hand-coloring</form>
+            <note displayLabel="Dimensions">14-3/4 x 10 inches</note>
+            <note displayLabel="Condition">good; minor crease upper right</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Eight vignettes of campus structures, including many arcaded walkways.  Annotations:  Harper&#x2019;s Weekly, page 753.
+          </abstract>
+          <identifier type="local">rd-137</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:sp604kp2457</identifier><datestamp>2012-04-30T19:45:58Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Celebration of the 4th, July.  In San Francisco, California</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Celebration 4th of July, 1852</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>Cooke &amp; Le Count, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+            <role>
+              <roleTerm type="text">publisher</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>July 5, 1852</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>black and white lithograph on paper</form>
+            <note displayLabel="Dimensions">16-3/4 x 11-1/4 inches</note>
+            <note displayLabel="Condition">poor; folded, torn and creased, water stains, some fragments missing along folds</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Parade lettersheet with figures on foot and mounted, carriage with lettering, &#x201C;Adams &amp; Cos Express,&#x201D; and Chinese figures with dragon flag.
+          </abstract>
+          <identifier type="local">rd-193</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:ts484kj5098</identifier><datestamp>2012-04-30T19:46:17Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Lone Mountain Cemetery, San Francisco/View Towards the Bay</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Lone Mountain Cemetery</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>Kuchel and Dresel</namePart>
+            <namePart type="date">active circa 1853-1865</namePart>
+            <description>American</description>
+          </name>
+          <name type="corporate">
+            <namePart>Kuchel &amp; Dresel, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Britton &amp; Rey</namePart>
+            <role>
+              <roleTerm type="text">printer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>1857</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>black and white lithograph on paper</form>
+            <note displayLabel="Dimensions">13-3/4 x 19 inches</note>
+            <note displayLabel="Condition">good; slight foxing</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            drawn from nature
+          </abstract>
+          <note>
+            Wooded cemetery with obelisk in the foreground and a view continuing to the bay.  Annotations:  &#x201C;Entered According to Act of Congress in the year 1857 by Kuchel &amp; Dresel, in the Clerk&#x2019;s Office of the U. S. District Court for the Northern District of California.&#x201D;
+          </note>
+          <identifier type="local">rd-213</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:ym037xp1637</identifier><datestamp>2012-04-30T19:46:26Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>San-Francisco/Vue Prise d&#x2019;un Point Eleve du Cote Sud.</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>San Francisco, Point Eleve</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Breton, Louis Le (designer and lithographer)</namePart>
+            <namePart type="date">1818-1866</namePart>
+            <description>French</description>
+          </name>
+          <name type="corporate">
+            <namePart>E. Savary et Cie, Paris</namePart>
+            <role>
+              <roleTerm type="text">publisher</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>E. Gambart et Co., London</namePart>
+            <role>
+              <roleTerm type="text">publisher</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Auguste Bry, Paris</namePart>
+            <role>
+              <roleTerm type="text">printer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>view of approximately 1848, published about 1865</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>tinted lithograph on paper</form>
+            <note displayLabel="Dimensions">12-1/2 x 19 inches</note>
+            <note displayLabel="Condition">good; creased lower right</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Horse-mounted figures riding toward the city spread out over two hills with ships below.
+          </abstract>
+          <identifier type="local">rd-235</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:pz572zt9333</identifier><datestamp>2012-04-30T19:44:51Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Bird&#x2019;s Eye View of the City and County/of San Francisco, 1873</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>bird&#x2019;s eye view...San Francisco, 1873</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Vallance, Gray, W.</namePart>
+            <namePart type="date">born 1839</namePart>
+            <description>Scottish/American</description>
+          </name>
+          <name type="personal">
+            <namePart>Gifford, Charles B.</namePart>
+            <namePart type="date">1830-1880</namePart>
+            <description>American</description>
+          </name>
+          <name type="corporate">
+            <namePart>A. L. Bancroft and Co.</namePart>
+            <role>
+              <roleTerm type="text">printer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>W. V. Gray and C. B. Gifford</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>The Old Print Shop, New York</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>copyright 1868</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>tinted lithograph on paper</form>
+            <note displayLabel="Dimensions">16 x 27 inches</note>
+            <note displayLabel="Condition">fair; some abrasions, repairs, staining</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Bird&#x2019;s eye view overlooking harbor and San Francisco toward the south, with sail and steam ships in foreground, cityscape, and San Francisco hills beyond.  Annotations:  &#x201C;Entered According to Act of Congress in the year 1868 by W. Vallance Gray &amp; C. B. Gifford in the Clerk&#x2019;s Office of the District Court of the Northern District of the State of California.&#x201D;
+          </abstract>
+          <identifier type="local">rd-250</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:mz639xs9677</identifier><datestamp>2012-04-30T19:45:00Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Bird&#x2019;s Eye View of the City and County of San Francisco, 1869</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>bird&#x2019;s eye view of the city and county of San Francisco, 1869</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Vallance, Gray, W.</namePart>
+            <namePart type="date">born 1839</namePart>
+            <description>Scottish/American</description>
+          </name>
+          <name type="personal">
+            <namePart>Gifford, Charles B.</namePart>
+            <namePart type="date">1830-1880</namePart>
+            <description>American</description>
+          </name>
+          <name type="corporate">
+            <namePart>W. Vallance Gray and C.B. Gifford, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+            <role>
+              <roleTerm type="text">publisher</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>copyright 1868</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>tinted lithograph on paper</form>
+            <note displayLabel="Dimensions">22-1/2 x 28 inches</note>
+            <note displayLabel="Condition">good</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            View looking southward toward the Peninsula from between Market and Telegraph streets, including ships in the harbor and sailing around the point. Annotated: &#x201C;Entered According to Act of Congress in 1868 by W. Vallance Gray &amp; C.B. Gifford in the Clerk&#x2019;s Office in the Northern District of the State of California.&#x201D;
+          </abstract>
+          <identifier type="local">rd-316</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:bh059ts1689</identifier><datestamp>2012-04-30T19:45:10Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Chronicle Building</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Chronicle Building</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>Dickman Jones Co.</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Dickman Jones Co., San Francisco</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>early 1890s</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>color lithograph on paper</form>
+            <note displayLabel="Dimensions">24 x 19-1/2 inches</note>
+            <note displayLabel="Condition">good; flag partially obscured by mat</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Red brick and masonry Chronicle building rising above other facades and busy city streets with pedestrians and trolley cars 277 and 38; advertisement on building reads, &#x201C;The Chronicle has the (biggest) circulation&#x201D; and &#x201C;is the leading paper on the Pacific coast.&#x201D;
+          </abstract>
+          <identifier type="local">rd-174</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:nz983qh6640</identifier><datestamp>2012-04-30T19:45:20Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Lombard, Northpoint &amp; Greenwich Docks,/San Francisco, Ships-Great Republic... </title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Lombard, Northpoint</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Gifford, Charles B.</namePart>
+            <namePart type="date">1830-1880</namePart>
+            <description>American</description>
+          </name>
+          <name type="corporate">
+            <namePart>H. Eastman and A. Nahl</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>L. Nagel, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">printer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>circa 1860</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>tinted lithograph on paper</form>
+            <note displayLabel="Dimensions">22-1/2 x 32-1/2 inches</note>
+            <note displayLabel="Condition">good; repaired tear upper right, small tear right margin, discolored blotches throughout</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            View of the Greenwich Docks from a hill with various passersby, looking east over streets with horses and carriages, ships at port, various labeled buildings, and the distant hills; entire title reads: &#x201C;Lombard, Northpoint &amp; Greenwich Docks,/San Francisco, Ships-Great Republic, Hurricane/and Zenobia Discharging.&#x201D;
+          </abstract>
+          <identifier type="local">rd-246</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:sg893vh0509</identifier><datestamp>2012-04-30T19:47:38Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Graphic Chart of the City and County of San Francisco</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Graphic Chart, 1875</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Townsend, L. R.</namePart>
+            <namePart type="date">19th century</namePart>
+            <description>American</description>
+          </name>
+          <name type="personal">
+            <namePart>Wyneke, E.</namePart>
+          </name>
+          <name type="personal">
+            <namePart>Mendenhall, J.</namePart>
+          </name>
+          <name type="corporate">
+            <namePart>Britton, Rey &amp; Co., San Francisco</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>The Old Print Shop, New York</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>April, 1875</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>black and white pen lithograph on paper</form>
+            <note displayLabel="Dimensions">20 x 30 inches</note>
+            <note displayLabel="Condition">good; six vertical creases, one horizontal crease</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Popular view pub. in the S.F. Newsletter, California Advertiser, based on Bancroft&#x2019;s bird&#x2019;s eye view lithographs from 1868-1873; view with explanatory ref. for 188 sites and ships, but with revisions &amp; the Town of Burlingame, l.l., bay of San Francisco &amp; Oakland, l.r.  Annotations: &#x201C;Entered According to Act of Congress by F. Marriott in the (continued on page 2)
+          </abstract>
+          <identifier type="local">rd-251</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:sr100hp0609</identifier><datestamp>2012-04-30T19:47:48Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>The Burning of San Francisco April 18, 19, 20, 1906</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Burning of San Francisco, 1906</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Beck, Carl A.</namePart>
+            <description>American</description>
+          </name>
+          <name type="corporate">
+            <namePart>Schmidt Lithograph Company, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>1906</dateIssued>
+          </originInfo>
+          <subject>
+            <topic authority="lcsh">1906 Earthquake</topic>
+          </subject>
+          <physicalDescription>
+            <form>chromolithograph on paper with hand-coloring</form>
+            <note displayLabel="Dimensions">25-1/4 x 37 inches</note>
+            <note displayLabel="Condition">good; some creasing, repaired hole left side, paper replaced upper edge, water stains lower edge, buckled paper</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            Cityscape with wharf in foreground and fire consuming city background.  Annotations:  &#x201C;The greatest conflagration in the history of the world.  Over 450 square blocks were destroyed with a loss of over 500 million dollars.  In the above scene the fire line is over five miles in length on the evening of the first day.&#x201D;
+          </abstract>
+          <identifier type="local">rd-413</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:rv067sg7529</identifier><datestamp>2012-04-30T19:45:39Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>View of San Francisco, Formerly Yerba Buena,/in 1846-7, Before the Discovery of Gold</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>San Francisco, Formerly Yerba Buena, 1846-7</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>Potter Collection</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>1884</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>chromolithograph on paper</form>
+            <note displayLabel="Dimensions">17 x 20-1/2 inches</note>
+            <note displayLabel="Condition">good; light overall yellowing and staining, margin creases</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            View from harbor includes:  a.) USS Portsmouth, b.) three transport ships, Loo Choo, Susan Drew, Thomas H. Perkins, c.) Ship Vandalia, d.) coasting Schooner and the launch Luce, belonging to James Lick; with a key identifying various businesses and residences (note: designed and copied from views taken at the time and published by (continued on page 2)
+          </abstract>
+          <identifier type="local">rd-104</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:sw224pf0795</identifier><datestamp>2012-04-30T19:46:53Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>San Francisco, 1856</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>San Francisco, 1856</title>
+          </titleInfo>
+          <name type="corporate">
+            <namePart>Henry Bill, New York</namePart>
+            <role>
+              <roleTerm type="text">publisher</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>T. Sinclair&#x2019;s, Philadelphia</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Tam O&#x2019;Neill Fine Arts, Denver, Colorado</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>1852</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>color lithograph on paper</form>
+            <note displayLabel="Dimensions">9-1/2 x 16-1/4 inches</note>
+            <note displayLabel="Condition">fair; minor spots and four large creases</note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+            The hilltop view of the city facing North with various sites and a key with various general geographic districts and the annotation.  Annotations:  &#x201C;Entered according to Act of Congress 1852 by Henry Bill in the Clerk&#x2019;s Office in the District Court of the District of Connecticut.&#x201D;
+          </abstract>
+          <identifier type="local">rd-306</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:sg213ph2100</identifier><datestamp>2012-09-25T22:25:26Z</datestamp><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata>
+        <mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Dennis, Reid W.</namePart>
+            <role>
+              <roleTerm authority="marcrelator" type="text">creator</roleTerm>
+            </role>
+            <role>
+              <roleTerm type="text">collector.</roleTerm>
+            </role>
+          </name>
+          <typeOfResource collection="yes" manuscript="yes">mixed material</typeOfResource>
+          <genre authority="ftamc">Lithographs.</genre>
+          <originInfo>
+            <place>
+              <placeTerm authority="marccountry" type="code">cau</placeTerm>
+            </place>
+            <dateIssued encoding="marc" keyDate="yes" point="start">1850</dateIssued>
+            <dateIssued encoding="marc" point="end">1906</dateIssued>
+            <issuance>monographic</issuance>
+          </originInfo>
+          <language>
+            <languageTerm authority="iso639-2b" type="code">eng</languageTerm>
+          </language>
+          <physicalDescription>
+            <extent>50 prints and 1 lithograph stone.</extent>
+          </physicalDescription>
+          <abstract>This collection of prints, mostly lithographs (including chromolithographs and colored lithographs), as well as one engraving, primarily portray San Francisco city views, public buildings, and landscapes. Subjects also include San Jose, Stanford University, the U.S. Navy Yard at Mare Island, San Diego, and San Luis Rey. Included is a lithograph stone with an image of San Francisco.</abstract>
+          <accessCondition type="restrictionsOnAccess">Open for research; material must be requested at least 36 hours in advance of intended use.</accessCondition>
+          <note>Gift of Reid W. Dennis, 2004 and 2007. Accessions 2004-095 (49 prints), and 2007-076 (1 print).</note>
+          <subject authority="lcsh">
+            <name type="personal">
+              <namePart>Baker, George H</namePart>
+              <role>
+                <roleTerm type="text">lithographer.</roleTerm>
+              </role>
+            </name>
+          </subject>
+          <subject>
+            <name type="personal">
+              <namePart>Beach, Ghilion</namePart>
+              <role>
+                <roleTerm type="text">publisher.</roleTerm>
+              </role>
+            </name>
+          </subject>
+          <subject>
+            <name type="personal">
+              <namePart>Bridgens, R.P</namePart>
+            </name>
+          </subject>
+          <subject authority="lcsh">
+            <name type="personal">
+              <namePart>Couts, Cave Johnson</namePart>
+              <namePart type="date">1821-1874</namePart>
+            </name>
+          </subject>
+          <subject authority="lcsh">
+            <name type="personal">
+              <namePart>Kuchel, Charles Conrad</namePart>
+              <namePart type="date">b. 1820</namePart>
+            </name>
+          </subject>
+          <subject authority="lcsh">
+            <name type="personal">
+              <namePart>McMurtrie, W. B. (William Birch)</namePart>
+            </name>
+          </subject>
+          <subject authority="lcsh">
+            <name type="personal">
+              <namePart>M&#xE9;ryon, Charles</namePart>
+              <namePart type="date">1821-1868</namePart>
+            </name>
+          </subject>
+          <subject authority="lcsh">
+            <name type="personal">
+              <namePart>Nahl, Charles Christian</namePart>
+              <namePart type="date">1818-1878</namePart>
+            </name>
+          </subject>
+          <subject authority="lcsh">
+            <name type="personal">
+              <namePart>Swasey, W. F. (William F.)</namePart>
+            </name>
+          </subject>
+          <subject authority="lcsh">
+            <name type="corporate">
+              <namePart>Bosqui Eng. &amp; Print. Co.</namePart>
+            </name>
+          </subject>
+          <subject authority="lcsh">
+            <name type="corporate">
+              <namePart>Britton &amp; Rey.</namePart>
+            </name>
+          </subject>
+          <subject authority="lcsh">
+            <name type="corporate">
+              <namePart>Elliott Lithography Company (San Francisco)</namePart>
+            </name>
+          </subject>
+          <subject>
+            <name type="corporate">
+              <namePart>Gray (W. Vallance) &amp; C.B. Gifford,</namePart>
+              <role>
+                <roleTerm type="text">lithographers.</roleTerm>
+              </role>
+            </name>
+          </subject>
+          <subject authority="lcsh">
+            <geographic>San Francisco (Calif.)</geographic>
+            <topic>History</topic>
+            <genre>Pictorial works</genre>
+          </subject>
+          <subject authority="lcsh">
+            <geographic>San Diego (Calif.)</geographic>
+            <topic>History</topic>
+            <genre>Pictorial works</genre>
+          </subject>
+          <subject authority="lcsh">
+            <geographic>San Jose (Calif.)</geographic>
+            <topic>History</topic>
+            <genre>Pictorial works</genre>
+          </subject>
+          <subject authority="lcsh">
+            <geographic>San Luis Rey (Calif.)</geographic>
+            <topic>History</topic>
+            <genre>Pictorial works</genre>
+          </subject>
+          <location>
+            <physicalLocation>Department of Special Collections, Stanford University Libraries, Stanford, CA 94305.</physicalLocation>
+          </location>
+          <accessCondition type="restrictionOnAccess">Open for research; material must be requested at least 36 hours in advance of intended use.</accessCondition>
+          <recordInfo>
+            <descriptionStandard>dacs</descriptionStandard>
+            <recordContentSource authority="marcorg">CSt</recordContentSource>
+            <recordCreationDate encoding="marc">070403</recordCreationDate>
+            <recordIdentifier source="SIRSI">a6780453</recordIdentifier>
+          </recordInfo>
+        </mods>
+        </metadata><about><provenance xmlns="http://www.openarchives.org/OAI/2.0/provenance"><originDescription><identifier>6780453</identifier></originDescription></provenance></about></record><record><header><identifier>oai:searchworks.stanford.edu/druid:xk506sn3923</identifier><datestamp>2013-09-25T04:53:07Z</datestamp><setSpec>is_member_of_sg213ph2100</setSpec><setSpec>is_member_of_collection_sg213ph2100</setSpec><setSpec>is_governed_by_sd064kn5856</setSpec></header><metadata><mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+          <titleInfo>
+            <title>Bird&#x2019;s Eye View of San Francisco and surrounding country</title>
+          </titleInfo>
+          <titleInfo type="alternative">
+            <title>Bird&#x2019;s Eye View of the City of San Francisco and Surrounding Country</title>
+          </titleInfo>
+          <name type="personal">
+            <namePart>Goddard, George H.</namePart>
+            <namePart type="date">1817-1906</namePart>
+            <description>English/American</description>
+          </name>
+          <name type="corporate">
+            <namePart>Snow &amp; Roos, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">publisher</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Britton &amp; Rey, San Francisco</namePart>
+            <role>
+              <roleTerm type="text">lithographer</roleTerm>
+            </role>
+          </name>
+          <name type="corporate">
+            <namePart>Kennedy Gallery, New York</namePart>
+            <role>
+              <roleTerm type="text">former owner</roleTerm>
+            </role>
+          </name>
+          <typeOfResource>still image</typeOfResource>
+          <originInfo>
+            <dateIssued>1868</dateIssued>
+          </originInfo>
+          <physicalDescription>
+            <form authority="aat">Graphics</form>
+            <form>color lithograph on paper</form>
+            <note displayLabel="Dimensions">28 x 41 inches</note>
+            <note displayLabel="Condition">good; one discolored streak upper left edge </note>
+          </physicalDescription>
+          <abstract displayLabel="Description">
+        View looking east across bay to Sierras with Pacific and fort in foreground, with ships leaving Golden Gate, city view and harbor in mid distance, and east bay and snow-covered mountains in distance.</abstract>
+          <identifier type="local">rd-252</identifier>
+          <relatedItem type="host">
+            <titleInfo>
+              <title>Reid W. Dennis collection of California lithographs, 1850-1906</title>
+            </titleInfo>
+            <identifier type="uri">http://purl.stanford.edu/sg213ph2100</identifier>
+            <typeOfResource collection="yes"/>
+          </relatedItem>
+          <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+          <accessCondition type="copyright">Copyright &#xA9; Stanford University. All Rights Reserved.</accessCondition>
+        </mods>
+        </metadata><about></about></record></ListRecords></OAI-PMH>
+    http_version: 
+  recorded_at: Mon, 28 Jul 2014 22:03:06 GMT
+recorded_with: VCR 2.9.2
