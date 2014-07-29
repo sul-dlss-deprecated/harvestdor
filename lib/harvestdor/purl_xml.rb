@@ -111,7 +111,7 @@ module Harvestdor
     pub_xml_ng_doc = pub_xml(object, purl_url)
     begin
       # preserve namespaces, etc for the node
-      ng_doc = Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/dc:dc', {'dc' => Harvestdor::OAI_DC_NAMESPACE}).to_xml)
+      ng_doc = Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/dc:dc', {'dc' => Harvestdor::OAI_DC_NAMESPACE}).to_xml(:encoding => 'utf-8'))
       raise Harvestdor::Errors::MissingDC.new(object.inspect) if !ng_doc || ng_doc.children.empty?
       ng_doc
     rescue
