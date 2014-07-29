@@ -148,6 +148,7 @@ persist this information with your app for incremental harvests
 
 == Releases
 
+* <b>0.0.14</b> Bug fix for compatibility with jruby
 * <b>0.0.13</b> Updated to work with Faraday 0.9, releases via rubygems instead of sul-gems
 * <b>0.0.11</b> better error handling, and better testing for errors
 * <b>0.0.10</b> tweak specs to test that unnec fetching isn't done.
