@@ -119,65 +119,6 @@ module Harvestdor
     end
   end
 
-
-  class Client
-    
-    # the public xml for this fedora object, from the purl server
-    # @param [String] druid e.g. ab123cd4567, in the purl url
-    # @return [Nokogiri::XML::Document] the MODS metadata for the fedora object
-    def mods druid
-      Harvestdor.mods(druid, config.purl)
-    end
-
-    # the public xml for this fedora object, from the purl xml
-    # @param [String] druid e.g. ab123cd4567, in the purl url
-    # @return [Nokogiri::XML::Document] the public xml for the fedora object
-    def public_xml druid
-      Harvestdor.public_xml(druid, config.purl)
-    end
-
-    # the contentMetadata for this fedora object, from the purl xml
-    # @param [Object] object a String containing a druid (e.g. ab123cd4567), or 
-    #  a Nokogiri::XML::Document containing the public_xml for an object
-    # @return [Nokogiri::XML::Document] the contentMetadata for the fedora object
-    def content_metadata object
-      Harvestdor.content_metadata(object, config.purl)
-    end
-
-    # the identityMetadata for this fedora object, from the purl xml
-    # @param [Object] object a String containing a druid (e.g. ab123cd4567), or 
-    #  a Nokogiri::XML::Document containing the public_xml for an object
-    # @return [Nokogiri::XML::Document] the identityMetadata for the fedora object
-    def identity_metadata object
-      Harvestdor.identity_metadata(object, config.purl)
-    end
-
-    # the rightsMetadata for this fedora object, from the purl xml
-    # @param [Object] object a String containing a druid (e.g. ab123cd4567), or 
-    #  a Nokogiri::XML::Document containing the public_xml for an object
-    # @return [Nokogiri::XML::Document] the rightsMetadata for the fedora object
-    def rights_metadata object
-      Harvestdor.rights_metadata(object, config.purl)
-    end
-
-    # the RDF for this fedora object, from the purl xml
-    # @param [Object] object a String containing a druid (e.g. ab123cd4567), or 
-    #  a Nokogiri::XML::Document containing the public_xml for an object
-    # @return [Nokogiri::XML::Document] the RDF for the fedora object
-    def rdf object
-      Harvestdor.rdf(object, config.purl)
-    end
-
-    # the Dublin Core for this fedora object, from the purl xml
-    # @param [Object] object a String containing a druid (e.g. ab123cd4567), or 
-    #  a Nokogiri::XML::Document containing the public_xml for an object
-    # @return [Nokogiri::XML::Document] the dc for the fedora object
-    def dc object
-      Harvestdor.dc(object, config.purl)
-    end
-    
-  end # class Client
-
   protected #--------------------------------------------
   
   # @param [Object] object a String containing a druid (e.g. ab123cd4567), or 
