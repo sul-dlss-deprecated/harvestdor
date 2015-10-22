@@ -2,7 +2,7 @@ require 'nokogiri'
 
 module Harvestdor
   # Mixin:  code to retrieve Purl public xml pieces
-  
+
   RDF_NAMESPACE = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'
   OAI_DC_NAMESPACE = 'http://www.openarchives.org/OAI/2.0/oai_dc/'
   MODS_NAMESPACE = 'http://www.loc.gov/mods/v3'
@@ -28,14 +28,14 @@ module Harvestdor
     begin
       ng_doc = Nokogiri::XML(open("#{purl_url}/#{druid}.xml"))
       raise Harvestdor::Errors::MissingPublicXml.new(druid) if !ng_doc || ng_doc.children.empty?
-      ng_doc 
+      ng_doc
     rescue OpenURI::HTTPError
       raise Harvestdor::Errors::MissingPurlPage.new(druid)
     end
   end
 
   # the contentMetadata for this fedora object, from the purl xml
-  # @param [Object] object a String containing a druid (e.g. ab123cd4567), or 
+  # @param [Object] object a String containing a druid (e.g. ab123cd4567), or
   #  a Nokogiri::XML::Document containing the public_xml for an object
   # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the contentMetadata for the fedora object
@@ -45,14 +45,14 @@ module Harvestdor
       # preserve namespaces, etc for the node
       ng_doc = Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/contentMetadata').to_xml)
       raise Harvestdor::Errors::MissingContentMetadata.new(object.inspect) if !ng_doc || ng_doc.children.empty?
-      ng_doc 
+      ng_doc
     rescue
       raise Harvestdor::Errors::MissingContentMetadata.new(object.inspect)
     end
   end
 
   # the identityMetadata for this fedora object, from the purl xml
-  # @param [Object] object a String containing a druid (e.g. ab123cd4567), or 
+  # @param [Object] object a String containing a druid (e.g. ab123cd4567), or
   #  a Nokogiri::XML::Document containing the public_xml for an object
   # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the identityMetadata for the fedora object
@@ -62,14 +62,14 @@ module Harvestdor
       # preserve namespaces, etc for the node
       ng_doc = Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/identityMetadata').to_xml)
       raise Harvestdor::Errors::MissingIdentityMetadata.new(object.inspect) if !ng_doc || ng_doc.children.empty?
-      ng_doc 
+      ng_doc
     rescue
       raise Harvestdor::Errors::MissingIdentityMetadata.new(object.inspect)
     end
   end
 
   # the rightsMetadata for this fedora object, from the purl xml
-  # @param [Object] object a String containing a druid (e.g. ab123cd4567), or 
+  # @param [Object] object a String containing a druid (e.g. ab123cd4567), or
   #  a Nokogiri::XML::Document containing the public_xml for an object
   # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the rightsMetadata for the fedora object
@@ -86,7 +86,7 @@ module Harvestdor
   end
 
   # the RDF for this fedora object, from the purl xml
-  # @param [Object] object a String containing a druid (e.g. ab123cd4567), or 
+  # @param [Object] object a String containing a druid (e.g. ab123cd4567), or
   #  a Nokogiri::XML::Document containing the public_xml for an object
   # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the RDF for the fedora object
@@ -103,7 +103,7 @@ module Harvestdor
   end
 
   # the Dublin Core for this fedora object, from the purl xml
-  # @param [Object] object a String containing a druid (e.g. ab123cd4567), or 
+  # @param [Object] object a String containing a druid (e.g. ab123cd4567), or
   #  a Nokogiri::XML::Document containing the public_xml for an object
   # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the dc for the fedora object
@@ -120,13 +120,13 @@ module Harvestdor
   end
 
   protected #--------------------------------------------
-  
-  # @param [Object] object a String containing a druid (e.g. ab123cd4567), or 
+
+  # @param [Object] object a String containing a druid (e.g. ab123cd4567), or
   #  a Nokogiri::XML::Document containing the public_xml for an object
   # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the public xml for a DOR object
   def self.pub_xml(object, purl_url = Harvestdor::PURL_DEFAULT)
-    case 
+    case
       when object.instance_of?(String)
         # it's a druid
         pub_xml_ng_doc = Harvestdor.public_xml(object, purl_url)
@@ -135,7 +135,7 @@ module Harvestdor
       else
         raise "expected String or Nokogiri::XML::Document for first argument, got #{object.class}"
     end
-    pub_xml_ng_doc    
+    pub_xml_ng_doc
   end
 
 end # module Harvestdor

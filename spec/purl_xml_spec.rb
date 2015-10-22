@@ -12,10 +12,10 @@ describe Harvestdor::Client do
     @rdf_xml = "<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'><rdf:Description rdf:about=\"info:fedora/druid:#{@druid}\">relationship!</rdf:Description></rdf:RDF>"
     @dc_xml = "<oai_dc:dc xmlns:oai_dc='#{Harvestdor::OAI_DC_NAMESPACE}'><oai_dc:title>hoo ha</oai_dc:title</oai_dc:dc>"
     @pub_xml = "<publicObject id='druid:#{@druid}'>#{@id_md_xml}#{@cntnt_md_xml}#{@rights_md_xml}#{@rdf_xml}#{@dc_xml}</publicObject>"
-    @ng_pub_xml = Nokogiri::XML(@pub_xml) 
-    @fake_druid = 'oo000oo0000'     
+    @ng_pub_xml = Nokogiri::XML(@pub_xml)
+    @fake_druid = 'oo000oo0000'
   end
-  
+
   it "#mods returns a Nokogiri::XML::Document from the purl mods" do
     VCR.use_cassette('purl_mods') do
       x = Harvestdor.mods(@druid, @purl)
@@ -23,7 +23,7 @@ describe Harvestdor::Client do
       expect(x.root.name).to eql('mods')
       expect(x.root.namespace.href).to eql(Harvestdor::MODS_NAMESPACE)
     end
-  end    
+  end
 
   context "#public_xml" do
     it "#public_xml retrieves entire public xml as a Nokogiri::XML::Document when called with druid" do
@@ -44,7 +44,7 @@ describe Harvestdor::Client do
       expect { Harvestdor.public_xml(@fake_druid, @purl) }.to raise_error(Harvestdor::Errors::MissingPublicXml)
     end
   end
-  
+
   context "#pub_xml" do
     it "retrieves public_xml via fetch when first arg is a druid" do
       expect(Harvestdor).to receive(:public_xml).with(@druid, @purl)
@@ -57,7 +57,7 @@ describe Harvestdor::Client do
       expect { Harvestdor.pub_xml(Array.new)}.to raise_error(RuntimeError, "expected String or Nokogiri::XML::Document for first argument, got Array")
     end
   end
-  
+
   context "#content_metadata" do
     it "returns a Nokogiri::XML::Document from the public xml fetched with druid" do
       VCR.use_cassette('content_metadata') do
@@ -76,9 +76,9 @@ describe Harvestdor::Client do
     it "raises MissingContentMetadata error if there is no contentMetadata in the public_xml for the druid" do
       pub_xml = "<publicObject id='druid:#{@druid}'>#{@id_md_xml}#{@rights_md_xml}</publicObject>"
       expect { Harvestdor.content_metadata(Nokogiri::XML(pub_xml)) }.to raise_error(Harvestdor::Errors::MissingContentMetadata)
-    end 
+    end
   end
-  
+
   context "#identity_metadata" do
     it "returns a Nokogiri::XML::Document from the public xml fetched with druid" do
       VCR.use_cassette('identity_metadata') do
@@ -98,9 +98,9 @@ describe Harvestdor::Client do
     it "raises MissingIdentityMetadata error if there is no identityMetadata in the public_xml for the druid" do
       pub_xml = "<publicObject id='druid:#{@druid}'>#{@cntnt_md_xml}#{@rights_md_xml}</publicObject>"
       expect { Harvestdor.identity_metadata(Nokogiri::XML(pub_xml)) }.to raise_error(Harvestdor::Errors::MissingIdentityMetadata)
-    end  
+    end
   end
-  
+
   context "#rights_metadata" do
     it "#rights_metadata returns a Nokogiri::XML::Document from the public xml fetched with druid" do
       VCR.use_cassette('rights_metadata') do
@@ -118,9 +118,9 @@ describe Harvestdor::Client do
     it "raises MissingRightsMetadata error if there is no identityMetadata in the public_xml for the druid" do
       pub_xml = "<publicObject id='druid:#{@druid}'>#{@cntnt_md_xml}#{@id_md_xml}</publicObject>"
       expect { Harvestdor.rights_metadata(Nokogiri::XML(pub_xml)) }.to raise_error(Harvestdor::Errors::MissingRightsMetadata)
-    end  
+    end
   end
-  
+
   context "#rdf" do
     it "returns a Nokogiri::XML::Document from the public xml fetched with druid" do
       VCR.use_cassette('rdf') do
@@ -140,9 +140,9 @@ describe Harvestdor::Client do
     it "raises MissingRDF error if there is no RDF in the public_xml for the druid" do
       pub_xml = "<publicObject id='druid:#{@druid}'>#{@cntnt_md_xml}#{@id_md_xml}</publicObject>"
       expect { Harvestdor.rdf(Nokogiri::XML(pub_xml)) }.to raise_error(Harvestdor::Errors::MissingRDF)
-    end  
+    end
   end
-  
+
   context "#dc" do
     it "returns a Nokogiri::XML::Document from the public xml fetched with druid" do
       VCR.use_cassette('dc') do
@@ -162,9 +162,9 @@ describe Harvestdor::Client do
     it "raises MissingDC error if there is no DC in the public_xml for the druid" do
       pub_xml = "<publicObject id='druid:#{@druid}'>#{@cntnt_md_xml}#{@id_md_xml}</publicObject>"
       expect { Harvestdor.dc(Nokogiri::XML(pub_xml)) }.to raise_error(Harvestdor::Errors::MissingDC)
-    end  
+    end
   end
-  
+
   context "Harvestdor:Client calls methods with config.purl" do
     before(:all) do
       @client = Harvestdor::Client.new({:purl_url => 'http://thisone.org'})

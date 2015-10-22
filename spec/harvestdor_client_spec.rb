@@ -3,7 +3,7 @@ require "spec_helper"
 describe Harvestdor::Client do
 
   before(:all) do
-    @config_yml_path = File.join(File.dirname(__FILE__), "config", "oai.yml")
+    @config_yml_path = File.join(File.dirname(__FILE__), "config", "example.yml")
     @client_via_yml_only = Harvestdor::Client.new({:config_yml_path => @config_yml_path})
     require 'yaml'
     @yaml = YAML.load_file(@config_yml_path)
@@ -13,7 +13,7 @@ describe Harvestdor::Client do
     before(:all) do
       @some_args = Harvestdor::Client.new.config
     end
-      
+
     context "attributes passed in hash argument" do
       it "should keep the defaults for attributes not in the hash argument" do
         expect(@some_args.log_name).to eql(Harvestdor::LOG_NAME_DEFAULT)
@@ -22,7 +22,7 @@ describe Harvestdor::Client do
         expect(@some_args.http_options).to eql(Confstruct::Configuration.new(Harvestdor::HTTP_OPTIONS_DEFAULT))
       end
     end
-    
+
     context "config_yml_path in hash argument" do
       before(:all) do
         @config_via_yml_only = @client_via_yml_only.config
@@ -48,7 +48,7 @@ describe Harvestdor::Client do
         end
       end
     end
-    
+
     context "without hash arguments" do
       it "should keep the defaults for all attributes" do
         no_args = Harvestdor::Client.new.config
@@ -59,7 +59,7 @@ describe Harvestdor::Client do
       end
     end
   end # initialize client
-  
+
   it "should allow direct setting of configuration attributes" do
     conf = Harvestdor::Client.new.config
     expect(conf.log_dir).to eql(Harvestdor::LOG_DIR_DEFAULT)
@@ -73,5 +73,5 @@ describe Harvestdor::Client do
       expect(File.exists?(File.join(@yaml['log_dir'], Harvestdor::LOG_NAME_DEFAULT))).to eql(true)
     end
   end
-  
+
 end
