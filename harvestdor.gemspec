@@ -8,33 +8,29 @@ Gem::Specification.new do |gem|
   gem.version       = Harvestdor::VERSION
   gem.authors       = ["Naomi Dushay"]
   gem.email         = ["ndushay@stanford.edu"]
-  gem.description   = %q{Harvest DOR object metadata via a relationship (e.g. hydra:isGovernedBy rdf:resource="info:fedora/druid:hy787xj5878") and dates}
+  gem.description   = %q{Harvest DOR object metadata from a Stanford public purl page}
   gem.summary       = %q{Harvest DOR object metadata}
-  gem.homepage      = "https://consul.stanford.edu/display/chimera/Chimera+project"
+  gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^spec/})
   gem.require_paths = ["lib"]
-  
+
   gem.add_dependency 'faraday', '>= 0.9.0'
   gem.add_dependency 'confstruct'
   gem.add_dependency 'nokogiri'
-  
-  # Runtime dependencies
-  # gem.add_runtime_dependency 'nokogiri'
 
   # Development dependencies
-  # Bundler will install these gems too if you've checked out solrmarc-wrapper source from git and run 'bundle install'
-  # It will not add these as dependencies if you require solrmarc-wrapper for other projects
   gem.add_development_dependency "rake"
   # docs
   gem.add_development_dependency "rdoc"
   gem.add_development_dependency "yard"
   # tests
-	gem.add_development_dependency 'rspec'
-	gem.add_development_dependency 'vcr'
-	gem.add_development_dependency 'webmock'
-	# gem.add_development_dependency 'ruby-debug19'
-  
+  gem.add_development_dependency 'rspec'
+  gem.add_development_dependency 'coveralls'
+  gem.add_development_dependency 'rubocop'
+  gem.add_development_dependency 'rubocop-rspec'
+  gem.add_development_dependency 'vcr'
+  gem.add_development_dependency 'webmock'
 end

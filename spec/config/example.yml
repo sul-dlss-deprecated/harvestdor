@@ -1,0 +1,16 @@
+# log_dir:  directory for log file  (default logs, relative to harvestdor gem path)
+log_dir: spec/test_logs
+
+# log_name: name of log file  (default: harvestdor.log)
+
+# purl: url for the DOR purl server (used to get ContentMetadata, etc.)
+# purl: http://purl-test.stanford.edu
+
+# Additional options to pass to Faraday http client (https://github.com/technoweenie/faraday)
+# timeouts are in seconds;  timeout -> open/read, open_timeout -> connection open
+http_options:
+  ssl:
+    verify: false
+  request:
+    timeout: 121
+    open_timeout: 122
