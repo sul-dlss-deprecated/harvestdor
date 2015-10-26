@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["ndushay@stanford.edu"]
   gem.description   = %q{Harvest DOR object metadata from a Stanford public purl page}
   gem.summary       = %q{Harvest DOR object metadata}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/sul-dlss/harvestdor"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
