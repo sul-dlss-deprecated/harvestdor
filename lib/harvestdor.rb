@@ -13,7 +13,7 @@ module Harvestdor
 
   LOG_NAME_DEFAULT = "harvestdor.log"
   LOG_DIR_DEFAULT = File.join(File.dirname(__FILE__), "..", "logs")
-  PURL_DEFAULT = 'http://purl.stanford.edu'
+  PURL_DEFAULT = 'https://purl.stanford.edu'
   HTTP_OPTIONS_DEFAULT = { 'ssl' => {
     'verify' => false
   },

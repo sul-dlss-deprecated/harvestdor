@@ -28,7 +28,7 @@ module Harvestdor
     #   client = Harvestdor::Client.new({ # Example with all possible options
     #      :log_dir => File.join(File.dirname(__FILE__), "..", "logs"),
     #      :log_name => 'harvestdor.log',
-    #      :purl => 'http://purl.stanford.edu',
+    #      :purl => 'https://purl.stanford.edu',
     #      :http_options => { 'ssl' => {
     #                          'verify' => false
     #                          },
