@@ -19,7 +19,6 @@ describe Harvestdor::Client do
         expect(@some_args.log_name).to eql(Harvestdor::LOG_NAME_DEFAULT)
         expect(@some_args.log_dir).to eql(Harvestdor::LOG_DIR_DEFAULT)
         expect(@some_args.purl).to eql(Harvestdor::PURL_DEFAULT)
-        expect(@some_args.http_options).to eql(Confstruct::Configuration.new(Harvestdor::HTTP_OPTIONS_DEFAULT))
       end
     end
 
@@ -29,7 +28,6 @@ describe Harvestdor::Client do
       end
       it "should set attributes in yml file over defaults" do
         expect(@config_via_yml_only.log_dir).to eql(@yaml['log_dir'])
-        expect(@config_via_yml_only.http_options.request.timeout).to eql(@yaml['http_options']['request']['timeout'])
       end
       it "should keep the defaults for attributes not present in yml file nor a config yml file" do
         expect(@config_via_yml_only.log_name).to eql(Harvestdor::LOG_NAME_DEFAULT)
@@ -41,7 +39,6 @@ describe Harvestdor::Client do
         end
         it "should favor yml file values over defaults" do
           expect(@config_via_yml_plus.log_dir).to eql(@yaml['log_dir'])
-          expect(@config_via_yml_plus.http_options.timeout).to eql(@yaml['http_options']['timeout'])
         end
         it "should keep the defaults for attributes not present in yml file" do
           expect(@config_via_yml_plus.log_name).to eql(Harvestdor::LOG_NAME_DEFAULT)
@@ -55,7 +52,6 @@ describe Harvestdor::Client do
         expect(no_args.log_name).to eql(Harvestdor::LOG_NAME_DEFAULT)
         expect(no_args.log_dir).to eql(Harvestdor::LOG_DIR_DEFAULT)
         expect(no_args.purl).to eql(Harvestdor::PURL_DEFAULT)
-        expect(no_args.http_options).to eql(Confstruct::Configuration.new(Harvestdor::HTTP_OPTIONS_DEFAULT))
       end
     end
   end # initialize client

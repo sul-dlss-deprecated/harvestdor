@@ -17,7 +17,6 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^spec/})
   gem.require_paths = ["lib"]
 
-  gem.add_dependency 'faraday', '>= 0.9.0'
   gem.add_dependency 'confstruct'
   gem.add_dependency 'nokogiri'
 
