@@ -27,15 +27,7 @@ Or install it yourself as:
   client = Harvestdor::Client.new({ # Example with all possible options
     :log_dir => File.join(File.dirname(__FILE__), "..", "logs"),
     :log_name => 'harvestdor.log',
-    :purl => 'http://purl.stanford.edu',
-    :http_options => { 'ssl' => {
-                       'verify' => false
-                       },
-                     'request' => {
-                         'timeout' => 60, # open/read timeout (seconds)
-                         'open_timeout' => 60 # connection open timeout (seconds)
-                       }
-                     }
+    :purl => 'https://purl.stanford.edu'
  })
 
 ==== Option 1:  use a yaml file
@@ -47,13 +39,13 @@ for contents of yml --  see spec/config/example.yml
 
 ==== Option 2:  pass in non-default configurations as a hash
 
-  client = Harvestdor::Client.new({:purl => 'http://my_purl.org'})
+  client = Harvestdor::Client.new({:purl => 'https://my_purl.org'})
   client.mods('oo111oo2222')
 
 ==== Option 3:  set the attributes explicitly in your code
 
   client = Harvestdor::Client.new
-  client.config.purl = 'http://my_purl.org'
+  client.config.purl = 'https://my_purl.org'
   client.mods('oo111oo2222')
 
 
@@ -62,7 +54,7 @@ for contents of yml --  see spec/config/example.yml
 You can get, for example, the contentMetadata for a druid:
 
   it "#content_metadata retrieves contentMetadata as a Nokogiri::XML::Document" do
-    cm = Harvestdor.content_metadata('bb375wb8869', 'http://purl-test.stanford.edu')
+    cm = Harvestdor.content_metadata('bb375wb8869', 'https://purl-test.stanford.edu')
     cm.should be_kind_of(Nokogiri::XML::Document)
     cm.root.name.should == 'contentMetadata'
     cm.root.attributes['objectId'].text.should == @druid
@@ -71,7 +63,7 @@ You can get, for example, the contentMetadata for a druid:
 Or the MODS metadata:
 
   it "#mods returns a Nokogiri::XML::Document from the purl mods" do
-    x = Harvestdor.mods('bb375wb8869', 'http://purl-test.stanford.edu')
+    x = Harvestdor.mods('bb375wb8869', 'https://purl-test.stanford.edu')
     x.should be_kind_of(Nokogiri::XML::Document)
     x.root.name.should == 'mods'
     x.root.namespace.href.should == Harvestdor::MODS_NAMESPACE
@@ -88,7 +80,7 @@ Similarly for
 
 You can also do this from a Harvestdor::Client object, and it will use the purl from the Client.config:
 
-  client = Harvestdor::Client.new({purl: 'http://thisone.org'})
+  client = Harvestdor::Client.new({purl: 'https://thisone.org'})
   client.identity_metadata('bb375wb8869')
 
 

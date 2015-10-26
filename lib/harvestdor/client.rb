@@ -5,11 +5,11 @@ module Harvestdor
 
     # Set default values for the construction of Harvestdor::Client objects
     def self.default_config
-      @class_config ||= Confstruct::Configuration.new({
-        :log_dir => LOG_DIR_DEFAULT,
-        :log_name => LOG_NAME_DEFAULT,
-        :purl => PURL_DEFAULT,
-        :http_options => HTTP_OPTIONS_DEFAULT
+      @class_config ||= Confstruct::Configuration.new(
+        {
+          :log_dir => LOG_DIR_DEFAULT,
+          :log_name => LOG_NAME_DEFAULT,
+          :purl => PURL_DEFAULT
         })
     end
 
@@ -25,19 +25,12 @@ module Harvestdor
     # Initialize a new instance of Harvestdor::Client
     # @param Hash options
     # @example
-    #   client = Harvestdor::Client.new({ # Example with all possible options
-    #      :log_dir => File.join(File.dirname(__FILE__), "..", "logs"),
-    #      :log_name => 'harvestdor.log',
-    #      :purl => 'http://purl.stanford.edu',
-    #      :http_options => { 'ssl' => {
-    #                          'verify' => false
-    #                          },
-    #                         'request' => {
-    #                            'timeout' => 30, # open/read timeout (seconds)
-    #                            'open_timeout' => 30 # connection open timeout (seconds)
-    #                          }
-    #                        },
-    #   })
+    #   client = Harvestdor::Client.new(
+    #     { # Example with all possible options
+    #       :log_dir => File.join(File.dirname(__FILE__), "..", "logs"),
+    #       :log_name => 'harvestdor.log',
+    #       :purl => 'https://purl.stanford.edu'
+    #     })
     def initialize options = {}
       config.configure(YAML.load_file(options[:config_yml_path])) if options[:config_yml_path]
       config.configure options
