@@ -1,12 +1,12 @@
 module Harvestdor
   module Errors
-    MissingPurlPage = Class.new(StandardError)
-    MissingMods = Class.new(StandardError)
-    MissingPublicXml = Class.new(StandardError)
-    MissingContentMetadata = Class.new(StandardError)
-    MissingIdentityMetadata = Class.new(StandardError)
-    MissingRightsMetadata = Class.new(StandardError)
-    MissingRDF = Class.new(StandardError)
-    MissingDC = Class.new(StandardError)
+    MissingPurlPage = Class.new(RuntimeError)
+    MissingMods = Class.new(RuntimeError)
+    MissingPublicXml = Class.new(RuntimeError)
+    MissingContentMetadata = Class.new(RuntimeError)
+    MissingIdentityMetadata = Class.new(RuntimeError)
+    MissingRightsMetadata = Class.new(RuntimeError)
+    MissingRDF = Class.new(RuntimeError)
+    MissingDC = Class.new(RuntimeError)
   end
 end
