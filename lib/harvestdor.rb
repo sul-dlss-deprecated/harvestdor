@@ -6,7 +6,7 @@ require 'harvestdor/client'
 require 'confstruct'
 # stdlib
 require 'logger'
-require 'open-uri'
+require 'faraday'
 require 'yaml'
 
 module Harvestdor

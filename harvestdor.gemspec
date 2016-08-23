@@ -19,6 +19,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'confstruct'
   gem.add_dependency 'nokogiri'
+  gem.add_dependency 'faraday'
 
   # Development dependencies
   gem.add_development_dependency "rake"
