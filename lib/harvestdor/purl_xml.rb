@@ -13,8 +13,8 @@ module Harvestdor
   # @return [Nokogiri::XML::Document] the MODS for the fedora object
   def self.mods druid, purl_url = Harvestdor::PURL_DEFAULT
     begin
-      Nokogiri::XML(open("#{purl_url}/#{druid}.mods"),nil,'UTF-8')
-    rescue OpenURI::HTTPError
+      Nokogiri::XML(http_client.get("#{purl_url}/#{druid}.mods").body,nil,'UTF-8')
+    rescue Faraday::Error::ClientError
       raise Harvestdor::Errors::MissingMods.new(druid)
     end
   end
@@ -26,10 +26,10 @@ module Harvestdor
   def self.public_xml druid, purl_url = Harvestdor::PURL_DEFAULT
     return druid if druid.instance_of?(Nokogiri::XML::Document)
     begin
-      ng_doc = Nokogiri::XML(open("#{purl_url}/#{druid}.xml"))
+      ng_doc = Nokogiri::XML(http_client.get("#{purl_url}/#{druid}.xml").body)
       raise Harvestdor::Errors::MissingPublicXml.new(druid) if !ng_doc || ng_doc.children.empty?
       ng_doc
-    rescue OpenURI::HTTPError
+    rescue Faraday::Error::ClientError
       raise Harvestdor::Errors::MissingPurlPage.new(druid)
     end
   end
@@ -137,5 +137,18 @@ module Harvestdor
     end
     pub_xml_ng_doc
   end
+  
+  def self.http_client
+    @http_client ||= Faraday.new do |conn|
+      conn.adapter Faraday.default_adapter
+      conn.use Faraday::Response::RaiseError
+      conn.request :retry, max: 5,
+                           interval: 0.05,
+                           interval_randomness: 0.5,
+                           backoff_factor: 2,
+                           exceptions: ['Errno::ECONNRESET', 'Errno::ETIMEDOUT', 'Timeout::Error', 'Faraday::Error::TimeoutError', 'Faraday::Error::ConnectionFailed']
+    end
+  end
+  private_class_method :http_client
 
 end # module Harvestdor

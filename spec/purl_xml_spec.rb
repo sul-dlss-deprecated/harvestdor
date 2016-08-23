@@ -40,7 +40,7 @@ describe Harvestdor::Client do
       end
     end
     it "raises Harvestdor::Errors::MissingPublicXML if purl page returns nil document" do
-      expect_any_instance_of(URI::HTTP).to receive(:open).and_return(nil)
+      expect(Harvestdor.send(:http_client)).to receive(:get).and_return(double(body: nil))
       expect { Harvestdor.public_xml(@fake_druid, @purl) }.to raise_error(Harvestdor::Errors::MissingPublicXml)
     end
   end
@@ -89,7 +89,7 @@ describe Harvestdor::Client do
       end
     end
     it "returns a Nokogiri::XML::Document from passed Nokogiri::XML::Document and does no fetch" do
-      expect_any_instance_of(URI::HTTP).not_to receive(:open)
+      expect(Harvestdor.send(:http_client)).not_to receive(:get)
       im = Harvestdor.identity_metadata(@ng_pub_xml)
       expect(im).to be_kind_of(Nokogiri::XML::Document)
       expect(im.root.name).to eql('identityMetadata')
@@ -110,7 +110,7 @@ describe Harvestdor::Client do
       end
     end
     it "returns a Nokogiri::XML::Document from passed Nokogiri::XML::Document and does no fetch" do
-      expect_any_instance_of(URI::HTTP).not_to receive(:open)
+      expect(Harvestdor.send(:http_client)).not_to receive(:get)
       rm = Harvestdor.rights_metadata(@ng_pub_xml)
       expect(rm).to be_kind_of(Nokogiri::XML::Document)
       expect(rm.root.name).to eql('rightsMetadata')
@@ -131,7 +131,7 @@ describe Harvestdor::Client do
       end
     end
     it "returns a Nokogiri::XML::Document from passed Nokogiri::XML::Document and does no fetch" do
-      expect_any_instance_of(URI::HTTP).not_to receive(:open)
+      expect(Harvestdor.send(:http_client)).not_to receive(:get)
       rdf = Harvestdor.rdf(@ng_pub_xml)
       expect(rdf).to be_kind_of(Nokogiri::XML::Document)
       expect(rdf.root.name).to eql('RDF')
@@ -153,7 +153,7 @@ describe Harvestdor::Client do
       end
     end
     it "returns a Nokogiri::XML::Document from passed Nokogiri::XML::Document and does no fetch" do
-      expect_any_instance_of(URI::HTTP).not_to receive(:open)
+      expect(Harvestdor.send(:http_client)).not_to receive(:get)
       dc = Harvestdor.dc(@ng_pub_xml)
       expect(dc).to be_kind_of(Nokogiri::XML::Document)
       expect(dc.root.name).to eql('dc')
@@ -199,7 +199,7 @@ describe Harvestdor::Client do
       @client.mods(@druid)
     end
     it "methods for parts of public_xml should work with Nokogiri::XML::Document arg (and not fetch)" do
-      expect_any_instance_of(URI::HTTP).not_to receive(:open)
+      expect(Harvestdor.send(:http_client)).not_to receive(:get)
       expect(@client.content_metadata(@ng_pub_xml)).to be_kind_of(Nokogiri::XML::Document)
       expect(@client.identity_metadata(@ng_pub_xml)).to be_kind_of(Nokogiri::XML::Document)
       expect(@client.rights_metadata(@ng_pub_xml)).to be_kind_of(Nokogiri::XML::Document)
