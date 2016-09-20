@@ -1,4 +1,5 @@
 require 'nokogiri'
+require 'net/http/persistent'
 
 module Harvestdor
   # Mixin:  code to retrieve Purl public xml pieces
@@ -137,10 +138,10 @@ module Harvestdor
     end
     pub_xml_ng_doc
   end
-  
+
   def self.http_client
     @http_client ||= Faraday.new do |conn|
-      conn.adapter Faraday.default_adapter
+      conn.adapter :net_http_persistent
       conn.use Faraday::Response::RaiseError
       conn.request :retry, max: 5,
                            interval: 0.05,
