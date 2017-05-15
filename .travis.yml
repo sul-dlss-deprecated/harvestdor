@@ -2,8 +2,4 @@ language: ruby
 script: rake rspec
 sudo: false
 rvm:
-  - 2.3.1
-notifications:
-  email:
-    - laneymcg@stanford.edu
-    - cbeer@stanford.edu
+  - 2.3.4
