@@ -1,10 +1,12 @@
-= Harvestdor
-{<img src="https://travis-ci.org/sul-dlss/harvestdor.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/sul-dlss/harvestdor] {<img src="https://coveralls.io/repos/sul-dlss/harvestdor/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/sul-dlss/harvestdor] {<img src="https://gemnasium.com/sul-dlss/harvestdor.svg" alt="Dependency Status" />}[https://gemnasium.com/sul-dlss/harvestdor] {<img src="https://badge.fury.io/rb/harvestdor.svg" alt="Gem Version" />}[http://badge.fury.io/rb/harvestdor]
+# Harvestdor
+[![Build Status](https://travis-ci.org/sul-dlss/harvestdor.svg?branch=master)](https://travis-ci.org/sul-dlss/harvestdor)
+[![Code Climate Test Coverage](https://codeclimate.com/github/sul-dlss/harvestdor/badges/coverage.svg)](https://codeclimate.com/github/sul-dlss/harvestdor/coverage)
+[![Gem Version](https://badge.fury.io/rb/harvestdor.svg)](https://badge.fury.io/rb/harvestdor)
 
 A Gem to harvest data from a Stanford Purl page, with convenience methods for
 getting Nokogiri::XML::Document and errors when pieces are missing
 
-== Installation
+## Installation
 
 Add this line to your application's Gemfile:
 
@@ -18,11 +20,11 @@ Or install it yourself as:
 
     $ gem install harvestdor
 
-== Usage
+## Usage
 
-=== Configuration
+### Configuration
 
-==== Possible configuration options (with default values unless otherwise indicated)
+#### Possible configuration options (with default values unless otherwise indicated)
 
   client = Harvestdor::Client.new({ # Example with all possible options
     :log_dir => File.join(File.dirname(__FILE__), "..", "logs"),
@@ -30,26 +32,26 @@ Or install it yourself as:
     :purl => 'https://purl.stanford.edu'
  })
 
-==== Option 1:  use a yaml file
+#### Option 1:  use a yaml file
 
 for contents of yml --  see spec/config/example.yml
 
   client = Harvestdor::Client.new({:config_yml_path => path_to_my_yml})
   client.mods('oo111oo2222')
 
-==== Option 2:  pass in non-default configurations as a hash
+#### Option 2:  pass in non-default configurations as a hash
 
   client = Harvestdor::Client.new({:purl => 'https://my_purl.org'})
   client.mods('oo111oo2222')
 
-==== Option 3:  set the attributes explicitly in your code
+#### Option 3:  set the attributes explicitly in your code
 
   client = Harvestdor::Client.new
   client.config.purl = 'https://my_purl.org'
   client.mods('oo111oo2222')
 
 
-=== XML from PURL pages
+### XML from PURL pages
 
 You can get, for example, the contentMetadata for a druid:
 
@@ -70,13 +72,13 @@ Or the MODS metadata:
   end
 
 Similarly for
-# mods
-# public_xml  (all of it)
-# content_metadata
-# identity_metadata
-# rights_metadata
-# rdf
-# dc
+- mods
+- public_xml  (all of it)
+- content_metadata
+- identity_metadata
+- rights_metadata
+- rdf
+- dc
 
 You can also do this from a Harvestdor::Client object, and it will use the purl from the Client.config:
 
@@ -84,16 +86,16 @@ You can also do this from a Harvestdor::Client object, and it will use the purl 
   client.identity_metadata('bb375wb8869')
 
 
-== Contributing
+## Contributing
 
-# Fork it
-# Create your feature branch (`git checkout -b my-new-feature`)
-# Write code and tests.
-# Commit your changes (`git commit -am 'Added some feature'`)
-# Push to the branch (`git push origin my-new-feature`)
-# Create new Pull Request
+- Fork it
+- Create your feature branch (`git checkout -b my-new-feature`)
+- Write code and tests.
+- Commit your changes (`git commit -am 'Added some feature'`)
+- Push to the branch (`git push origin my-new-feature`)
+- Create new Pull Request
 
-== Releases
+## Releases
 
 * <b>0.0.14</b> Bug fix for compatibility with jruby
 * <b>0.0.13</b> Updated to work with Faraday 0.9, releases via rubygems instead of sul-gems
