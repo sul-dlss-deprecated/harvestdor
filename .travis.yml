@@ -2,8 +2,16 @@ language: ruby
 script: rake rspec
 sudo: false
 rvm:
-  - 2.3.1
+  - 2.5.3
 notifications:
-  email:
-    - laneymcg@stanford.edu
-    - cbeer@stanford.edu
+  email: false
+env:
+  global:
+    - CC_TEST_REPORTER_ID=533e2edef1885c87092961c61576c5723296cabda9e1be7b62d7afe95f5e7bcd
+
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
