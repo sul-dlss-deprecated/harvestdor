@@ -3,7 +3,8 @@ language: ruby
 script: rake rspec
 sudo: false
 rvm:
-  - 2.5.3
+  - 2.7.0
+
 notifications:
   email: false
 env:
