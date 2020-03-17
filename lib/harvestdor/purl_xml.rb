@@ -15,7 +15,7 @@ module Harvestdor
   def self.mods druid, purl_url = Harvestdor::PURL_DEFAULT
     begin
       Nokogiri::XML(http_client.get("#{purl_url}/#{druid}.mods").body,nil,'UTF-8')
-    rescue Faraday::Error::ClientError
+    rescue Faraday::ClientError
       raise Harvestdor::Errors::MissingMods.new(druid)
     end
   end
@@ -30,7 +30,7 @@ module Harvestdor
       ng_doc = Nokogiri::XML(http_client.get("#{purl_url}/#{druid}.xml").body)
       raise Harvestdor::Errors::MissingPublicXml.new(druid) if !ng_doc || ng_doc.children.empty?
       ng_doc
-    rescue Faraday::Error::ClientError
+    rescue Faraday::ClientError
       raise Harvestdor::Errors::MissingPurlPage.new(druid)
     end
   end
@@ -147,7 +147,7 @@ module Harvestdor
                            interval: 0.05,
                            interval_randomness: 0.5,
                            backoff_factor: 2,
-                           exceptions: ['Errno::ECONNRESET', 'Errno::ETIMEDOUT', 'Timeout::Error', 'Faraday::Error::TimeoutError', 'Faraday::Error::ConnectionFailed']
+                           exceptions: ['Errno::ECONNRESET', 'Errno::ETIMEDOUT', 'Timeout::Error', 'Faraday::TimeoutError', 'Faraday::ConnectionFailed']
     end
   end
   private_class_method :http_client

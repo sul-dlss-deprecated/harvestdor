@@ -19,7 +19,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'confstruct'
   gem.add_dependency 'nokogiri'
-  gem.add_dependency 'faraday'
+  gem.add_dependency 'faraday', '~> 1'
   gem.add_dependency 'net-http-persistent'
 
   # Development dependencies
