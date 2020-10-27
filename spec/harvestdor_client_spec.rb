@@ -4,7 +4,7 @@ describe Harvestdor::Client do
 
   before(:all) do
     @config_yml_path = File.join(File.dirname(__FILE__), "config", "example.yml")
-    @client_via_yml_only = Harvestdor::Client.new({:config_yml_path => @config_yml_path})
+    @client_via_yml_only = Harvestdor::Client.new({ :config_yml_path => @config_yml_path })
     require 'yaml'
     @yaml = YAML.load_file(@config_yml_path)
   end
@@ -35,7 +35,7 @@ describe Harvestdor::Client do
       end
       context "and some hash arguments" do
         before(:all) do
-          @config_via_yml_plus = Harvestdor::Client.new({:config_yml_path => @config_yml_path}).config
+          @config_via_yml_plus = Harvestdor::Client.new({ :config_yml_path => @config_yml_path }).config
         end
         it "should favor yml file values over defaults" do
           expect(@config_via_yml_plus.log_dir).to eql(@yaml['log_dir'])

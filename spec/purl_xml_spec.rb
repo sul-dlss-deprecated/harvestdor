@@ -54,7 +54,7 @@ describe Harvestdor::Client do
       expect(Harvestdor.pub_xml(@ng_pub_xml)).to eql(@ng_pub_xml)
     end
     it "raises error for unknown arg type" do
-      expect { Harvestdor.pub_xml(Array.new)}.to raise_error(RuntimeError, "expected String or Nokogiri::XML::Document for first argument, got Array")
+      expect { Harvestdor.pub_xml(Array.new) }.to raise_error(RuntimeError, "expected String or Nokogiri::XML::Document for first argument, got Array")
     end
   end
 
@@ -167,7 +167,7 @@ describe Harvestdor::Client do
 
   context "Harvestdor:Client calls methods with config.purl" do
     before(:all) do
-      @client = Harvestdor::Client.new({:purl_url => 'http://thisone.org'})
+      @client = Harvestdor::Client.new({ :purl_url => 'http://thisone.org' })
       @druid = 'bb375wb8869'
     end
     it "public_xml calls Harvestdor.public_xml with config.purl" do
