@@ -12,7 +12,7 @@ module Harvestdor
   # @param [String] druid e.g. ab123cd4567
   # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the MODS for the fedora object
-  def self.mods druid, purl_url = Harvestdor::PURL_DEFAULT
+  def self.mods(druid, purl_url = Harvestdor::PURL_DEFAULT)
     begin
       Nokogiri::XML(http_client.get("#{purl_url}/#{druid}.mods").body,nil,'UTF-8')
     rescue Faraday::ClientError
@@ -24,7 +24,7 @@ module Harvestdor
   # @param [String] druid e.g. ab123cd4567
   # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the public xml for the fedora object
-  def self.public_xml druid, purl_url = Harvestdor::PURL_DEFAULT
+  def self.public_xml(druid, purl_url = Harvestdor::PURL_DEFAULT)
     return druid if druid.instance_of?(Nokogiri::XML::Document)
     begin
       ng_doc = Nokogiri::XML(http_client.get("#{purl_url}/#{druid}.xml").body)
@@ -40,7 +40,7 @@ module Harvestdor
   #  a Nokogiri::XML::Document containing the public_xml for an object
   # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the contentMetadata for the fedora object
-  def self.content_metadata object, purl_url = Harvestdor::PURL_DEFAULT
+  def self.content_metadata(object, purl_url = Harvestdor::PURL_DEFAULT)
     pub_xml_ng_doc = pub_xml(object, purl_url)
     begin
       # preserve namespaces, etc for the node
@@ -57,7 +57,7 @@ module Harvestdor
   #  a Nokogiri::XML::Document containing the public_xml for an object
   # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the identityMetadata for the fedora object
-  def self.identity_metadata object, purl_url = Harvestdor::PURL_DEFAULT
+  def self.identity_metadata(object, purl_url = Harvestdor::PURL_DEFAULT)
     pub_xml_ng_doc = pub_xml(object, purl_url)
     begin
       # preserve namespaces, etc for the node
@@ -74,7 +74,7 @@ module Harvestdor
   #  a Nokogiri::XML::Document containing the public_xml for an object
   # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the rightsMetadata for the fedora object
-  def self.rights_metadata object, purl_url = Harvestdor::PURL_DEFAULT
+  def self.rights_metadata(object, purl_url = Harvestdor::PURL_DEFAULT)
     pub_xml_ng_doc = pub_xml(object, purl_url)
     begin
       # preserve namespaces, etc for the node
@@ -91,11 +91,11 @@ module Harvestdor
   #  a Nokogiri::XML::Document containing the public_xml for an object
   # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the RDF for the fedora object
-  def self.rdf object, purl_url = Harvestdor::PURL_DEFAULT
+  def self.rdf(object, purl_url = Harvestdor::PURL_DEFAULT)
     pub_xml_ng_doc = pub_xml(object, purl_url)
     begin
       # preserve namespaces, etc for the node
-      ng_doc = Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/rdf:RDF', {'rdf' => Harvestdor::RDF_NAMESPACE}).to_xml)
+      ng_doc = Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/rdf:RDF', { 'rdf' => Harvestdor::RDF_NAMESPACE }).to_xml)
       raise Harvestdor::Errors::MissingRDF.new(object.inspect) if !ng_doc || ng_doc.children.empty?
       ng_doc
     rescue
@@ -108,11 +108,11 @@ module Harvestdor
   #  a Nokogiri::XML::Document containing the public_xml for an object
   # @param [String] purl_url url for the purl server.  default is Harvestdor::PURL_DEFAULT
   # @return [Nokogiri::XML::Document] the dc for the fedora object
-  def self.dc object, purl_url = Harvestdor::PURL_DEFAULT
+  def self.dc(object, purl_url = Harvestdor::PURL_DEFAULT)
     pub_xml_ng_doc = pub_xml(object, purl_url)
     begin
       # preserve namespaces, etc for the node
-      ng_doc = Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/dc:dc', {'dc' => Harvestdor::OAI_DC_NAMESPACE}).to_xml(:encoding => 'utf-8'))
+      ng_doc = Nokogiri::XML(pub_xml_ng_doc.root.xpath('/publicObject/dc:dc', { 'dc' => Harvestdor::OAI_DC_NAMESPACE }).to_xml(:encoding => 'utf-8'))
       raise Harvestdor::Errors::MissingDC.new(object.inspect) if !ng_doc || ng_doc.children.empty?
       ng_doc
     rescue
